@@ -1,0 +1,1641 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://app.softledger.com/api'
+  - url: 'https://trial.softledger.com/api'
+info:
+  version: 1.0.0
+  title: SoftLedger
+  description: SoftLedger API
+security:
+  - application:
+      - admin
+paths:
+  /bills:
+    get:
+      tags:
+        - Bill
+      summary: Get All Bills
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: A list of Bills
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    allOf:
+                      - $ref: '#/components/schemas/Bill_'
+                      - type: object
+                        properties:
+                          Location:
+                            $ref: '#/components/schemas/Location_'
+                          ICLocation:
+                            $ref: '#/components/schemas/Location_'
+                          Vendor:
+                            $ref: '#/components/schemas/Vendor_'
+                          APAccount:
+                            $ref: '#/components/schemas/LedgerAccount_'
+    post:
+      tags:
+        - Bill
+      summary: Create A Bill
+      requestBody:
+        $ref: '#/components/requestBodies/BillBody'
+      responses:
+        '201':
+          description: Created Bill
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bill'
+  '/bills/{id}':
+    get:
+      tags:
+        - Bill
+      summary: Get One Bill
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Bill
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bill'
+    put:
+      tags:
+        - Bill
+      summary: Update Bill
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/BillBody'
+      responses:
+        '201':
+          description: Bill Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bill'
+    delete:
+      tags:
+        - Bill
+      summary: Delete Bill
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Bill Deleted
+  /bills/nextNumber:
+    get:
+      tags:
+        - Bill
+      summary: Get Next Auto Generated Bill Number
+      responses:
+        '200':
+          description: Next Bill Number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  number:
+                    type: integer
+  /bills/pay:
+    post:
+      tags:
+        - Bill
+      summary: Pay Bills
+      requestBody:
+        description: 'Payment Method, and Bills to pay'
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                method:
+                  type: integer
+                bills:
+                  type: array
+                  items:
+                    allOf:
+                      - $ref: '#/components/schemas/Bill_'
+                      - type: object
+                        properties:
+                          paymentAmount:
+                            type: number
+                            format: float
+                            minimum: 0.01
+                          billLineItems:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/billLineItem_'
+      responses:
+        '200':
+          description: Bills Paid
+  /cost_centers:
+    get:
+      tags:
+        - Cost Center
+      summary: Get All Cost Centers
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Cost Centers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostCenter'
+    post:
+      tags:
+        - Cost Center
+      summary: Create A Coast Center
+      requestBody:
+        $ref: '#/components/requestBodies/CostCenterBody'
+      responses:
+        '201':
+          description: Created Cost Center
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostCenter'
+  '/cost_centers/{id}':
+    get:
+      tags:
+        - Cost Center
+      summary: Get One Cost Center
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Cost Center
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostCenter'
+    put:
+      tags:
+        - Cost Center
+      summary: Update Cost Center
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/CostCenterBody'
+      responses:
+        '201':
+          description: Cost Center Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostCenter'
+    delete:
+      tags:
+        - Cost Center
+      summary: Delete Cost Center
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Cost Center Deleted
+  /customers:
+    get:
+      tags:
+        - Customer
+      summary: Get All Customers
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Customers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Customer'
+    post:
+      tags:
+        - Customer
+      summary: Create A Customer
+      requestBody:
+        $ref: '#/components/requestBodies/CustomerBody'
+      responses:
+        '201':
+          description: Created Customer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+  '/customers/{id}':
+    get:
+      tags:
+        - Customer
+      summary: Get One Customer
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Customer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+    put:
+      tags:
+        - Customer
+      summary: Update Customer
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/CustomerBody'
+      responses:
+        '201':
+          description: Customer Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+    delete:
+      tags:
+        - Customer
+      summary: Delete Customer
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Customer Deleted
+  /invoices:
+    get:
+      tags:
+        - Invoice
+      summary: Get All Invoices
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Invoices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+    post:
+      tags:
+        - Invoice
+      summary: Create an Invoice
+      requestBody:
+        $ref: '#/components/requestBodies/InvoiceBody'
+      responses:
+        '201':
+          description: Created Invoice
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+  '/invoices/{id}':
+    get:
+      tags:
+        - Invoice
+      summary: Get One Invoice
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: Invoice
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+    put:
+      tags:
+        - Invoice
+      summary: Update Invoice
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/InvoiceBody'
+      responses:
+        '201':
+          description: Invoice Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+    delete:
+      tags:
+        - Invoice
+      summary: Delete Invoice
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Invoice Deleted
+  /invoices/nextNumber:
+    get:
+      tags:
+        - Invoice
+      summary: Get Next Auto Generated Invoice Number
+      responses:
+        '200':
+          description: Next Invoice Number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  number:
+                    type: integer
+  '/invoices/{id}/pdf':
+    get:
+      tags:
+        - Invoice
+      summary: Get Next Auto Generated Bill Number
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: Next Bill Number
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+  '/invoices/{id}/issue':
+    put:
+      tags:
+        - Invoice
+      summary: Issue invoice to customer
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: Updated invoice (status = 'issued')
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+  '/invoices/{id}/void':
+    put:
+      tags:
+        - Invoice
+      summary: Void invoice
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: Updated invoice (status = 'voided')
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+  /invoices/apply:
+    post:
+      tags:
+        - Invoice
+      summary: Apply Cash Receipt to Invoices
+      requestBody:
+        description: 'Cash Receipt, and Invoices to apply receipt to'
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cashReceipt:
+                  $ref: '#/components/schemas/CashReceipt'
+                invoices:
+                  type: array
+                  items:
+                    allOf:
+                      - $ref: '#/components/schemas/Invoice'
+                      - type: object
+                        properties:
+                          paymentAmount:
+                            type: number
+                            format: float
+                            minimum: 0.01
+      responses:
+        '200':
+          description: Payments Applied
+  /items:
+    get:
+      tags:
+        - Item
+      summary: Get All Items
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+    post:
+      tags:
+        - Item
+      summary: Create An Item
+      requestBody:
+        $ref: '#/components/requestBodies/ItemBody'
+      responses:
+        '201':
+          description: Created Item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+  '/items/{id}':
+    get:
+      tags:
+        - Item
+      summary: Get One Item
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+    put:
+      tags:
+        - Item
+      summary: Update Item
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/ItemBody'
+      responses:
+        '201':
+          description: Item Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+    delete:
+      tags:
+        - Item
+      summary: Delete Item
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Item Deleted
+  /journals/nextId:
+    get:
+      tags:
+        - Journal
+      summary: Get Next Auto Generated Journal Number
+      responses:
+        '200':
+          description: Next Journal Number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  number:
+                    type: integer
+  /journals:
+    post:
+      tags:
+        - Journal
+      summary: Post Journal Entry
+      requestBody:
+        $ref: '#/components/requestBodies/JournalBody'
+      responses:
+        '201':
+          description: Posted Journal
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Journal'
+  /ledger_accounts:
+    get:
+      tags:
+        - Ledger Account
+      summary: Get All Ledger Accounts
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Ledger Accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  allOf:
+                    - $ref: '#/components/schemas/LedgerAccount'
+                    - type: object
+                      properties:
+                        Location:
+                          $ref: '#/components/schemas/Location_'
+    post:
+      tags:
+        - Ledger Account
+      summary: Create An Ledger Account
+      requestBody:
+        $ref: '#/components/requestBodies/LedgerAccountBody'
+      responses:
+        '201':
+          description: Created Ledger Account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LedgerAccount'
+  '/ledger_accounts/{id}':
+    get:
+      tags:
+        - Ledger Account
+      summary: Get One Ledger Account
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Ledger Account
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LedgerAccount'
+                  - type: object
+                    properties:
+                      Location:
+                        $ref: '#/components/schemas/Location_'
+    put:
+      tags:
+        - Ledger Account
+      summary: Update Ledger Account
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/LedgerAccountBody'
+      responses:
+        '201':
+          description: Ledger Account Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LedgerAccount'
+    delete:
+      tags:
+        - Ledger Account
+      summary: Delete Ledger Account
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Ledger Account Deleted
+  /location:
+    get:
+      tags:
+        - Location
+      summary: Get All Locations user has access to
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Locations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Location'
+    post:
+      tags:
+        - Location
+      summary: Create A Location
+      requestBody:
+        $ref: '#/components/requestBodies/LocationBody'
+      responses:
+        '201':
+          description: Created Location
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+  '/location/{id}':
+    get:
+      tags:
+        - Location
+      summary: Get One Location
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Location
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+    put:
+      tags:
+        - Location
+      summary: Update Location
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/LocationBody'
+      responses:
+        '201':
+          description: Location Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+    delete:
+      tags:
+        - Location
+      summary: Delete Location
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Location Deleted
+  /locations/me:
+    get:
+      tags:
+        - Location
+      summary: Returns users location and all its children
+      responses:
+        '200':
+          description: Users location 'tree'
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Location'
+                  - type: object
+                    properties:
+                      children:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Location'
+  '/locations/{id}/descendents':
+    get:
+      tags:
+        - Location
+      summary: Returns a locations descendants(children)
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Location
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Location'
+                  - type: object
+                    properties:
+                      children:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Location'
+  /purchaseOrders:
+    get:
+      tags:
+        - Purchase Order
+      summary: Get All POs
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of POs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PurchaseOrder'
+    post:
+      tags:
+        - Purchase Order
+      summary: Create an PO
+      requestBody:
+        $ref: '#/components/requestBodies/PurchaseOrderBody'
+      responses:
+        '201':
+          description: Created PurchaseOrder
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PurchaseOrder_'
+                  - type: object
+                    properties:
+                      POLineItems:
+                        $ref: '#/components/schemas/POLineItem_'
+  '/purchaseOrders/{id}':
+    get:
+      tags:
+        - Purchase Order
+      summary: Get One PO
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: PO
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PurchaseOrder'
+                  - type: object
+                    properties:
+                      POLineItems:
+                        $ref: '#/components/schemas/POLineItem'
+    put:
+      tags:
+        - Purchase Order
+      summary: Update PO
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/PurchaseOrderBody'
+      responses:
+        '201':
+          description: PO Updated
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PurchaseOrder_'
+                  - type: object
+                    properties:
+                      POLineItems:
+                        $ref: '#/components/schemas/POLineItem_'
+    delete:
+      tags:
+        - Purchase Order
+      summary: Delete PO
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: PO Deleted
+  /purchaseOrders/nextNumber:
+    get:
+      tags:
+        - Purchase Order
+      summary: Get Next Auto Generated PO Number
+      responses:
+        '200':
+          description: Next PO Number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  number:
+                    type: integer
+  '/purchaseOrders/{id}/pdf':
+    get:
+      tags:
+        - Purchase Order
+      summary: Get Purchase Order PDF
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: PO PDF
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+  '/purchaseOrders/{id}/lineItems':
+    get:
+      tags:
+        - Purchase Order
+      summary: Get all Line Items for a PO
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: PO Line Items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/POLineItem'
+  /vendors:
+    get:
+      tags:
+        - Vendor
+      summary: Get All Vendors
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Vendors
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Vendor'
+    post:
+      tags:
+        - Vendor
+      summary: Create A Vendor
+      requestBody:
+        $ref: '#/components/requestBodies/VendorBody'
+      responses:
+        '201':
+          description: Created Vendor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+  '/vendors/{id}':
+    get:
+      tags:
+        - Vendor
+      summary: Get One Vendor
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Vendor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+    put:
+      tags:
+        - Vendor
+      summary: Update Vendor
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/VendorBody'
+      responses:
+        '201':
+          description: Vendor Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+    delete:
+      tags:
+        - Vendor
+      summary: Delete Vendor
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Vendor Deleted
+  /warehouses:
+    get:
+      tags:
+        - Warehouse
+      summary: Get All Warehouses
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Warehouses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Warehouse'
+    post:
+      tags:
+        - Warehouse
+      summary: Create A Warehouse
+      requestBody:
+        $ref: '#/components/requestBodies/WarehouseBody'
+      responses:
+        '201':
+          description: Created Warehouse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Warehouse'
+  '/warehouses/{id}':
+    get:
+      tags:
+        - Warehouse
+      summary: Get One Warehouse
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Warehouse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Warehouse'
+    put:
+      tags:
+        - Warehouse
+      summary: Update Warehouse
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/WarehouseBody'
+      responses:
+        '201':
+          description: Warehouse Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Warehouse'
+    delete:
+      tags:
+        - Warehouse
+      summary: Delete Warehouse
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Warehouse Deleted
+components:
+  schemas:
+    Bill_:
+      properties:
+        _id:
+          type: integer
+        invoiceNumber:
+          type: string
+        description:
+          type: string
+        dueDate:
+          type: string
+          format: date
+        postingDate:
+          type: string
+          format: date
+        invoiceDate:
+          type: string
+          format: date
+        currency:
+          type: string
+        LocationId:
+          type: integer
+        ICLocationId:
+          type: integer
+        VendorId:
+          type: integer
+        APAccountId:
+          type: integer
+    Bill:
+      allOf:
+        - $ref: '#/components/schemas/Bill_'
+        - type: object
+          properties:
+            Location:
+              $ref: '#/components/schemas/Location_'
+            ICLocation:
+              $ref: '#/components/schemas/Location_'
+            Vendor:
+              $ref: '#/components/schemas/Vendor_'
+            APAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+            billLineItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/billLineItem'
+    billLineItem_:
+      properties:
+        _id:
+          type: integer
+        description:
+          type: string
+        ItemId:
+          type: integer
+        CostCenterId:
+          type: integer
+        LedgerAccountId:
+          type: integer
+    billLineItem:
+      allOf:
+        - $ref: '#/components/schemas/billLineItem_'
+        - type: object
+          properties:
+            Item:
+              $ref: '#/components/schemas/Item'
+            LedgerAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+            CostCenter:
+              $ref: '#/components/schemas/CostCenter_'
+    Invoice_:
+      properties:
+        _id:
+          type: integer
+        number:
+          type: string
+        status:
+          type: string
+        invoiceDate:
+          type: string
+          format: date
+        postedDate:
+          type: string
+          format: date
+        amount:
+          type: number
+        amountPayable:
+          type: number
+        LocationId:
+          type: integer
+        ICLocationId:
+          type: integer
+        AgentId:
+          type: integer
+        ARAccountId:
+          type: integer
+    Invoice:
+      allOf:
+        - $ref: '#/components/schemas/Bill_'
+        - type: object
+          properties:
+            Location:
+              $ref: '#/components/schemas/Location_'
+            ICLocation:
+              $ref: '#/components/schemas/Location_'
+            Agent:
+              $ref: '#/components/schemas/Customer_'
+            ARAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+            InvoiceLineItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceLineItem'
+    InvoiceLineItem_:
+      properties:
+        _id:
+          type: integer
+        description:
+          type: string
+        unitAmount:
+          type: number
+        quantity:
+          type: number
+        ItemId:
+          type: integer
+    InvoiceLineItem:
+      allOf:
+        - $ref: '#/components/schemas/InvoiceLineItem_'
+        - type: object
+          properties:
+            Item:
+              $ref: '#/components/schemas/Item'
+    CashReceipt_:
+      properties:
+        _id:
+          type: integer
+        number:
+          type: string
+        amount:
+          type: number
+        unused:
+          type: number
+        description:
+          type: string
+        AgentId:
+          type: integer
+        LedgerAccountId:
+          type: integer
+        LocationId:
+          type: integer
+    CashReceipt:
+      allOf:
+        - $ref: '#/components/schemas/CashReceipt_'
+        - type: object
+          properties:
+            Agent:
+              $ref: '#/components/schemas/Customer_'
+            LedgerAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+            Location:
+              $ref: '#/components/schemas/Location_'
+    Item_:
+      properties:
+        _id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        InvoiceAccountId:
+          type: integer
+        BillAccountId:
+          type: integer
+        InventoryAccountId:
+          type: integer
+    Item:
+      allOf:
+        - $ref: '#/components/schemas/Item_'
+        - type: object
+          properties:
+            InvoiceAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+            BillAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+            InventoryAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+    Journal:
+      properties:
+        entryType:
+          type: string
+          enum:
+            - standard
+            - reversing
+        sourceLedger:
+          type: string
+          enum:
+            - Financial
+            - AP
+            - AR
+        reference:
+          type: string
+    Transaction_:
+      properties:
+        transactionDate:
+          type: string
+          format: date
+        postedDate:
+          type: string
+          format: date
+        debit:
+          type: number
+        credit:
+          type: number
+        CostCenterId:
+          type: integer
+        LedgerAccountId:
+          type: integer
+        ProductId:
+          type: integer
+        LocationId:
+          type: integer
+        ICLocationId:
+          type: integer
+        InvoiceId:
+          type: integer
+        BillId:
+          type: integer
+        AgentId:
+          type: integer
+        VendorId:
+          type: integer
+        CashReceiptId:
+          type: integer
+    Transaction:
+      allOf:
+        - $ref: '#/components/schemas/Transaction_'
+        - type: object
+          properties:
+            CostCenter:
+              $ref: '#/components/schemas/CostCenter_'
+            LedgerAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+            Location:
+              $ref: '#/components/schemas/Location_'
+            ICLocation:
+              $ref: '#/components/schemas/Location_'
+            Invoice:
+              $ref: '#/components/schemas/Invoice_'
+            Bill:
+              $ref: '#/components/schemas/Bill_'
+            Agent:
+              $ref: '#/components/schemas/Customer_'
+            Vendor:
+              $ref: '#/components/schemas/Vendor_'
+            CashReceipt:
+              $ref: '#/components/schemas/CashReceipt_'
+    LedgerAccount_:
+      properties:
+        _id:
+          type: integer
+        number:
+          type: integer
+        name:
+          type: string
+      type: object
+    LedgerAccount:
+      allOf:
+        - $ref: '#/components/schemas/LedgerAccount_'
+        - type: object
+          properties:
+            naturalBalance:
+              type: string
+            type:
+              type: string
+            description:
+              type: string
+            includeLocationChildren:
+              type: boolean
+            LocationId:
+              type: integer
+    Location_:
+      properties:
+        _id:
+          type: integer
+        id:
+          type: string
+        name:
+          type: string
+    Location:
+      allOf:
+        - $ref: '#/components/schemas/Location_'
+        - type: object
+          properties:
+            currency:
+              type: string
+            description:
+              type: string
+            parent_id:
+              type: integer
+    Vendor_:
+      properties:
+        _id:
+          type: integer
+        accNumber:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+    Vendor:
+      allOf:
+        - $ref: '#/components/schemas/Vendor_'
+        - type: object
+          properties:
+            Addresses:
+              type: array
+              items:
+                $ref: '#/components/schemas/Address'
+            Contacts:
+              type: array
+              items:
+                $ref: '#/components/schemas/Contact'
+    Customer_:
+      properties:
+        _id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        website:
+          type: string
+    Customer:
+      allOf:
+        - $ref: '#/components/schemas/Customer_'
+        - type: object
+          properties:
+            Addresses:
+              type: array
+              items:
+                $ref: '#/components/schemas/Address'
+            Contacts:
+              type: array
+              items:
+                $ref: '#/components/schemas/Contact'
+    Address:
+      properties:
+        _id:
+          type: integer
+        label:
+          type: string
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        isDefault:
+          type: boolean
+    Contact:
+      properties:
+        _id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        isPrimary:
+          type: boolean
+    CostCenter_:
+      properties:
+        _id:
+          type: integer
+        name:
+          type: string
+        id:
+          type: string
+    CostCenter:
+      allOf:
+        - $ref: '#/components/schemas/CostCenter_'
+        - type: object
+          properties:
+            description:
+              type: string
+    PurchaseOrder_:
+      properties:
+        number:
+          type: string
+        description:
+          type: string
+        issueDate:
+          type: string
+          format: date
+        deliveryDate:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+            - created
+            - issued
+            - partiallyfulfilled
+            - fulfilled
+          default: created
+        amount:
+          type: number
+        currency:
+          type: string
+          default: USD
+        notes:
+          type: string
+        VendorId:
+          type: integer
+        WarehouseId:
+          type: integer
+        ShippingAddressId:
+          type: integer
+        LocationId:
+          type: integer
+        ICLocationId:
+          type: integer
+        InventoryReceivingAccountId:
+          type: integer
+    PurchaseOrder:
+      allOf:
+        - $ref: '#/components/schemas/PurchaseOrder_'
+        - type: object
+          properties:
+            Vendor:
+              $ref: '#/components/schemas/Vendor_'
+            Warehouse:
+              $ref: '#/components/schemas/Warehouse_'
+            ShippingAddress:
+              $ref: '#/components/schemas/Address'
+            Location:
+              $ref: '#/components/schemas/Location_'
+            ICLocation:
+              $ref: '#/components/schemas/Location_'
+            InventoryReceivingAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+    POLineItem_:
+      properties:
+        description:
+          type: string
+        amount:
+          type: number
+        quantity:
+          type: integer
+        quantityReceived:
+          type: integer
+        ItemId:
+          type: integer
+        LedgerAccountId:
+          type: integer
+        CostCenterId:
+          type: integer
+    POLineItem:
+      allOf:
+        - $ref: '#/components/schemas/POLineItem_'
+        - type: object
+          properties:
+            Item:
+              $ref: '#/components/schemas/Item_'
+            LedgerAccount:
+              $ref: '#/components/schemas/LedgerAccount_'
+            CostCenter:
+              $ref: '#/components/schemas/CostCenter_'
+    Warehouse_:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    Warehouse:
+      allOf:
+        - $ref: '#/components/schemas/Warehouse_'
+        - type: object
+          properties:
+            Address:
+              $ref: '#/components/schemas/Address'
+  requestBodies:
+    BillBody:
+      description: Bill details
+      required: true
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/Bill_'
+              - type: object
+                properties:
+                  billLineItems:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/billLineItem_'
+    CostCenterBody:
+      description: Cost Center details
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CostCenter'
+    CustomerBody:
+      description: Customer details
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Customer'
+    InvoiceBody:
+      description: Invoice details
+      required: true
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/Invoice_'
+              - type: object
+                properties:
+                  InvoiceLineItems:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InvoiceLineItem_'
+    ItemBody:
+      description: Item details
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Item_'
+    JournalBody:
+      description: Journal with Transactions
+      required: true
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/Journal'
+              - type: object
+                properties:
+                  Transactions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Transaction_'
+    LedgerAccountBody:
+      description: Ledger Account
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LedgerAccount'
+    LocationBody:
+      description: Location
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Location'
+    PurchaseOrderBody:
+      description: PO
+      required: true
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/PurchaseOrder_'
+              - type: object
+                properties:
+                  POLineItems:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/POLineItem_'
+    WarehouseBody:
+      description: Warehouse
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Warehouse'
+    VendorBody:
+      description: Vendor
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Vendor'
+  parameters:
+    idParam:
+      name: id
+      in: path
+      description: _id value
+      required: true
+      schema:
+        type: integer
+    whereParam:
+      name: where
+      in: query
+      description: 'Key:Value object to filter results on'
+      schema:
+        type: object
+        default: {}
+    offsetParam:
+      name: offset
+      in: query
+      description: number of pages to skip
+      schema:
+        type: integer
+        default: 0
+    limitParam:
+      name: limit
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 999
+        default: 25
+  securitySchemes:
+    application:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: 'https://softledger.auth0.com/oauth/token'
+          scopes:
+            admin: full access
