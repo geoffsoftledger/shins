@@ -5066,19 +5066,19 @@ oauth2 ( Scopes: admin )
 
 # Item
 
-## GET /items*
+## GET /items
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/items* \
+curl -X GET https://app.softledger.com/api/items \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/items* HTTP/1.1
+GET https://app.softledger.com/api/items HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/json
@@ -5092,7 +5092,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/items*',
+  url: 'https://app.softledger.com/api/items',
   method: 'get',
 
   headers: headers,
@@ -5110,7 +5110,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/items*',
+fetch('https://app.softledger.com/api/items',
 {
   method: 'GET',
 
@@ -5131,7 +5131,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/items*',
+result = RestClient.get 'https://app.softledger.com/api/items',
   params: {
   }, headers: headers
 
@@ -5144,7 +5144,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://app.softledger.com/api/items*', params={
+r = requests.get('https://app.softledger.com/api/items', params={
 
 }, headers = headers)
 
@@ -5152,7 +5152,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/items*");
+URL obj = new URL("https://app.softledger.com/api/items");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5246,20 +5246,20 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## POST /items*
+## POST /items
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST https://app.softledger.com/api/items* \
+curl -X POST https://app.softledger.com/api/items \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://app.softledger.com/api/items* HTTP/1.1
+POST https://app.softledger.com/api/items HTTP/1.1
 Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
@@ -5274,7 +5274,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/items*',
+  url: 'https://app.softledger.com/api/items',
   method: 'post',
 
   headers: headers,
@@ -5293,7 +5293,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/items*',
+fetch('https://app.softledger.com/api/items',
 {
   method: 'POST',
   body: inputBody,
@@ -5315,7 +5315,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://app.softledger.com/api/items*',
+result = RestClient.post 'https://app.softledger.com/api/items',
   params: {
   }, headers: headers
 
@@ -5329,7 +5329,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://app.softledger.com/api/items*', params={
+r = requests.post('https://app.softledger.com/api/items', params={
 
 }, headers = headers)
 
@@ -5337,7 +5337,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/items*");
+URL obj = new URL("https://app.softledger.com/api/items");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5404,19 +5404,19 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## GET /items/{id}*
+## GET /items/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/items/{id}* \
+curl -X GET https://app.softledger.com/api/items/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/items/{id}* HTTP/1.1
+GET https://app.softledger.com/api/items/{id} HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/json
@@ -5430,7 +5430,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/items/{id}*',
+  url: 'https://app.softledger.com/api/items/{id}',
   method: 'get',
 
   headers: headers,
@@ -5448,7 +5448,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/items/{id}*',
+fetch('https://app.softledger.com/api/items/{id}',
 {
   method: 'GET',
 
@@ -5469,7 +5469,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/items/{id}*',
+result = RestClient.get 'https://app.softledger.com/api/items/{id}',
   params: {
   }, headers: headers
 
@@ -5482,7 +5482,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://app.softledger.com/api/items/{id}*', params={
+r = requests.get('https://app.softledger.com/api/items/{id}', params={
 
 }, headers = headers)
 
@@ -5490,7 +5490,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/items/{id}*");
+URL obj = new URL("https://app.softledger.com/api/items/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5552,20 +5552,20 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## PUT /items/{id}*
+## PUT /items/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X PUT https://app.softledger.com/api/items/{id}* \
+curl -X PUT https://app.softledger.com/api/items/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://app.softledger.com/api/items/{id}* HTTP/1.1
+PUT https://app.softledger.com/api/items/{id} HTTP/1.1
 Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
@@ -5580,7 +5580,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/items/{id}*',
+  url: 'https://app.softledger.com/api/items/{id}',
   method: 'put',
 
   headers: headers,
@@ -5599,7 +5599,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/items/{id}*',
+fetch('https://app.softledger.com/api/items/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -5621,7 +5621,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://app.softledger.com/api/items/{id}*',
+result = RestClient.put 'https://app.softledger.com/api/items/{id}',
   params: {
   }, headers: headers
 
@@ -5635,7 +5635,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://app.softledger.com/api/items/{id}*', params={
+r = requests.put('https://app.softledger.com/api/items/{id}', params={
 
 }, headers = headers)
 
@@ -5643,7 +5643,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/items/{id}*");
+URL obj = new URL("https://app.softledger.com/api/items/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -5711,18 +5711,18 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## DELETE /items/{id}*
+## DELETE /items/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X DELETE https://app.softledger.com/api/items/{id}*
+curl -X DELETE https://app.softledger.com/api/items/{id}
 
 ```
 
 ```http
-DELETE https://app.softledger.com/api/items/{id}* HTTP/1.1
+DELETE https://app.softledger.com/api/items/{id} HTTP/1.1
 Host: app.softledger.com
 
 
@@ -5731,7 +5731,7 @@ Host: app.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://app.softledger.com/api/items/{id}*',
+  url: 'https://app.softledger.com/api/items/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -5743,7 +5743,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://app.softledger.com/api/items/{id}*',
+fetch('https://app.softledger.com/api/items/{id}',
 {
   method: 'DELETE'
 
@@ -5760,7 +5760,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://app.softledger.com/api/items/{id}*',
+result = RestClient.delete 'https://app.softledger.com/api/items/{id}',
   params: {
   }
 
@@ -5770,7 +5770,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://app.softledger.com/api/items/{id}*', params={
+r = requests.delete('https://app.softledger.com/api/items/{id}', params={
 
 )
 
@@ -5778,7 +5778,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/items/{id}*");
+URL obj = new URL("https://app.softledger.com/api/items/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -7810,19 +7810,19 @@ oauth2 ( Scopes: admin )
 
 # Purchase Order
 
-## GET /purchaseOrders*
+## GET /purchaseOrders
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/purchaseOrders* \
+curl -X GET https://app.softledger.com/api/purchaseOrders \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/purchaseOrders* HTTP/1.1
+GET https://app.softledger.com/api/purchaseOrders HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/json
@@ -7836,7 +7836,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/purchaseOrders*',
+  url: 'https://app.softledger.com/api/purchaseOrders',
   method: 'get',
 
   headers: headers,
@@ -7854,7 +7854,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/purchaseOrders*',
+fetch('https://app.softledger.com/api/purchaseOrders',
 {
   method: 'GET',
 
@@ -7875,7 +7875,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/purchaseOrders*',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders',
   params: {
   }, headers: headers
 
@@ -7888,7 +7888,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://app.softledger.com/api/purchaseOrders*', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders', params={
 
 }, headers = headers)
 
@@ -7896,7 +7896,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/purchaseOrders*");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8022,20 +8022,20 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## POST /purchaseOrders*
+## POST /purchaseOrders
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST https://app.softledger.com/api/purchaseOrders* \
+curl -X POST https://app.softledger.com/api/purchaseOrders \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://app.softledger.com/api/purchaseOrders* HTTP/1.1
+POST https://app.softledger.com/api/purchaseOrders HTTP/1.1
 Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
@@ -8050,7 +8050,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/purchaseOrders*',
+  url: 'https://app.softledger.com/api/purchaseOrders',
   method: 'post',
 
   headers: headers,
@@ -8073,7 +8073,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/purchaseOrders*',
+fetch('https://app.softledger.com/api/purchaseOrders',
 {
   method: 'POST',
   body: inputBody,
@@ -8095,7 +8095,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://app.softledger.com/api/purchaseOrders*',
+result = RestClient.post 'https://app.softledger.com/api/purchaseOrders',
   params: {
   }, headers: headers
 
@@ -8109,7 +8109,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://app.softledger.com/api/purchaseOrders*', params={
+r = requests.post('https://app.softledger.com/api/purchaseOrders', params={
 
 }, headers = headers)
 
@@ -8117,7 +8117,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/purchaseOrders*");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -8209,19 +8209,19 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## GET /purchaseOrders/{id}*
+## GET /purchaseOrders/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/purchaseOrders/{id}* \
+curl -X GET https://app.softledger.com/api/purchaseOrders/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/purchaseOrders/{id}* HTTP/1.1
+GET https://app.softledger.com/api/purchaseOrders/{id} HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/json
@@ -8235,7 +8235,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/purchaseOrders/{id}*',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}',
   method: 'get',
 
   headers: headers,
@@ -8253,7 +8253,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/purchaseOrders/{id}*',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}',
 {
   method: 'GET',
 
@@ -8274,7 +8274,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}*',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}',
   params: {
   }, headers: headers
 
@@ -8287,7 +8287,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}*', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}', params={
 
 }, headers = headers)
 
@@ -8295,7 +8295,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}*");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8384,20 +8384,20 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## PUT /purchaseOrders/{id}*
+## PUT /purchaseOrders/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X PUT https://app.softledger.com/api/purchaseOrders/{id}* \
+curl -X PUT https://app.softledger.com/api/purchaseOrders/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://app.softledger.com/api/purchaseOrders/{id}* HTTP/1.1
+PUT https://app.softledger.com/api/purchaseOrders/{id} HTTP/1.1
 Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
@@ -8412,7 +8412,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/purchaseOrders/{id}*',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}',
   method: 'put',
 
   headers: headers,
@@ -8431,7 +8431,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/purchaseOrders/{id}*',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -8453,7 +8453,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://app.softledger.com/api/purchaseOrders/{id}*',
+result = RestClient.put 'https://app.softledger.com/api/purchaseOrders/{id}',
   params: {
   }, headers: headers
 
@@ -8467,7 +8467,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://app.softledger.com/api/purchaseOrders/{id}*', params={
+r = requests.put('https://app.softledger.com/api/purchaseOrders/{id}', params={
 
 }, headers = headers)
 
@@ -8475,7 +8475,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}*");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -8568,18 +8568,18 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## DELETE /purchaseOrders/{id}*
+## DELETE /purchaseOrders/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X DELETE https://app.softledger.com/api/purchaseOrders/{id}*
+curl -X DELETE https://app.softledger.com/api/purchaseOrders/{id}
 
 ```
 
 ```http
-DELETE https://app.softledger.com/api/purchaseOrders/{id}* HTTP/1.1
+DELETE https://app.softledger.com/api/purchaseOrders/{id} HTTP/1.1
 Host: app.softledger.com
 
 
@@ -8588,7 +8588,7 @@ Host: app.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://app.softledger.com/api/purchaseOrders/{id}*',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -8600,7 +8600,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://app.softledger.com/api/purchaseOrders/{id}*',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}',
 {
   method: 'DELETE'
 
@@ -8617,7 +8617,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://app.softledger.com/api/purchaseOrders/{id}*',
+result = RestClient.delete 'https://app.softledger.com/api/purchaseOrders/{id}',
   params: {
   }
 
@@ -8627,7 +8627,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://app.softledger.com/api/purchaseOrders/{id}*', params={
+r = requests.delete('https://app.softledger.com/api/purchaseOrders/{id}', params={
 
 )
 
@@ -8635,7 +8635,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}*");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -8670,19 +8670,19 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## GET /purchaseOrders/nextNumber*
+## GET /purchaseOrders/nextNumber
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/purchaseOrders/nextNumber* \
+curl -X GET https://app.softledger.com/api/purchaseOrders/nextNumber \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/purchaseOrders/nextNumber* HTTP/1.1
+GET https://app.softledger.com/api/purchaseOrders/nextNumber HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/json
@@ -8696,7 +8696,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/purchaseOrders/nextNumber*',
+  url: 'https://app.softledger.com/api/purchaseOrders/nextNumber',
   method: 'get',
 
   headers: headers,
@@ -8714,7 +8714,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/purchaseOrders/nextNumber*',
+fetch('https://app.softledger.com/api/purchaseOrders/nextNumber',
 {
   method: 'GET',
 
@@ -8735,7 +8735,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/nextNumber*',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/nextNumber',
   params: {
   }, headers: headers
 
@@ -8748,7 +8748,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://app.softledger.com/api/purchaseOrders/nextNumber*', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders/nextNumber', params={
 
 }, headers = headers)
 
@@ -8756,7 +8756,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/purchaseOrders/nextNumber*");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/nextNumber");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8801,19 +8801,19 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## GET /purchaseOrders/{id}/pdf*
+## GET /purchaseOrders/{id}/pdf
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/purchaseOrders/{id}/pdf* \
+curl -X GET https://app.softledger.com/api/purchaseOrders/{id}/pdf \
   -H 'Accept: application/pdf'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/purchaseOrders/{id}/pdf* HTTP/1.1
+GET https://app.softledger.com/api/purchaseOrders/{id}/pdf HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/pdf
@@ -8827,7 +8827,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/purchaseOrders/{id}/pdf*',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}/pdf',
   method: 'get',
 
   headers: headers,
@@ -8845,7 +8845,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/purchaseOrders/{id}/pdf*',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}/pdf',
 {
   method: 'GET',
 
@@ -8866,7 +8866,7 @@ headers = {
   'Accept' => 'application/pdf'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}/pdf*',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}/pdf',
   params: {
   }, headers: headers
 
@@ -8879,7 +8879,7 @@ headers = {
   'Accept': 'application/pdf'
 }
 
-r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}/pdf*', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}/pdf', params={
 
 }, headers = headers)
 
@@ -8887,7 +8887,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}/pdf*");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}/pdf");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8924,19 +8924,19 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## GET /purchaseOrders/{id}/lineItems*
+## GET /purchaseOrders/{id}/lineItems
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/purchaseOrders/{id}/lineItems* \
+curl -X GET https://app.softledger.com/api/purchaseOrders/{id}/lineItems \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/purchaseOrders/{id}/lineItems* HTTP/1.1
+GET https://app.softledger.com/api/purchaseOrders/{id}/lineItems HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/json
@@ -8950,7 +8950,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/purchaseOrders/{id}/lineItems*',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}/lineItems',
   method: 'get',
 
   headers: headers,
@@ -8968,7 +8968,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/purchaseOrders/{id}/lineItems*',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}/lineItems',
 {
   method: 'GET',
 
@@ -8989,7 +8989,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}/lineItems*',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}/lineItems',
   params: {
   }, headers: headers
 
@@ -9002,7 +9002,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}/lineItems*', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}/lineItems', params={
 
 }, headers = headers)
 
@@ -9010,7 +9010,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}/lineItems*");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}/lineItems");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -9855,19 +9855,19 @@ oauth2 ( Scopes: admin )
 
 # Warehouse
 
-## GET /warehouses*
+## GET /warehouses
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/warehouses* \
+curl -X GET https://app.softledger.com/api/warehouses \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/warehouses* HTTP/1.1
+GET https://app.softledger.com/api/warehouses HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/json
@@ -9881,7 +9881,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/warehouses*',
+  url: 'https://app.softledger.com/api/warehouses',
   method: 'get',
 
   headers: headers,
@@ -9899,7 +9899,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/warehouses*',
+fetch('https://app.softledger.com/api/warehouses',
 {
   method: 'GET',
 
@@ -9920,7 +9920,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/warehouses*',
+result = RestClient.get 'https://app.softledger.com/api/warehouses',
   params: {
   }, headers: headers
 
@@ -9933,7 +9933,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://app.softledger.com/api/warehouses*', params={
+r = requests.get('https://app.softledger.com/api/warehouses', params={
 
 }, headers = headers)
 
@@ -9941,7 +9941,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/warehouses*");
+URL obj = new URL("https://app.softledger.com/api/warehouses");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -10010,20 +10010,20 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## POST /warehouses*
+## POST /warehouses
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST https://app.softledger.com/api/warehouses* \
+curl -X POST https://app.softledger.com/api/warehouses \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://app.softledger.com/api/warehouses* HTTP/1.1
+POST https://app.softledger.com/api/warehouses HTTP/1.1
 Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
@@ -10038,7 +10038,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/warehouses*',
+  url: 'https://app.softledger.com/api/warehouses',
   method: 'post',
 
   headers: headers,
@@ -10061,7 +10061,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/warehouses*',
+fetch('https://app.softledger.com/api/warehouses',
 {
   method: 'POST',
   body: inputBody,
@@ -10083,7 +10083,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://app.softledger.com/api/warehouses*',
+result = RestClient.post 'https://app.softledger.com/api/warehouses',
   params: {
   }, headers: headers
 
@@ -10097,7 +10097,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://app.softledger.com/api/warehouses*', params={
+r = requests.post('https://app.softledger.com/api/warehouses', params={
 
 }, headers = headers)
 
@@ -10105,7 +10105,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/warehouses*");
+URL obj = new URL("https://app.softledger.com/api/warehouses");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -10158,19 +10158,19 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## GET /warehouses/{id}*
+## GET /warehouses/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://app.softledger.com/api/warehouses/{id}* \
+curl -X GET https://app.softledger.com/api/warehouses/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://app.softledger.com/api/warehouses/{id}* HTTP/1.1
+GET https://app.softledger.com/api/warehouses/{id} HTTP/1.1
 Host: app.softledger.com
 
 Accept: application/json
@@ -10184,7 +10184,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/warehouses/{id}*',
+  url: 'https://app.softledger.com/api/warehouses/{id}',
   method: 'get',
 
   headers: headers,
@@ -10202,7 +10202,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/warehouses/{id}*',
+fetch('https://app.softledger.com/api/warehouses/{id}',
 {
   method: 'GET',
 
@@ -10223,7 +10223,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://app.softledger.com/api/warehouses/{id}*',
+result = RestClient.get 'https://app.softledger.com/api/warehouses/{id}',
   params: {
   }, headers: headers
 
@@ -10236,7 +10236,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://app.softledger.com/api/warehouses/{id}*', params={
+r = requests.get('https://app.softledger.com/api/warehouses/{id}', params={
 
 }, headers = headers)
 
@@ -10244,7 +10244,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/warehouses/{id}*");
+URL obj = new URL("https://app.softledger.com/api/warehouses/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -10288,20 +10288,20 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## PUT /warehouses/{id}*
+## PUT /warehouses/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X PUT https://app.softledger.com/api/warehouses/{id}* \
+curl -X PUT https://app.softledger.com/api/warehouses/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://app.softledger.com/api/warehouses/{id}* HTTP/1.1
+PUT https://app.softledger.com/api/warehouses/{id} HTTP/1.1
 Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
@@ -10316,7 +10316,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://app.softledger.com/api/warehouses/{id}*',
+  url: 'https://app.softledger.com/api/warehouses/{id}',
   method: 'put',
 
   headers: headers,
@@ -10339,7 +10339,7 @@ const headers = {
 
 };
 
-fetch('https://app.softledger.com/api/warehouses/{id}*',
+fetch('https://app.softledger.com/api/warehouses/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -10361,7 +10361,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://app.softledger.com/api/warehouses/{id}*',
+result = RestClient.put 'https://app.softledger.com/api/warehouses/{id}',
   params: {
   }, headers: headers
 
@@ -10375,7 +10375,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://app.softledger.com/api/warehouses/{id}*', params={
+r = requests.put('https://app.softledger.com/api/warehouses/{id}', params={
 
 }, headers = headers)
 
@@ -10383,7 +10383,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/warehouses/{id}*");
+URL obj = new URL("https://app.softledger.com/api/warehouses/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -10437,18 +10437,18 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-## DELETE /warehouses/{id}*
+## DELETE /warehouses/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X DELETE https://app.softledger.com/api/warehouses/{id}*
+curl -X DELETE https://app.softledger.com/api/warehouses/{id}
 
 ```
 
 ```http
-DELETE https://app.softledger.com/api/warehouses/{id}* HTTP/1.1
+DELETE https://app.softledger.com/api/warehouses/{id} HTTP/1.1
 Host: app.softledger.com
 
 
@@ -10457,7 +10457,7 @@ Host: app.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://app.softledger.com/api/warehouses/{id}*',
+  url: 'https://app.softledger.com/api/warehouses/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -10469,7 +10469,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://app.softledger.com/api/warehouses/{id}*',
+fetch('https://app.softledger.com/api/warehouses/{id}',
 {
   method: 'DELETE'
 
@@ -10486,7 +10486,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://app.softledger.com/api/warehouses/{id}*',
+result = RestClient.delete 'https://app.softledger.com/api/warehouses/{id}',
   params: {
   }
 
@@ -10496,7 +10496,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://app.softledger.com/api/warehouses/{id}*', params={
+r = requests.delete('https://app.softledger.com/api/warehouses/{id}', params={
 
 )
 
@@ -10504,7 +10504,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://app.softledger.com/api/warehouses/{id}*");
+URL obj = new URL("https://app.softledger.com/api/warehouses/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
