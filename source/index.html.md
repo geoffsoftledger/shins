@@ -18,7 +18,7 @@ highlight_theme: darkula
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-SoftLedger API
+SoftLedger API, Endpoints marked with * are Beta
 
 Base URLs:
 

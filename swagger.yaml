@@ -5,7 +5,7 @@ servers:
 info:
   version: 1.0.0
   title: SoftLedger
-  description: SoftLedger API
+  description: SoftLedger API, Endpoints marked with * are Beta
 security:
   - application:
       - admin
