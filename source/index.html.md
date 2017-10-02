@@ -1,24 +1,29 @@
 ---
-title: SoftLedger Beta
+title: SoftLedger v1.0.0
 language_tabs:
   - shell: Shell
   - http: HTTP
+  - javascript: JavaScript
   - javascript--nodejs: Node.JS
+  - ruby: Ruby
+  - python: Python
+  - java: Java
 toc_footers: []
 includes: []
 search: true
 highlight_theme: darkula
 ---
 
-# SoftLedger Beta
+# SoftLedger v1.0.0
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-This is the most cutting edge API, not all endpoints are fully functional/tested
+SoftLedger API
 
 Base URLs:
 
 * <a href="https://app.softledger.com/api">https://app.softledger.com/api</a>
+
 * <a href="https://trial.softledger.com/api">https://trial.softledger.com/api</a>
 
 
@@ -50,14 +55,14 @@ Base URLs:
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/bills \
+curl -X GET https://app.softledger.com/api/bills \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/bills HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/bills HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -70,7 +75,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/bills',
+  url: 'https://app.softledger.com/api/bills',
   method: 'get',
 
   headers: headers,
@@ -88,7 +93,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/bills',
+fetch('https://app.softledger.com/api/bills',
 {
   method: 'GET',
 
@@ -109,7 +114,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/bills',
+result = RestClient.get 'https://app.softledger.com/api/bills',
   params: {
   }, headers: headers
 
@@ -122,7 +127,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/bills', params={
+r = requests.get('https://app.softledger.com/api/bills', params={
 
 }, headers = headers)
 
@@ -130,7 +135,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/bills");
+URL obj = new URL("https://app.softledger.com/api/bills");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -240,15 +245,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/bills \
+curl -X POST https://app.softledger.com/api/bills \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/bills HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/bills HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -262,7 +267,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/bills',
+  url: 'https://app.softledger.com/api/bills',
   method: 'post',
 
   headers: headers,
@@ -285,7 +290,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/bills',
+fetch('https://app.softledger.com/api/bills',
 {
   method: 'POST',
   body: inputBody,
@@ -307,7 +312,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/bills',
+result = RestClient.post 'https://app.softledger.com/api/bills',
   params: {
   }, headers: headers
 
@@ -321,7 +326,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/bills', params={
+r = requests.post('https://app.softledger.com/api/bills', params={
 
 }, headers = headers)
 
@@ -329,7 +334,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/bills");
+URL obj = new URL("https://app.softledger.com/api/bills");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -438,14 +443,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/bills/{id} \
+curl -X GET https://app.softledger.com/api/bills/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/bills/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/bills/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -458,7 +463,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/bills/{id}',
+  url: 'https://app.softledger.com/api/bills/{id}',
   method: 'get',
 
   headers: headers,
@@ -476,7 +481,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/bills/{id}',
+fetch('https://app.softledger.com/api/bills/{id}',
 {
   method: 'GET',
 
@@ -497,7 +502,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/bills/{id}',
+result = RestClient.get 'https://app.softledger.com/api/bills/{id}',
   params: {
   }, headers: headers
 
@@ -510,7 +515,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/bills/{id}', params={
+r = requests.get('https://app.softledger.com/api/bills/{id}', params={
 
 }, headers = headers)
 
@@ -518,7 +523,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/bills/{id}");
+URL obj = new URL("https://app.softledger.com/api/bills/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -622,15 +627,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/bills/{id} \
+curl -X PUT https://app.softledger.com/api/bills/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/bills/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/bills/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -644,7 +649,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/bills/{id}',
+  url: 'https://app.softledger.com/api/bills/{id}',
   method: 'put',
 
   headers: headers,
@@ -663,7 +668,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/bills/{id}',
+fetch('https://app.softledger.com/api/bills/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -685,7 +690,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/bills/{id}',
+result = RestClient.put 'https://app.softledger.com/api/bills/{id}',
   params: {
   }, headers: headers
 
@@ -699,7 +704,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/bills/{id}', params={
+r = requests.put('https://app.softledger.com/api/bills/{id}', params={
 
 }, headers = headers)
 
@@ -707,7 +712,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/bills/{id}");
+URL obj = new URL("https://app.softledger.com/api/bills/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -817,13 +822,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/bills/{id}
+curl -X DELETE https://app.softledger.com/api/bills/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/bills/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/bills/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -831,7 +836,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/bills/{id}',
+  url: 'https://app.softledger.com/api/bills/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -843,7 +848,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/bills/{id}',
+fetch('https://app.softledger.com/api/bills/{id}',
 {
   method: 'DELETE'
 
@@ -860,7 +865,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/bills/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/bills/{id}',
   params: {
   }
 
@@ -870,7 +875,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/bills/{id}', params={
+r = requests.delete('https://app.softledger.com/api/bills/{id}', params={
 
 )
 
@@ -878,7 +883,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/bills/{id}");
+URL obj = new URL("https://app.softledger.com/api/bills/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -919,14 +924,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/bills/nextNumber \
+curl -X GET https://app.softledger.com/api/bills/nextNumber \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/bills/nextNumber HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/bills/nextNumber HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -939,7 +944,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/bills/nextNumber',
+  url: 'https://app.softledger.com/api/bills/nextNumber',
   method: 'get',
 
   headers: headers,
@@ -957,7 +962,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/bills/nextNumber',
+fetch('https://app.softledger.com/api/bills/nextNumber',
 {
   method: 'GET',
 
@@ -978,7 +983,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/bills/nextNumber',
+result = RestClient.get 'https://app.softledger.com/api/bills/nextNumber',
   params: {
   }, headers: headers
 
@@ -991,7 +996,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/bills/nextNumber', params={
+r = requests.get('https://app.softledger.com/api/bills/nextNumber', params={
 
 }, headers = headers)
 
@@ -999,7 +1004,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/bills/nextNumber");
+URL obj = new URL("https://app.softledger.com/api/bills/nextNumber");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1050,14 +1055,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/bills/pay \
+curl -X POST https://app.softledger.com/api/bills/pay \
   -H 'Content-Type: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/bills/pay HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/bills/pay HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 
 ```
@@ -1069,7 +1074,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/bills/pay',
+  url: 'https://app.softledger.com/api/bills/pay',
   method: 'post',
 
   headers: headers,
@@ -1097,7 +1102,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/bills/pay',
+fetch('https://app.softledger.com/api/bills/pay',
 {
   method: 'POST',
   body: inputBody,
@@ -1118,7 +1123,7 @@ headers = {
   'Content-Type' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/bills/pay',
+result = RestClient.post 'https://app.softledger.com/api/bills/pay',
   params: {
   }, headers: headers
 
@@ -1131,7 +1136,7 @@ headers = {
   'Content-Type': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/bills/pay', params={
+r = requests.post('https://app.softledger.com/api/bills/pay', params={
 
 }, headers = headers)
 
@@ -1139,7 +1144,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/bills/pay");
+URL obj = new URL("https://app.softledger.com/api/bills/pay");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1196,14 +1201,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/cost_centers \
+curl -X GET https://app.softledger.com/api/cost_centers \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/cost_centers HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/cost_centers HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -1216,7 +1221,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/cost_centers',
+  url: 'https://app.softledger.com/api/cost_centers',
   method: 'get',
 
   headers: headers,
@@ -1234,7 +1239,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/cost_centers',
+fetch('https://app.softledger.com/api/cost_centers',
 {
   method: 'GET',
 
@@ -1255,7 +1260,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/cost_centers',
+result = RestClient.get 'https://app.softledger.com/api/cost_centers',
   params: {
   }, headers: headers
 
@@ -1268,7 +1273,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/cost_centers', params={
+r = requests.get('https://app.softledger.com/api/cost_centers', params={
 
 }, headers = headers)
 
@@ -1276,7 +1281,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/cost_centers");
+URL obj = new URL("https://app.softledger.com/api/cost_centers");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1306,7 +1311,12 @@ limit|query|integer|false|max records to return
 
 ```json
 [
-  {}
+  {
+    "_id": 0,
+    "name": "string",
+    "id": "string",
+    "description": "string"
+  }
 ]
 ```
 ### Responses
@@ -1321,10 +1331,11 @@ Status Code **200**
 
 Name|Type|Required|Description
 ---|---|---|---|---|
-anonymous|[[CostCenter_](#schemacostcenter_)]|false|No description
+anonymous|[[CostCenter](#schemacostcenter)]|false|No description
 » _id|integer|false|No description
 » name|string|false|No description
 » id|string|false|No description
+» description|string|false|No description
 
 
 
@@ -1339,15 +1350,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/cost_centers \
+curl -X POST https://app.softledger.com/api/cost_centers \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/cost_centers HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/cost_centers HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -1361,7 +1372,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/cost_centers',
+  url: 'https://app.softledger.com/api/cost_centers',
   method: 'post',
 
   headers: headers,
@@ -1385,7 +1396,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/cost_centers',
+fetch('https://app.softledger.com/api/cost_centers',
 {
   method: 'POST',
   body: inputBody,
@@ -1407,7 +1418,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/cost_centers',
+result = RestClient.post 'https://app.softledger.com/api/cost_centers',
   params: {
   }, headers: headers
 
@@ -1421,7 +1432,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/cost_centers', params={
+r = requests.post('https://app.softledger.com/api/cost_centers', params={
 
 }, headers = headers)
 
@@ -1429,7 +1440,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/cost_centers");
+URL obj = new URL("https://app.softledger.com/api/cost_centers");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1490,14 +1501,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/cost_centers/{id} \
+curl -X GET https://app.softledger.com/api/cost_centers/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/cost_centers/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/cost_centers/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -1510,7 +1521,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/cost_centers/{id}',
+  url: 'https://app.softledger.com/api/cost_centers/{id}',
   method: 'get',
 
   headers: headers,
@@ -1528,7 +1539,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/cost_centers/{id}',
+fetch('https://app.softledger.com/api/cost_centers/{id}',
 {
   method: 'GET',
 
@@ -1549,7 +1560,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/cost_centers/{id}',
+result = RestClient.get 'https://app.softledger.com/api/cost_centers/{id}',
   params: {
   }, headers: headers
 
@@ -1562,7 +1573,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/cost_centers/{id}', params={
+r = requests.get('https://app.softledger.com/api/cost_centers/{id}', params={
 
 }, headers = headers)
 
@@ -1570,7 +1581,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/cost_centers/{id}");
+URL obj = new URL("https://app.softledger.com/api/cost_centers/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1621,15 +1632,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/cost_centers/{id} \
+curl -X PUT https://app.softledger.com/api/cost_centers/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/cost_centers/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/cost_centers/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -1643,7 +1654,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/cost_centers/{id}',
+  url: 'https://app.softledger.com/api/cost_centers/{id}',
   method: 'put',
 
   headers: headers,
@@ -1667,7 +1678,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/cost_centers/{id}',
+fetch('https://app.softledger.com/api/cost_centers/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -1689,7 +1700,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/cost_centers/{id}',
+result = RestClient.put 'https://app.softledger.com/api/cost_centers/{id}',
   params: {
   }, headers: headers
 
@@ -1703,7 +1714,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/cost_centers/{id}', params={
+r = requests.put('https://app.softledger.com/api/cost_centers/{id}', params={
 
 }, headers = headers)
 
@@ -1711,7 +1722,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/cost_centers/{id}");
+URL obj = new URL("https://app.softledger.com/api/cost_centers/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -1773,13 +1784,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/cost_centers/{id}
+curl -X DELETE https://app.softledger.com/api/cost_centers/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/cost_centers/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/cost_centers/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -1787,7 +1798,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/cost_centers/{id}',
+  url: 'https://app.softledger.com/api/cost_centers/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -1799,7 +1810,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/cost_centers/{id}',
+fetch('https://app.softledger.com/api/cost_centers/{id}',
 {
   method: 'DELETE'
 
@@ -1816,7 +1827,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/cost_centers/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/cost_centers/{id}',
   params: {
   }
 
@@ -1826,7 +1837,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/cost_centers/{id}', params={
+r = requests.delete('https://app.softledger.com/api/cost_centers/{id}', params={
 
 )
 
@@ -1834,7 +1845,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/cost_centers/{id}");
+URL obj = new URL("https://app.softledger.com/api/cost_centers/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -1877,14 +1888,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/customers \
+curl -X GET https://app.softledger.com/api/customers \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/customers HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/customers HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -1897,7 +1908,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/customers',
+  url: 'https://app.softledger.com/api/customers',
   method: 'get',
 
   headers: headers,
@@ -1915,7 +1926,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/customers',
+fetch('https://app.softledger.com/api/customers',
 {
   method: 'GET',
 
@@ -1936,7 +1947,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/customers',
+result = RestClient.get 'https://app.softledger.com/api/customers',
   params: {
   }, headers: headers
 
@@ -1949,7 +1960,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/customers', params={
+r = requests.get('https://app.softledger.com/api/customers', params={
 
 }, headers = headers)
 
@@ -1957,7 +1968,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/customers");
+URL obj = new URL("https://app.softledger.com/api/customers");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2045,20 +2056,189 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
+## POST /customers
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://app.softledger.com/api/customers \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://app.softledger.com/api/customers HTTP/1.1
+Host: app.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/customers',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/customers',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://app.softledger.com/api/customers',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://app.softledger.com/api/customers', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/customers");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create A Customer*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[Customer](#schemacustomer)|true|Customer details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Customer|[Customer](#schemacustomer)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
 ## GET /customers/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/customers/{id} \
+curl -X GET https://app.softledger.com/api/customers/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/customers/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/customers/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -2071,7 +2251,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/customers/{id}',
+  url: 'https://app.softledger.com/api/customers/{id}',
   method: 'get',
 
   headers: headers,
@@ -2089,7 +2269,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/customers/{id}',
+fetch('https://app.softledger.com/api/customers/{id}',
 {
   method: 'GET',
 
@@ -2110,7 +2290,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/customers/{id}',
+result = RestClient.get 'https://app.softledger.com/api/customers/{id}',
   params: {
   }, headers: headers
 
@@ -2123,7 +2303,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/customers/{id}', params={
+r = requests.get('https://app.softledger.com/api/customers/{id}', params={
 
 }, headers = headers)
 
@@ -2131,7 +2311,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/customers/{id}");
+URL obj = new URL("https://app.softledger.com/api/customers/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2188,15 +2368,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/customers/{id} \
+curl -X PUT https://app.softledger.com/api/customers/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/customers/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/customers/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -2210,7 +2390,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/customers/{id}',
+  url: 'https://app.softledger.com/api/customers/{id}',
   method: 'put',
 
   headers: headers,
@@ -2240,7 +2420,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/customers/{id}',
+fetch('https://app.softledger.com/api/customers/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -2262,7 +2442,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/customers/{id}',
+result = RestClient.put 'https://app.softledger.com/api/customers/{id}',
   params: {
   }, headers: headers
 
@@ -2276,7 +2456,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/customers/{id}', params={
+r = requests.put('https://app.softledger.com/api/customers/{id}', params={
 
 }, headers = headers)
 
@@ -2284,7 +2464,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/customers/{id}");
+URL obj = new URL("https://app.softledger.com/api/customers/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -2358,13 +2538,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/customers/{id}
+curl -X DELETE https://app.softledger.com/api/customers/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/customers/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/customers/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -2372,7 +2552,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/customers/{id}',
+  url: 'https://app.softledger.com/api/customers/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -2384,7 +2564,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/customers/{id}',
+fetch('https://app.softledger.com/api/customers/{id}',
 {
   method: 'DELETE'
 
@@ -2401,7 +2581,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/customers/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/customers/{id}',
   params: {
   }
 
@@ -2411,7 +2591,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/customers/{id}', params={
+r = requests.delete('https://app.softledger.com/api/customers/{id}', params={
 
 )
 
@@ -2419,7 +2599,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/customers/{id}");
+URL obj = new URL("https://app.softledger.com/api/customers/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -2454,494 +2634,6 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
-# Default
-
-## POST /customers
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://nightly.softledger.com/api/customers \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```http
-POST https://nightly.softledger.com/api/customers HTTP/1.1
-Host: nightly.softledger.com
-Content-Type: application/json
-Accept: application/json
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'https://nightly.softledger.com/api/customers',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "_id": 0,
-  "name": "string",
-  "email": "string",
-  "website": "string",
-  "Addresses": [
-    {}
-  ],
-  "Contacts": [
-    {}
-  ]
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-};
-
-fetch('https://nightly.softledger.com/api/customers',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'https://nightly.softledger.com/api/customers',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.post('https://nightly.softledger.com/api/customers', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("https://nightly.softledger.com/api/customers");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-*Create A Customer*
-
-> Body parameter
-
-```json
-{
-  "_id": 0,
-  "name": "string",
-  "email": "string",
-  "website": "string",
-  "Addresses": [
-    {}
-  ],
-  "Contacts": [
-    {}
-  ]
-}
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-body|body|[Customer](#schemacustomer)|true|Customer details
-
-
-> Example responses
-
-```json
-{
-  "_id": 0,
-  "name": "string",
-  "email": "string",
-  "website": "string",
-  "Addresses": [
-    {}
-  ],
-  "Contacts": [
-    {}
-  ]
-}
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Customer|[Customer](#schemacustomer)
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: admin )
-</aside>
-
-## POST /vendors
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://nightly.softledger.com/api/vendors \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```http
-POST https://nightly.softledger.com/api/vendors HTTP/1.1
-Host: nightly.softledger.com
-Content-Type: application/json
-Accept: application/json
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'https://nightly.softledger.com/api/vendors',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "_id": 0,
-  "accNumber": "string",
-  "name": "string",
-  "email": "string",
-  "Addresses": [
-    {}
-  ],
-  "Contacts": [
-    {}
-  ]
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-};
-
-fetch('https://nightly.softledger.com/api/vendors',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'https://nightly.softledger.com/api/vendors',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.post('https://nightly.softledger.com/api/vendors', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("https://nightly.softledger.com/api/vendors");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-*Create A Vendor*
-
-> Body parameter
-
-```json
-{
-  "_id": 0,
-  "accNumber": "string",
-  "name": "string",
-  "email": "string",
-  "Addresses": [
-    {}
-  ],
-  "Contacts": [
-    {}
-  ]
-}
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-body|body|[Vendor](#schemavendor)|true|Vendor
-
-
-> Example responses
-
-```json
-{
-  "_id": 0,
-  "accNumber": "string",
-  "name": "string",
-  "email": "string",
-  "Addresses": [
-    {}
-  ],
-  "Contacts": [
-    {}
-  ]
-}
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Vendor|[Vendor](#schemavendor)
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: admin )
-</aside>
-
-## POST /warehouses
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://nightly.softledger.com/api/warehouses \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```http
-POST https://nightly.softledger.com/api/warehouses HTTP/1.1
-Host: nightly.softledger.com
-Content-Type: application/json
-Accept: application/json
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'https://nightly.softledger.com/api/warehouses',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "name": "string",
-  "description": "string",
-  "Address": {}
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-};
-
-fetch('https://nightly.softledger.com/api/warehouses',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'https://nightly.softledger.com/api/warehouses',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.post('https://nightly.softledger.com/api/warehouses', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("https://nightly.softledger.com/api/warehouses");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-*Create A Warehouse*
-
-> Body parameter
-
-```json
-{
-  "name": "string",
-  "description": "string",
-  "Address": {}
-}
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-body|body|[Warehouse](#schemawarehouse)|true|Warehouse
-
-
-> Example responses
-
-```json
-{
-  "name": "string",
-  "description": "string",
-  "Address": {}
-}
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Warehouse|[Warehouse](#schemawarehouse)
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: admin )
-</aside>
-
 # Invoice
 
 ## GET /invoices
@@ -2950,14 +2642,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/invoices \
+curl -X GET https://app.softledger.com/api/invoices \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/invoices HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/invoices HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -2970,7 +2662,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices',
+  url: 'https://app.softledger.com/api/invoices',
   method: 'get',
 
   headers: headers,
@@ -2988,7 +2680,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices',
+fetch('https://app.softledger.com/api/invoices',
 {
   method: 'GET',
 
@@ -3009,7 +2701,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/invoices',
+result = RestClient.get 'https://app.softledger.com/api/invoices',
   params: {
   }, headers: headers
 
@@ -3022,7 +2714,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/invoices', params={
+r = requests.get('https://app.softledger.com/api/invoices', params={
 
 }, headers = headers)
 
@@ -3030,7 +2722,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices");
+URL obj = new URL("https://app.softledger.com/api/invoices");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -3199,15 +2891,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/invoices \
+curl -X POST https://app.softledger.com/api/invoices \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/invoices HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/invoices HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -3221,7 +2913,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices',
+  url: 'https://app.softledger.com/api/invoices',
   method: 'post',
 
   headers: headers,
@@ -3244,7 +2936,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices',
+fetch('https://app.softledger.com/api/invoices',
 {
   method: 'POST',
   body: inputBody,
@@ -3266,7 +2958,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/invoices',
+result = RestClient.post 'https://app.softledger.com/api/invoices',
   params: {
   }, headers: headers
 
@@ -3280,7 +2972,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/invoices', params={
+r = requests.post('https://app.softledger.com/api/invoices', params={
 
 }, headers = headers)
 
@@ -3288,7 +2980,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices");
+URL obj = new URL("https://app.softledger.com/api/invoices");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -3391,14 +3083,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/invoices/{id} \
+curl -X GET https://app.softledger.com/api/invoices/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/invoices/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/invoices/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -3411,7 +3103,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices/{id}',
+  url: 'https://app.softledger.com/api/invoices/{id}',
   method: 'get',
 
   headers: headers,
@@ -3429,7 +3121,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices/{id}',
+fetch('https://app.softledger.com/api/invoices/{id}',
 {
   method: 'GET',
 
@@ -3450,7 +3142,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/invoices/{id}',
+result = RestClient.get 'https://app.softledger.com/api/invoices/{id}',
   params: {
   }, headers: headers
 
@@ -3463,7 +3155,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/invoices/{id}', params={
+r = requests.get('https://app.softledger.com/api/invoices/{id}', params={
 
 }, headers = headers)
 
@@ -3471,7 +3163,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}");
+URL obj = new URL("https://app.softledger.com/api/invoices/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -3569,15 +3261,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/invoices/{id} \
+curl -X PUT https://app.softledger.com/api/invoices/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/invoices/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/invoices/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -3591,7 +3283,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices/{id}',
+  url: 'https://app.softledger.com/api/invoices/{id}',
   method: 'put',
 
   headers: headers,
@@ -3610,7 +3302,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices/{id}',
+fetch('https://app.softledger.com/api/invoices/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -3632,7 +3324,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/invoices/{id}',
+result = RestClient.put 'https://app.softledger.com/api/invoices/{id}',
   params: {
   }, headers: headers
 
@@ -3646,7 +3338,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/invoices/{id}', params={
+r = requests.put('https://app.softledger.com/api/invoices/{id}', params={
 
 }, headers = headers)
 
@@ -3654,7 +3346,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}");
+URL obj = new URL("https://app.softledger.com/api/invoices/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -3758,13 +3450,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/invoices/{id}
+curl -X DELETE https://app.softledger.com/api/invoices/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/invoices/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/invoices/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -3772,7 +3464,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices/{id}',
+  url: 'https://app.softledger.com/api/invoices/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -3784,7 +3476,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/invoices/{id}',
+fetch('https://app.softledger.com/api/invoices/{id}',
 {
   method: 'DELETE'
 
@@ -3801,7 +3493,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/invoices/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/invoices/{id}',
   params: {
   }
 
@@ -3811,7 +3503,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/invoices/{id}', params={
+r = requests.delete('https://app.softledger.com/api/invoices/{id}', params={
 
 )
 
@@ -3819,7 +3511,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}");
+URL obj = new URL("https://app.softledger.com/api/invoices/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -3860,14 +3552,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/invoices/nextNumber \
+curl -X GET https://app.softledger.com/api/invoices/nextNumber \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/invoices/nextNumber HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/invoices/nextNumber HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -3880,7 +3572,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices/nextNumber',
+  url: 'https://app.softledger.com/api/invoices/nextNumber',
   method: 'get',
 
   headers: headers,
@@ -3898,7 +3590,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices/nextNumber',
+fetch('https://app.softledger.com/api/invoices/nextNumber',
 {
   method: 'GET',
 
@@ -3919,7 +3611,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/invoices/nextNumber',
+result = RestClient.get 'https://app.softledger.com/api/invoices/nextNumber',
   params: {
   }, headers: headers
 
@@ -3932,7 +3624,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/invoices/nextNumber', params={
+r = requests.get('https://app.softledger.com/api/invoices/nextNumber', params={
 
 }, headers = headers)
 
@@ -3940,7 +3632,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices/nextNumber");
+URL obj = new URL("https://app.softledger.com/api/invoices/nextNumber");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -3991,14 +3683,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/invoices/{id}/pdf \
+curl -X GET https://app.softledger.com/api/invoices/{id}/pdf \
   -H 'Accept: application/pdf'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/invoices/{id}/pdf HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/invoices/{id}/pdf HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/pdf
 
@@ -4011,7 +3703,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices/{id}/pdf',
+  url: 'https://app.softledger.com/api/invoices/{id}/pdf',
   method: 'get',
 
   headers: headers,
@@ -4029,7 +3721,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices/{id}/pdf',
+fetch('https://app.softledger.com/api/invoices/{id}/pdf',
 {
   method: 'GET',
 
@@ -4050,7 +3742,7 @@ headers = {
   'Accept' => 'application/pdf'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/invoices/{id}/pdf',
+result = RestClient.get 'https://app.softledger.com/api/invoices/{id}/pdf',
   params: {
   }, headers: headers
 
@@ -4063,7 +3755,7 @@ headers = {
   'Accept': 'application/pdf'
 }
 
-r = requests.get('https://nightly.softledger.com/api/invoices/{id}/pdf', params={
+r = requests.get('https://app.softledger.com/api/invoices/{id}/pdf', params={
 
 }, headers = headers)
 
@@ -4071,7 +3763,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}/pdf");
+URL obj = new URL("https://app.softledger.com/api/invoices/{id}/pdf");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -4114,14 +3806,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/invoices/{id}/issue \
+curl -X PUT https://app.softledger.com/api/invoices/{id}/issue \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/invoices/{id}/issue HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/invoices/{id}/issue HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -4134,7 +3826,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices/{id}/issue',
+  url: 'https://app.softledger.com/api/invoices/{id}/issue',
   method: 'put',
 
   headers: headers,
@@ -4152,7 +3844,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices/{id}/issue',
+fetch('https://app.softledger.com/api/invoices/{id}/issue',
 {
   method: 'PUT',
 
@@ -4173,7 +3865,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/invoices/{id}/issue',
+result = RestClient.put 'https://app.softledger.com/api/invoices/{id}/issue',
   params: {
   }, headers: headers
 
@@ -4186,7 +3878,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/invoices/{id}/issue', params={
+r = requests.put('https://app.softledger.com/api/invoices/{id}/issue', params={
 
 }, headers = headers)
 
@@ -4194,7 +3886,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}/issue");
+URL obj = new URL("https://app.softledger.com/api/invoices/{id}/issue");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -4292,14 +3984,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/invoices/{id}/void \
+curl -X PUT https://app.softledger.com/api/invoices/{id}/void \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/invoices/{id}/void HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/invoices/{id}/void HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -4312,7 +4004,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices/{id}/void',
+  url: 'https://app.softledger.com/api/invoices/{id}/void',
   method: 'put',
 
   headers: headers,
@@ -4330,7 +4022,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices/{id}/void',
+fetch('https://app.softledger.com/api/invoices/{id}/void',
 {
   method: 'PUT',
 
@@ -4351,7 +4043,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/invoices/{id}/void',
+result = RestClient.put 'https://app.softledger.com/api/invoices/{id}/void',
   params: {
   }, headers: headers
 
@@ -4364,7 +4056,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/invoices/{id}/void', params={
+r = requests.put('https://app.softledger.com/api/invoices/{id}/void', params={
 
 }, headers = headers)
 
@@ -4372,7 +4064,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}/void");
+URL obj = new URL("https://app.softledger.com/api/invoices/{id}/void");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -4470,14 +4162,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/invoices/apply \
+curl -X POST https://app.softledger.com/api/invoices/apply \
   -H 'Content-Type: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/invoices/apply HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/invoices/apply HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 
 ```
@@ -4489,7 +4181,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/invoices/apply',
+  url: 'https://app.softledger.com/api/invoices/apply',
   method: 'post',
 
   headers: headers,
@@ -4514,7 +4206,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/invoices/apply',
+fetch('https://app.softledger.com/api/invoices/apply',
 {
   method: 'POST',
   body: inputBody,
@@ -4535,7 +4227,7 @@ headers = {
   'Content-Type' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/invoices/apply',
+result = RestClient.post 'https://app.softledger.com/api/invoices/apply',
   params: {
   }, headers: headers
 
@@ -4548,7 +4240,7 @@ headers = {
   'Content-Type': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/invoices/apply', params={
+r = requests.post('https://app.softledger.com/api/invoices/apply', params={
 
 }, headers = headers)
 
@@ -4556,7 +4248,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/invoices/apply");
+URL obj = new URL("https://app.softledger.com/api/invoices/apply");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4680,14 +4372,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/items \
+curl -X GET https://app.softledger.com/api/items \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/items HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/items HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -4700,7 +4392,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/items',
+  url: 'https://app.softledger.com/api/items',
   method: 'get',
 
   headers: headers,
@@ -4718,7 +4410,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/items',
+fetch('https://app.softledger.com/api/items',
 {
   method: 'GET',
 
@@ -4739,7 +4431,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/items',
+result = RestClient.get 'https://app.softledger.com/api/items',
   params: {
   }, headers: headers
 
@@ -4752,7 +4444,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/items', params={
+r = requests.get('https://app.softledger.com/api/items', params={
 
 }, headers = headers)
 
@@ -4760,7 +4452,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/items");
+URL obj = new URL("https://app.softledger.com/api/items");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -4790,7 +4482,29 @@ limit|query|integer|false|max records to return
 
 ```json
 [
-  {}
+  {
+    "_id": 0,
+    "name": "string",
+    "description": "string",
+    "InvoiceAccountId": 0,
+    "BillAccountId": 0,
+    "InventoryAccountId": 0,
+    "InvoiceAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "BillAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "InventoryAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    }
+  }
 ]
 ```
 ### Responses
@@ -4805,13 +4519,25 @@ Status Code **200**
 
 Name|Type|Required|Description
 ---|---|---|---|---|
-anonymous|[[Item_](#schemaitem_)]|false|No description
+anonymous|[[Item](#schemaitem)]|false|No description
 » _id|integer|false|No description
 » name|string|false|No description
 » description|string|false|No description
 » InvoiceAccountId|integer|false|No description
 » BillAccountId|integer|false|No description
 » InventoryAccountId|integer|false|No description
+» InvoiceAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» BillAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» InventoryAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
 
 
 
@@ -4826,15 +4552,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/items \
+curl -X POST https://app.softledger.com/api/items \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/items HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/items HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -4848,7 +4574,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/items',
+  url: 'https://app.softledger.com/api/items',
   method: 'post',
 
   headers: headers,
@@ -4867,7 +4593,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/items',
+fetch('https://app.softledger.com/api/items',
 {
   method: 'POST',
   body: inputBody,
@@ -4889,7 +4615,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/items',
+result = RestClient.post 'https://app.softledger.com/api/items',
   params: {
   }, headers: headers
 
@@ -4903,7 +4629,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/items', params={
+r = requests.post('https://app.softledger.com/api/items', params={
 
 }, headers = headers)
 
@@ -4911,7 +4637,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/items");
+URL obj = new URL("https://app.softledger.com/api/items");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4984,14 +4710,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/items/{id} \
+curl -X GET https://app.softledger.com/api/items/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/items/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/items/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -5004,7 +4730,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/items/{id}',
+  url: 'https://app.softledger.com/api/items/{id}',
   method: 'get',
 
   headers: headers,
@@ -5022,7 +4748,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/items/{id}',
+fetch('https://app.softledger.com/api/items/{id}',
 {
   method: 'GET',
 
@@ -5043,7 +4769,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/items/{id}',
+result = RestClient.get 'https://app.softledger.com/api/items/{id}',
   params: {
   }, headers: headers
 
@@ -5056,7 +4782,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/items/{id}', params={
+r = requests.get('https://app.softledger.com/api/items/{id}', params={
 
 }, headers = headers)
 
@@ -5064,7 +4790,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/items/{id}");
+URL obj = new URL("https://app.softledger.com/api/items/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5132,15 +4858,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/items/{id} \
+curl -X PUT https://app.softledger.com/api/items/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/items/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/items/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -5154,7 +4880,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/items/{id}',
+  url: 'https://app.softledger.com/api/items/{id}',
   method: 'put',
 
   headers: headers,
@@ -5173,7 +4899,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/items/{id}',
+fetch('https://app.softledger.com/api/items/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -5195,7 +4921,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/items/{id}',
+result = RestClient.put 'https://app.softledger.com/api/items/{id}',
   params: {
   }, headers: headers
 
@@ -5209,7 +4935,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/items/{id}', params={
+r = requests.put('https://app.softledger.com/api/items/{id}', params={
 
 }, headers = headers)
 
@@ -5217,7 +4943,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/items/{id}");
+URL obj = new URL("https://app.softledger.com/api/items/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -5291,13 +5017,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/items/{id}
+curl -X DELETE https://app.softledger.com/api/items/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/items/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/items/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -5305,7 +5031,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/items/{id}',
+  url: 'https://app.softledger.com/api/items/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -5317,7 +5043,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/items/{id}',
+fetch('https://app.softledger.com/api/items/{id}',
 {
   method: 'DELETE'
 
@@ -5334,7 +5060,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/items/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/items/{id}',
   params: {
   }
 
@@ -5344,7 +5070,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/items/{id}', params={
+r = requests.delete('https://app.softledger.com/api/items/{id}', params={
 
 )
 
@@ -5352,7 +5078,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/items/{id}");
+URL obj = new URL("https://app.softledger.com/api/items/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -5395,14 +5121,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/journals/nextId \
+curl -X GET https://app.softledger.com/api/journals/nextId \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/journals/nextId HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/journals/nextId HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -5415,7 +5141,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/journals/nextId',
+  url: 'https://app.softledger.com/api/journals/nextId',
   method: 'get',
 
   headers: headers,
@@ -5433,7 +5159,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/journals/nextId',
+fetch('https://app.softledger.com/api/journals/nextId',
 {
   method: 'GET',
 
@@ -5454,7 +5180,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/journals/nextId',
+result = RestClient.get 'https://app.softledger.com/api/journals/nextId',
   params: {
   }, headers: headers
 
@@ -5467,7 +5193,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/journals/nextId', params={
+r = requests.get('https://app.softledger.com/api/journals/nextId', params={
 
 }, headers = headers)
 
@@ -5475,7 +5201,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/journals/nextId");
+URL obj = new URL("https://app.softledger.com/api/journals/nextId");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5526,15 +5252,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/journals \
+curl -X POST https://app.softledger.com/api/journals \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/journals HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/journals HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -5548,7 +5274,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/journals',
+  url: 'https://app.softledger.com/api/journals',
   method: 'post',
 
   headers: headers,
@@ -5571,7 +5297,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/journals',
+fetch('https://app.softledger.com/api/journals',
 {
   method: 'POST',
   body: inputBody,
@@ -5593,7 +5319,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/journals',
+result = RestClient.post 'https://app.softledger.com/api/journals',
   params: {
   }, headers: headers
 
@@ -5607,7 +5333,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/journals', params={
+r = requests.post('https://app.softledger.com/api/journals', params={
 
 }, headers = headers)
 
@@ -5615,7 +5341,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/journals");
+URL obj = new URL("https://app.softledger.com/api/journals");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5668,14 +5394,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/ledger_accounts \
+curl -X GET https://app.softledger.com/api/ledger_accounts \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/ledger_accounts HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/ledger_accounts HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -5688,7 +5414,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/ledger_accounts',
+  url: 'https://app.softledger.com/api/ledger_accounts',
   method: 'get',
 
   headers: headers,
@@ -5706,7 +5432,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/ledger_accounts',
+fetch('https://app.softledger.com/api/ledger_accounts',
 {
   method: 'GET',
 
@@ -5727,7 +5453,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/ledger_accounts',
+result = RestClient.get 'https://app.softledger.com/api/ledger_accounts',
   params: {
   }, headers: headers
 
@@ -5740,7 +5466,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/ledger_accounts', params={
+r = requests.get('https://app.softledger.com/api/ledger_accounts', params={
 
 }, headers = headers)
 
@@ -5748,7 +5474,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts");
+URL obj = new URL("https://app.softledger.com/api/ledger_accounts");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5779,9 +5505,7 @@ limit|query|integer|false|max records to return
 ```json
 [
   {
-    "_id": 0,
-    "number": 0,
-    "name": "string"
+    "Location": {}
   }
 ]
 ```
@@ -5797,10 +5521,11 @@ Status Code **200**
 
 Name|Type|Required|Description
 ---|---|---|---|---|
-anonymous|[[LedgerAccount_](#schemaledgeraccount_)]|false|No description
-» _id|integer|false|No description
-» number|integer|false|No description
-» name|string|false|No description
+anonymous|[[LedgerAccount](#schemaledgeraccount)]|false|No description
+» Location|[Location_](#schemalocation_)|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
 
 
 
@@ -5815,15 +5540,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/ledger_accounts \
+curl -X POST https://app.softledger.com/api/ledger_accounts \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/ledger_accounts HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/ledger_accounts HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -5837,7 +5562,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/ledger_accounts',
+  url: 'https://app.softledger.com/api/ledger_accounts',
   method: 'post',
 
   headers: headers,
@@ -5857,8 +5582,7 @@ const inputBody = '{
   "type": "string",
   "description": "string",
   "includeLocationChildren": true,
-  "LocationId": 0,
-  "Location": {}
+  "LocationId": 0
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -5866,7 +5590,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/ledger_accounts',
+fetch('https://app.softledger.com/api/ledger_accounts',
 {
   method: 'POST',
   body: inputBody,
@@ -5888,7 +5612,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/ledger_accounts',
+result = RestClient.post 'https://app.softledger.com/api/ledger_accounts',
   params: {
   }, headers: headers
 
@@ -5902,7 +5626,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/ledger_accounts', params={
+r = requests.post('https://app.softledger.com/api/ledger_accounts', params={
 
 }, headers = headers)
 
@@ -5910,7 +5634,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts");
+URL obj = new URL("https://app.softledger.com/api/ledger_accounts");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5938,8 +5662,7 @@ System.out.println(response.toString());
   "type": "string",
   "description": "string",
   "includeLocationChildren": true,
-  "LocationId": 0,
-  "Location": {}
+  "LocationId": 0
 }
 ```
 ### Parameters
@@ -5960,8 +5683,7 @@ body|body|[LedgerAccount](#schemaledgeraccount)|true|Ledger Account
   "type": "string",
   "description": "string",
   "includeLocationChildren": true,
-  "LocationId": 0,
-  "Location": {}
+  "LocationId": 0
 }
 ```
 ### Responses
@@ -5981,14 +5703,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/ledger_accounts/{id} \
+curl -X GET https://app.softledger.com/api/ledger_accounts/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/ledger_accounts/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/ledger_accounts/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -6001,7 +5723,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  url: 'https://app.softledger.com/api/ledger_accounts/{id}',
   method: 'get',
 
   headers: headers,
@@ -6019,7 +5741,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/ledger_accounts/{id}',
+fetch('https://app.softledger.com/api/ledger_accounts/{id}',
 {
   method: 'GET',
 
@@ -6040,7 +5762,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+result = RestClient.get 'https://app.softledger.com/api/ledger_accounts/{id}',
   params: {
   }, headers: headers
 
@@ -6053,7 +5775,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/ledger_accounts/{id}', params={
+r = requests.get('https://app.softledger.com/api/ledger_accounts/{id}', params={
 
 }, headers = headers)
 
@@ -6061,7 +5783,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts/{id}");
+URL obj = new URL("https://app.softledger.com/api/ledger_accounts/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -6089,14 +5811,6 @@ id|path|integer|true|_id value
 
 ```json
 {
-  "_id": 0,
-  "number": 0,
-  "name": "string",
-  "naturalBalance": "string",
-  "type": "string",
-  "description": "string",
-  "includeLocationChildren": true,
-  "LocationId": 0,
   "Location": {}
 }
 ```
@@ -6104,7 +5818,20 @@ id|path|integer|true|_id value
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Ledger Account|[LedgerAccount](#schemaledgeraccount)
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Ledger Account|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+Location|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+
+
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -6117,15 +5844,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/ledger_accounts/{id} \
+curl -X PUT https://app.softledger.com/api/ledger_accounts/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/ledger_accounts/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/ledger_accounts/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -6139,7 +5866,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  url: 'https://app.softledger.com/api/ledger_accounts/{id}',
   method: 'put',
 
   headers: headers,
@@ -6159,8 +5886,7 @@ const inputBody = '{
   "type": "string",
   "description": "string",
   "includeLocationChildren": true,
-  "LocationId": 0,
-  "Location": {}
+  "LocationId": 0
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -6168,7 +5894,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/ledger_accounts/{id}',
+fetch('https://app.softledger.com/api/ledger_accounts/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -6190,7 +5916,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+result = RestClient.put 'https://app.softledger.com/api/ledger_accounts/{id}',
   params: {
   }, headers: headers
 
@@ -6204,7 +5930,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/ledger_accounts/{id}', params={
+r = requests.put('https://app.softledger.com/api/ledger_accounts/{id}', params={
 
 }, headers = headers)
 
@@ -6212,7 +5938,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts/{id}");
+URL obj = new URL("https://app.softledger.com/api/ledger_accounts/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -6240,8 +5966,7 @@ System.out.println(response.toString());
   "type": "string",
   "description": "string",
   "includeLocationChildren": true,
-  "LocationId": 0,
-  "Location": {}
+  "LocationId": 0
 }
 ```
 ### Parameters
@@ -6263,8 +5988,7 @@ body|body|[LedgerAccount](#schemaledgeraccount)|true|Ledger Account
   "type": "string",
   "description": "string",
   "includeLocationChildren": true,
-  "LocationId": 0,
-  "Location": {}
+  "LocationId": 0
 }
 ```
 ### Responses
@@ -6284,13 +6008,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/ledger_accounts/{id}
+curl -X DELETE https://app.softledger.com/api/ledger_accounts/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/ledger_accounts/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/ledger_accounts/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -6298,7 +6022,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  url: 'https://app.softledger.com/api/ledger_accounts/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -6310,7 +6034,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/ledger_accounts/{id}',
+fetch('https://app.softledger.com/api/ledger_accounts/{id}',
 {
   method: 'DELETE'
 
@@ -6327,7 +6051,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/ledger_accounts/{id}',
   params: {
   }
 
@@ -6337,7 +6061,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/ledger_accounts/{id}', params={
+r = requests.delete('https://app.softledger.com/api/ledger_accounts/{id}', params={
 
 )
 
@@ -6345,7 +6069,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts/{id}");
+URL obj = new URL("https://app.softledger.com/api/ledger_accounts/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -6388,14 +6112,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/location \
+curl -X GET https://app.softledger.com/api/location \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/location HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/location HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -6408,7 +6132,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/location',
+  url: 'https://app.softledger.com/api/location',
   method: 'get',
 
   headers: headers,
@@ -6426,7 +6150,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/location',
+fetch('https://app.softledger.com/api/location',
 {
   method: 'GET',
 
@@ -6447,7 +6171,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/location',
+result = RestClient.get 'https://app.softledger.com/api/location',
   params: {
   }, headers: headers
 
@@ -6460,7 +6184,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/location', params={
+r = requests.get('https://app.softledger.com/api/location', params={
 
 }, headers = headers)
 
@@ -6468,7 +6192,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/location");
+URL obj = new URL("https://app.softledger.com/api/location");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -6541,15 +6265,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/location \
+curl -X POST https://app.softledger.com/api/location \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/location HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/location HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -6563,7 +6287,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/location',
+  url: 'https://app.softledger.com/api/location',
   method: 'post',
 
   headers: headers,
@@ -6589,7 +6313,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/location',
+fetch('https://app.softledger.com/api/location',
 {
   method: 'POST',
   body: inputBody,
@@ -6611,7 +6335,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/location',
+result = RestClient.post 'https://app.softledger.com/api/location',
   params: {
   }, headers: headers
 
@@ -6625,7 +6349,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/location', params={
+r = requests.post('https://app.softledger.com/api/location', params={
 
 }, headers = headers)
 
@@ -6633,7 +6357,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/location");
+URL obj = new URL("https://app.softledger.com/api/location");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6698,14 +6422,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/location/{id} \
+curl -X GET https://app.softledger.com/api/location/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/location/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/location/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -6718,7 +6442,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/location/{id}',
+  url: 'https://app.softledger.com/api/location/{id}',
   method: 'get',
 
   headers: headers,
@@ -6736,7 +6460,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/location/{id}',
+fetch('https://app.softledger.com/api/location/{id}',
 {
   method: 'GET',
 
@@ -6757,7 +6481,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/location/{id}',
+result = RestClient.get 'https://app.softledger.com/api/location/{id}',
   params: {
   }, headers: headers
 
@@ -6770,7 +6494,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/location/{id}', params={
+r = requests.get('https://app.softledger.com/api/location/{id}', params={
 
 }, headers = headers)
 
@@ -6778,7 +6502,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/location/{id}");
+URL obj = new URL("https://app.softledger.com/api/location/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -6831,15 +6555,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/location/{id} \
+curl -X PUT https://app.softledger.com/api/location/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/location/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/location/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -6853,7 +6577,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/location/{id}',
+  url: 'https://app.softledger.com/api/location/{id}',
   method: 'put',
 
   headers: headers,
@@ -6879,7 +6603,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/location/{id}',
+fetch('https://app.softledger.com/api/location/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -6901,7 +6625,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/location/{id}',
+result = RestClient.put 'https://app.softledger.com/api/location/{id}',
   params: {
   }, headers: headers
 
@@ -6915,7 +6639,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/location/{id}', params={
+r = requests.put('https://app.softledger.com/api/location/{id}', params={
 
 }, headers = headers)
 
@@ -6923,7 +6647,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/location/{id}");
+URL obj = new URL("https://app.softledger.com/api/location/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -6989,13 +6713,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/location/{id}
+curl -X DELETE https://app.softledger.com/api/location/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/location/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/location/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -7003,7 +6727,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/location/{id}',
+  url: 'https://app.softledger.com/api/location/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -7015,7 +6739,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/location/{id}',
+fetch('https://app.softledger.com/api/location/{id}',
 {
   method: 'DELETE'
 
@@ -7032,7 +6756,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/location/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/location/{id}',
   params: {
   }
 
@@ -7042,7 +6766,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/location/{id}', params={
+r = requests.delete('https://app.softledger.com/api/location/{id}', params={
 
 )
 
@@ -7050,7 +6774,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/location/{id}");
+URL obj = new URL("https://app.softledger.com/api/location/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -7091,14 +6815,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/locations/me \
+curl -X GET https://app.softledger.com/api/locations/me \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/locations/me HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/locations/me HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -7111,7 +6835,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/locations/me',
+  url: 'https://app.softledger.com/api/locations/me',
   method: 'get',
 
   headers: headers,
@@ -7129,7 +6853,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/locations/me',
+fetch('https://app.softledger.com/api/locations/me',
 {
   method: 'GET',
 
@@ -7150,7 +6874,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/locations/me',
+result = RestClient.get 'https://app.softledger.com/api/locations/me',
   params: {
   }, headers: headers
 
@@ -7163,7 +6887,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/locations/me', params={
+r = requests.get('https://app.softledger.com/api/locations/me', params={
 
 }, headers = headers)
 
@@ -7171,7 +6895,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/locations/me");
+URL obj = new URL("https://app.softledger.com/api/locations/me");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -7237,14 +6961,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/locations/{id}/descendents \
+curl -X GET https://app.softledger.com/api/locations/{id}/descendents \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/locations/{id}/descendents HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/locations/{id}/descendents HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -7257,7 +6981,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/locations/{id}/descendents',
+  url: 'https://app.softledger.com/api/locations/{id}/descendents',
   method: 'get',
 
   headers: headers,
@@ -7275,7 +6999,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/locations/{id}/descendents',
+fetch('https://app.softledger.com/api/locations/{id}/descendents',
 {
   method: 'GET',
 
@@ -7296,7 +7020,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/locations/{id}/descendents',
+result = RestClient.get 'https://app.softledger.com/api/locations/{id}/descendents',
   params: {
   }, headers: headers
 
@@ -7309,7 +7033,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/locations/{id}/descendents', params={
+r = requests.get('https://app.softledger.com/api/locations/{id}/descendents', params={
 
 }, headers = headers)
 
@@ -7317,7 +7041,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/locations/{id}/descendents");
+URL obj = new URL("https://app.softledger.com/api/locations/{id}/descendents");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -7392,14 +7116,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/purchaseOrders \
+curl -X GET https://app.softledger.com/api/purchaseOrders \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/purchaseOrders HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/purchaseOrders HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -7412,7 +7136,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/purchaseOrders',
+  url: 'https://app.softledger.com/api/purchaseOrders',
   method: 'get',
 
   headers: headers,
@@ -7430,7 +7154,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/purchaseOrders',
+fetch('https://app.softledger.com/api/purchaseOrders',
 {
   method: 'GET',
 
@@ -7451,7 +7175,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders',
   params: {
   }, headers: headers
 
@@ -7464,7 +7188,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/purchaseOrders', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders', params={
 
 }, headers = headers)
 
@@ -7472,7 +7196,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -7604,15 +7328,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X POST https://nightly.softledger.com/api/purchaseOrders \
+curl -X POST https://app.softledger.com/api/purchaseOrders \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://nightly.softledger.com/api/purchaseOrders HTTP/1.1
-Host: nightly.softledger.com
+POST https://app.softledger.com/api/purchaseOrders HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -7626,7 +7350,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/purchaseOrders',
+  url: 'https://app.softledger.com/api/purchaseOrders',
   method: 'post',
 
   headers: headers,
@@ -7649,7 +7373,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/purchaseOrders',
+fetch('https://app.softledger.com/api/purchaseOrders',
 {
   method: 'POST',
   body: inputBody,
@@ -7671,7 +7395,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://nightly.softledger.com/api/purchaseOrders',
+result = RestClient.post 'https://app.softledger.com/api/purchaseOrders',
   params: {
   }, headers: headers
 
@@ -7685,7 +7409,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://nightly.softledger.com/api/purchaseOrders', params={
+r = requests.post('https://app.softledger.com/api/purchaseOrders', params={
 
 }, headers = headers)
 
@@ -7693,7 +7417,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -7791,14 +7515,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/purchaseOrders/{id} \
+curl -X GET https://app.softledger.com/api/purchaseOrders/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/purchaseOrders/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/purchaseOrders/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -7811,7 +7535,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}',
   method: 'get',
 
   headers: headers,
@@ -7829,7 +7553,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/purchaseOrders/{id}',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}',
 {
   method: 'GET',
 
@@ -7850,7 +7574,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}',
   params: {
   }, headers: headers
 
@@ -7863,7 +7587,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/purchaseOrders/{id}', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}', params={
 
 }, headers = headers)
 
@@ -7871,7 +7595,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -7966,15 +7690,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/purchaseOrders/{id} \
+curl -X PUT https://app.softledger.com/api/purchaseOrders/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/purchaseOrders/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/purchaseOrders/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -7988,7 +7712,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}',
   method: 'put',
 
   headers: headers,
@@ -8007,7 +7731,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/purchaseOrders/{id}',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -8029,7 +7753,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+result = RestClient.put 'https://app.softledger.com/api/purchaseOrders/{id}',
   params: {
   }, headers: headers
 
@@ -8043,7 +7767,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/purchaseOrders/{id}', params={
+r = requests.put('https://app.softledger.com/api/purchaseOrders/{id}', params={
 
 }, headers = headers)
 
@@ -8051,7 +7775,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -8150,13 +7874,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/purchaseOrders/{id}
+curl -X DELETE https://app.softledger.com/api/purchaseOrders/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/purchaseOrders/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/purchaseOrders/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -8164,7 +7888,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -8176,7 +7900,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/purchaseOrders/{id}',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}',
 {
   method: 'DELETE'
 
@@ -8193,7 +7917,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/purchaseOrders/{id}',
   params: {
   }
 
@@ -8203,7 +7927,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/purchaseOrders/{id}', params={
+r = requests.delete('https://app.softledger.com/api/purchaseOrders/{id}', params={
 
 )
 
@@ -8211,7 +7935,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -8252,14 +7976,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/purchaseOrders/nextNumber \
+curl -X GET https://app.softledger.com/api/purchaseOrders/nextNumber \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/purchaseOrders/nextNumber HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/purchaseOrders/nextNumber HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -8272,7 +7996,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/purchaseOrders/nextNumber',
+  url: 'https://app.softledger.com/api/purchaseOrders/nextNumber',
   method: 'get',
 
   headers: headers,
@@ -8290,7 +8014,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/purchaseOrders/nextNumber',
+fetch('https://app.softledger.com/api/purchaseOrders/nextNumber',
 {
   method: 'GET',
 
@@ -8311,7 +8035,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders/nextNumber',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/nextNumber',
   params: {
   }, headers: headers
 
@@ -8324,7 +8048,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/purchaseOrders/nextNumber', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders/nextNumber', params={
 
 }, headers = headers)
 
@@ -8332,7 +8056,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/nextNumber");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/nextNumber");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8383,14 +8107,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/purchaseOrders/{id}/pdf \
+curl -X GET https://app.softledger.com/api/purchaseOrders/{id}/pdf \
   -H 'Accept: application/pdf'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/purchaseOrders/{id}/pdf HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/purchaseOrders/{id}/pdf HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/pdf
 
@@ -8403,7 +8127,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}/pdf',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}/pdf',
   method: 'get',
 
   headers: headers,
@@ -8421,7 +8145,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/purchaseOrders/{id}/pdf',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}/pdf',
 {
   method: 'GET',
 
@@ -8442,7 +8166,7 @@ headers = {
   'Accept' => 'application/pdf'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders/{id}/pdf',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}/pdf',
   params: {
   }, headers: headers
 
@@ -8455,7 +8179,7 @@ headers = {
   'Accept': 'application/pdf'
 }
 
-r = requests.get('https://nightly.softledger.com/api/purchaseOrders/{id}/pdf', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}/pdf', params={
 
 }, headers = headers)
 
@@ -8463,7 +8187,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}/pdf");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}/pdf");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8506,14 +8230,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems \
+curl -X GET https://app.softledger.com/api/purchaseOrders/{id}/lineItems \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/purchaseOrders/{id}/lineItems HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -8526,7 +8250,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems',
+  url: 'https://app.softledger.com/api/purchaseOrders/{id}/lineItems',
   method: 'get',
 
   headers: headers,
@@ -8544,7 +8268,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems',
+fetch('https://app.softledger.com/api/purchaseOrders/{id}/lineItems',
 {
   method: 'GET',
 
@@ -8565,7 +8289,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems',
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/{id}/lineItems',
   params: {
   }, headers: headers
 
@@ -8578,7 +8302,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems', params={
+r = requests.get('https://app.softledger.com/api/purchaseOrders/{id}/lineItems', params={
 
 }, headers = headers)
 
@@ -8586,7 +8310,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems");
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/{id}/lineItems");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8683,14 +8407,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/vendors \
+curl -X GET https://app.softledger.com/api/vendors \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/vendors HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/vendors HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -8703,7 +8427,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/vendors',
+  url: 'https://app.softledger.com/api/vendors',
   method: 'get',
 
   headers: headers,
@@ -8721,7 +8445,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/vendors',
+fetch('https://app.softledger.com/api/vendors',
 {
   method: 'GET',
 
@@ -8742,7 +8466,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/vendors',
+result = RestClient.get 'https://app.softledger.com/api/vendors',
   params: {
   }, headers: headers
 
@@ -8755,7 +8479,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/vendors', params={
+r = requests.get('https://app.softledger.com/api/vendors', params={
 
 }, headers = headers)
 
@@ -8763,7 +8487,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/vendors");
+URL obj = new URL("https://app.softledger.com/api/vendors");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8851,20 +8575,189 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
+## POST /vendors
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://app.softledger.com/api/vendors \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://app.softledger.com/api/vendors HTTP/1.1
+Host: app.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/vendors',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/vendors',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://app.softledger.com/api/vendors',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://app.softledger.com/api/vendors', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/vendors");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create A Vendor*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[Vendor](#schemavendor)|true|Vendor
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Vendor|[Vendor](#schemavendor)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
 ## GET /vendors/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/vendors/{id} \
+curl -X GET https://app.softledger.com/api/vendors/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/vendors/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/vendors/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -8877,7 +8770,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/vendors/{id}',
+  url: 'https://app.softledger.com/api/vendors/{id}',
   method: 'get',
 
   headers: headers,
@@ -8895,7 +8788,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/vendors/{id}',
+fetch('https://app.softledger.com/api/vendors/{id}',
 {
   method: 'GET',
 
@@ -8916,7 +8809,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/vendors/{id}',
+result = RestClient.get 'https://app.softledger.com/api/vendors/{id}',
   params: {
   }, headers: headers
 
@@ -8929,7 +8822,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/vendors/{id}', params={
+r = requests.get('https://app.softledger.com/api/vendors/{id}', params={
 
 }, headers = headers)
 
@@ -8937,7 +8830,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/vendors/{id}");
+URL obj = new URL("https://app.softledger.com/api/vendors/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -8994,15 +8887,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/vendors/{id} \
+curl -X PUT https://app.softledger.com/api/vendors/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/vendors/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/vendors/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -9016,7 +8909,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/vendors/{id}',
+  url: 'https://app.softledger.com/api/vendors/{id}',
   method: 'put',
 
   headers: headers,
@@ -9046,7 +8939,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/vendors/{id}',
+fetch('https://app.softledger.com/api/vendors/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -9068,7 +8961,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/vendors/{id}',
+result = RestClient.put 'https://app.softledger.com/api/vendors/{id}',
   params: {
   }, headers: headers
 
@@ -9082,7 +8975,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/vendors/{id}', params={
+r = requests.put('https://app.softledger.com/api/vendors/{id}', params={
 
 }, headers = headers)
 
@@ -9090,7 +8983,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/vendors/{id}");
+URL obj = new URL("https://app.softledger.com/api/vendors/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -9164,13 +9057,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/vendors/{id}
+curl -X DELETE https://app.softledger.com/api/vendors/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/vendors/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/vendors/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -9178,7 +9071,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/vendors/{id}',
+  url: 'https://app.softledger.com/api/vendors/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -9190,7 +9083,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/vendors/{id}',
+fetch('https://app.softledger.com/api/vendors/{id}',
 {
   method: 'DELETE'
 
@@ -9207,7 +9100,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/vendors/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/vendors/{id}',
   params: {
   }
 
@@ -9217,7 +9110,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/vendors/{id}', params={
+r = requests.delete('https://app.softledger.com/api/vendors/{id}', params={
 
 )
 
@@ -9225,7 +9118,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/vendors/{id}");
+URL obj = new URL("https://app.softledger.com/api/vendors/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -9268,14 +9161,14 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/warehouses \
+curl -X GET https://app.softledger.com/api/warehouses \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/warehouses HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/warehouses HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -9288,7 +9181,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/warehouses',
+  url: 'https://app.softledger.com/api/warehouses',
   method: 'get',
 
   headers: headers,
@@ -9306,7 +9199,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/warehouses',
+fetch('https://app.softledger.com/api/warehouses',
 {
   method: 'GET',
 
@@ -9327,7 +9220,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/warehouses',
+result = RestClient.get 'https://app.softledger.com/api/warehouses',
   params: {
   }, headers: headers
 
@@ -9340,7 +9233,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/warehouses', params={
+r = requests.get('https://app.softledger.com/api/warehouses', params={
 
 }, headers = headers)
 
@@ -9348,7 +9241,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/warehouses");
+URL obj = new URL("https://app.softledger.com/api/warehouses");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -9377,16 +9270,13 @@ limit|query|integer|false|max records to return
 > Example responses
 
 ```json
-{
-  "totalItems": 0,
-  "data": [
-    {
-      "name": "string",
-      "description": "string",
-      "Address": {}
-    }
-  ]
-}
+[
+  {
+    "name": "string",
+    "description": "string",
+    "Address": {}
+  }
+]
 ```
 ### Responses
 
@@ -9400,8 +9290,7 @@ Status Code **200**
 
 Name|Type|Required|Description
 ---|---|---|---|---|
-totalItems|integer|false|No description
-data|[[Warehouse](#schemawarehouse)]|false|No description
+anonymous|[[Warehouse](#schemawarehouse)]|false|No description
 » name|string|false|No description
 » description|string|false|No description
 » Address|[Address](#schemaaddress)|false|No description
@@ -9421,20 +9310,168 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
+## POST /warehouses
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://app.softledger.com/api/warehouses \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://app.softledger.com/api/warehouses HTTP/1.1
+Host: app.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/warehouses',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/warehouses',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://app.softledger.com/api/warehouses',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://app.softledger.com/api/warehouses', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/warehouses");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create A Warehouse*
+
+> Body parameter
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[Warehouse](#schemawarehouse)|true|Warehouse
+
+
+> Example responses
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Warehouse|[Warehouse](#schemawarehouse)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
 ## GET /warehouses/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://nightly.softledger.com/api/warehouses/{id} \
+curl -X GET https://app.softledger.com/api/warehouses/{id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://nightly.softledger.com/api/warehouses/{id} HTTP/1.1
-Host: nightly.softledger.com
+GET https://app.softledger.com/api/warehouses/{id} HTTP/1.1
+Host: app.softledger.com
 
 Accept: application/json
 
@@ -9447,7 +9484,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/warehouses/{id}',
+  url: 'https://app.softledger.com/api/warehouses/{id}',
   method: 'get',
 
   headers: headers,
@@ -9465,7 +9502,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/warehouses/{id}',
+fetch('https://app.softledger.com/api/warehouses/{id}',
 {
   method: 'GET',
 
@@ -9486,7 +9523,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://nightly.softledger.com/api/warehouses/{id}',
+result = RestClient.get 'https://app.softledger.com/api/warehouses/{id}',
   params: {
   }, headers: headers
 
@@ -9499,7 +9536,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://nightly.softledger.com/api/warehouses/{id}', params={
+r = requests.get('https://app.softledger.com/api/warehouses/{id}', params={
 
 }, headers = headers)
 
@@ -9507,7 +9544,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/warehouses/{id}");
+URL obj = new URL("https://app.softledger.com/api/warehouses/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -9557,15 +9594,15 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X PUT https://nightly.softledger.com/api/warehouses/{id} \
+curl -X PUT https://app.softledger.com/api/warehouses/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT https://nightly.softledger.com/api/warehouses/{id} HTTP/1.1
-Host: nightly.softledger.com
+PUT https://app.softledger.com/api/warehouses/{id} HTTP/1.1
+Host: app.softledger.com
 Content-Type: application/json
 Accept: application/json
 
@@ -9579,7 +9616,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/warehouses/{id}',
+  url: 'https://app.softledger.com/api/warehouses/{id}',
   method: 'put',
 
   headers: headers,
@@ -9602,7 +9639,7 @@ const headers = {
 
 };
 
-fetch('https://nightly.softledger.com/api/warehouses/{id}',
+fetch('https://app.softledger.com/api/warehouses/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -9624,7 +9661,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.put 'https://nightly.softledger.com/api/warehouses/{id}',
+result = RestClient.put 'https://app.softledger.com/api/warehouses/{id}',
   params: {
   }, headers: headers
 
@@ -9638,7 +9675,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.put('https://nightly.softledger.com/api/warehouses/{id}', params={
+r = requests.put('https://app.softledger.com/api/warehouses/{id}', params={
 
 }, headers = headers)
 
@@ -9646,7 +9683,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/warehouses/{id}");
+URL obj = new URL("https://app.softledger.com/api/warehouses/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -9706,13 +9743,13 @@ oauth2 ( Scopes: admin )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://nightly.softledger.com/api/warehouses/{id}
+curl -X DELETE https://app.softledger.com/api/warehouses/{id}
 
 ```
 
 ```http
-DELETE https://nightly.softledger.com/api/warehouses/{id} HTTP/1.1
-Host: nightly.softledger.com
+DELETE https://app.softledger.com/api/warehouses/{id} HTTP/1.1
+Host: app.softledger.com
 
 
 ```
@@ -9720,7 +9757,7 @@ Host: nightly.softledger.com
 ```javascript
 
 $.ajax({
-  url: 'https://nightly.softledger.com/api/warehouses/{id}',
+  url: 'https://app.softledger.com/api/warehouses/{id}',
   method: 'delete',
 
   success: function(data) {
@@ -9732,7 +9769,7 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-fetch('https://nightly.softledger.com/api/warehouses/{id}',
+fetch('https://app.softledger.com/api/warehouses/{id}',
 {
   method: 'DELETE'
 
@@ -9749,7 +9786,7 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'https://nightly.softledger.com/api/warehouses/{id}',
+result = RestClient.delete 'https://app.softledger.com/api/warehouses/{id}',
   params: {
   }
 
@@ -9759,7 +9796,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('https://nightly.softledger.com/api/warehouses/{id}', params={
+r = requests.delete('https://app.softledger.com/api/warehouses/{id}', params={
 
 )
 
@@ -9767,7 +9804,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://nightly.softledger.com/api/warehouses/{id}");
+URL obj = new URL("https://app.softledger.com/api/warehouses/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -10659,8 +10696,7 @@ name|string|false|No description
   "type": "string",
   "description": "string",
   "includeLocationChildren": true,
-  "LocationId": 0,
-  "Location": {}
+  "LocationId": 0
 } 
 ```
 
@@ -10676,10 +10712,6 @@ type|string|false|No description
 description|string|false|No description
 includeLocationChildren|boolean|false|No description
 LocationId|integer|false|No description
-Location|[Location_](#schemalocation_)|false|No description
-» _id|integer|false|No description
-» id|string|false|No description
-» name|string|false|No description
 
 
 
