@@ -18,7 +18,8 @@ This is the most cutting edge API, not all endpoints are fully functional/tested
 
 Base URLs:
 
-* <a href="https://nightly.softledger.com/api">https://nightly.softledger.com/api</a>
+* <a href="https://app.softledger.com/api">https://app.softledger.com/api</a>
+* <a href="https://trial.softledger.com/api">https://trial.softledger.com/api</a>
 
 
 
