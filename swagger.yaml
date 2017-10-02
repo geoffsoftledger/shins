@@ -141,6 +141,80 @@ paths:
       responses:
         '200':
           description: Bills Paid
+  /cashReceipts:
+    get:
+      tags:
+        - Cash Receipt
+      summary: Get All Cash Receipts
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of Cash Receipts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CashReceipt'
+    post:
+      tags:
+        - Cash Receipt
+      summary: Create A Cash Receipt
+      requestBody:
+        $ref: '#/components/requestBodies/CashReceiptBody'
+      responses:
+        '201':
+          description: Created Cash Receipt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashReceipt_'
+  '/cashReceipts/{id}':
+    get:
+      tags:
+        - Cash Receipt
+      summary: Get One Cash Receipt
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: One Cash Receipt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashReceipt'
+    put:
+      tags:
+        - Cash Receipt
+      summary: Update Cash Receipt
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/CashReceiptBody'
+      responses:
+        '201':
+          description: Cash Receipt Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashReceipt_'
+    delete:
+      tags:
+        - Cash Receipt
+      summary: Delete Cash Receipt
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: Cash Receipt Deleted
   /cost_centers:
     get:
       tags:
@@ -1009,80 +1083,6 @@ paths:
       responses:
         '204':
           description: Warehouse Deleted
-  /cashReceipts:
-    get:
-      tags:
-        - Cash Receipt
-      summary: Get All Cash Receipts
-      parameters:
-        - $ref: '#/components/parameters/whereParam'
-        - $ref: '#/components/parameters/offsetParam'
-        - $ref: '#/components/parameters/limitParam'
-      responses:
-        '200':
-          description: List of Cash Receipts
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  totalItems:
-                    type: integer
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/CashReceipt'
-    post:
-      tags:
-        - Cash Receipt
-      summary: Create A Cash Receipt
-      requestBody:
-        $ref: '#/components/requestBodies/CashReceiptBody'
-      responses:
-        '201':
-          description: Created Cash Receipt
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CashReceipt_'
-  '/cashReceipts/{id}':
-    get:
-      tags:
-        - Cash Receipt
-      summary: Get One Cash Receipt
-      parameters:
-        - $ref: '#/components/parameters/idParam'
-      responses:
-        '200':
-          description: One Cash Receipt
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CashReceipt'
-    put:
-      tags:
-        - Cash Receipt
-      summary: Update Cash Receipt
-      parameters:
-        - $ref: '#/components/parameters/idParam'
-      requestBody:
-        $ref: '#/components/requestBodies/CashReceiptBody'
-      responses:
-        '201':
-          description: Cash Receipt Updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CashReceipt_'
-    delete:
-      tags:
-        - Cash Receipt
-      summary: Delete Cash Receipt
-      parameters:
-        - $ref: '#/components/parameters/idParam'
-      responses:
-        '204':
-          description: Cash Receipt Deleted
 components:
   schemas:
     Bill_:
