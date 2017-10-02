@@ -1,1472 +1,62 @@
 ---
-title: Swagger Petstore v1.0.0
+title: SoftLedger Beta
 language_tabs:
   - shell: Shell
   - http: HTTP
-  - javascript: JavaScript
   - javascript--nodejs: Node.JS
-  - ruby: Ruby
-  - python: Python
-  - java: Java
-toc_footers:
-  - >-
-    <a href="https://mermade.github.io/shins/asyncapi.html">See AsyncAPI
-    example</a>
+toc_footers: []
 includes: []
 search: true
 highlight_theme: darkula
 ---
 
-# Swagger Petstore v1.0.0
+# SoftLedger Beta
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-:dog: :cat: :rabbit: This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.
+This is the most cutting edge API, not all endpoints are fully functional/tested
 
 Base URLs:
 
-* <a href="http://petstore.swagger.io/v2">http://petstore.swagger.io/v2</a>
+* <a href="https://nightly.softledger.com/api">https://nightly.softledger.com/api</a>
 
 
 
-<a href="http://swagger.io/terms/">Terms of service</a>
-Email: <a href="mailto:apiteam@swagger.io">Support</a> 
-License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
+
 
 # Authentication
 
 
 
-
-
 - oAuth2 authentication. 
 
-    - Flow: implicit
-    - Authorization URL = [http://petstore.swagger.io/oauth/dialog](http://petstore.swagger.io/oauth/dialog)
+    - Flow: password
 
+    - Token URL = [https://softledger.auth0.com/oauth/token](https://softledger.auth0.com/oauth/token)
 
 |Scope|Scope Description|
 |---|---|
-|write:pets|modify pets in your account|
-|read:pets|read your pets|
+|admin|full access|
 
 
 
 
+# Bill
 
-
-* API Key
-    - Parameter Name: **api_key**, in: header. 
-
-
-
-
-
-# pet
-
-Everything about your Pets
-
-<a href="http://swagger.io">Find out more</a>
-## addPet
+## GET /bills
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST http://petstore.swagger.io/v2/pet \
-  -H 'Content-Type: application/json'
-
-```
-
-```http
-POST http://petstore.swagger.io/v2/pet HTTP/1.1
-Host: petstore.swagger.io
-Content-Type: application/json
-
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "id": 0,
-  "category": {
-    "id": 0,
-    "name": "string"
-  },
-  "name": "doggie",
-  "photoUrls": [
-    "string"
-  ],
-  "tags": [
-    {
-      "id": 0,
-      "name": "string"
-    }
-  ],
-  "status": "available"
-}';
-const headers = {
-  'Content-Type':'application/json'
-
-};
-
-fetch('http://petstore.swagger.io/v2/pet',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json'
-}
-
-result = RestClient.post 'http://petstore.swagger.io/v2/pet',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json'
-}
-
-r = requests.post('http://petstore.swagger.io/v2/pet', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/pet");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`POST /pet`
-
-*Add a new pet to the store*
-
-> Body parameter
-
-```json
-{
-  "id": 0,
-  "category": {
-    "id": 0,
-    "name": "string"
-  },
-  "name": "doggie",
-  "photoUrls": [
-    "string"
-  ],
-  "tags": [
-    {
-      "id": 0,
-      "name": "string"
-    }
-  ],
-  "status": "available"
-}
-```
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<Pet>
-  <id>0</id>
-  <category>
-    <id>0</id>
-    <name>string</name>
-  </category>
-  <name>doggie</name>
-  <photoUrls>string</photoUrls>
-  <tags>
-    <id>0</id>
-    <name>string</name>
-  </tags>
-  <status>available</status>
-</Pet>
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store
-» id|body|integer(int64)|false|No description
-» category|body|[Category](#schemacategory)|false|No description
-»» id|body|integer(int64)|false|No description
-»» name|body|string|false|No description
-» name|body|string|true|No description
-» status|body|string|false|pet status in the store
-» photoUrls|body|[string]|false|No description
-» tags|body|[[Tag](#schematag)]|false|No description
-»» id|body|integer(int64)|false|No description
-»» name|body|string|false|No description
-
-
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-» status|available|
-» status|pending|
-» status|sold|
-
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Invalid input|None
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: write:pets read:pets )
-</aside>
-
-
-## updatePet
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X PUT http://petstore.swagger.io/v2/pet \
-  -H 'Content-Type: application/json'
-
-```
-
-```http
-PUT http://petstore.swagger.io/v2/pet HTTP/1.1
-Host: petstore.swagger.io
-Content-Type: application/json
-
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet',
-  method: 'put',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "id": 0,
-  "category": {
-    "id": 0,
-    "name": "string"
-  },
-  "name": "doggie",
-  "photoUrls": [
-    "string"
-  ],
-  "tags": [
-    {
-      "id": 0,
-      "name": "string"
-    }
-  ],
-  "status": "available"
-}';
-const headers = {
-  'Content-Type':'application/json'
-
-};
-
-fetch('http://petstore.swagger.io/v2/pet',
-{
-  method: 'PUT',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json'
-}
-
-result = RestClient.put 'http://petstore.swagger.io/v2/pet',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json'
-}
-
-r = requests.put('http://petstore.swagger.io/v2/pet', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/pet");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("PUT");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`PUT /pet`
-
-*Update an existing pet*
-
-> Body parameter
-
-```json
-{
-  "id": 0,
-  "category": {
-    "id": 0,
-    "name": "string"
-  },
-  "name": "doggie",
-  "photoUrls": [
-    "string"
-  ],
-  "tags": [
-    {
-      "id": 0,
-      "name": "string"
-    }
-  ],
-  "status": "available"
-}
-```
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<Pet>
-  <id>0</id>
-  <category>
-    <id>0</id>
-    <name>string</name>
-  </category>
-  <name>doggie</name>
-  <photoUrls>string</photoUrls>
-  <tags>
-    <id>0</id>
-    <name>string</name>
-  </tags>
-  <status>available</status>
-</Pet>
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store
-» id|body|integer(int64)|false|No description
-» category|body|[Category](#schemacategory)|false|No description
-»» id|body|integer(int64)|false|No description
-»» name|body|string|false|No description
-» name|body|string|true|No description
-» status|body|string|false|pet status in the store
-» photoUrls|body|[string]|false|No description
-» tags|body|[[Tag](#schematag)]|false|No description
-»» id|body|integer(int64)|false|No description
-»» name|body|string|false|No description
-
-
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-» status|available|
-» status|pending|
-» status|sold|
-
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found|None
-405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Validation exception|None
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: write:pets read:pets )
-</aside>
-
-
-## findPetsByStatus
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://petstore.swagger.io/v2/pet/findByStatus?status=... \
-  -H 'Accept: application/xml'
-
-```
-
-```http
-GET http://petstore.swagger.io/v2/pet/findByStatus?status=... HTTP/1.1
-Host: petstore.swagger.io
-
-Accept: application/xml
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/findByStatus',
-  method: 'get',
-  data: '?status=...',
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-const headers = {
-  'Accept':'application/xml'
-
-};
-
-fetch('http://petstore.swagger.io/v2/pet/findByStatus?status=...',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/xml'
-}
-
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus',
-  params: {
-  'status' => 'array[string]'
-}, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/xml'
-}
-
-r = requests.get('http://petstore.swagger.io/v2/pet/findByStatus', params={
-  'status': [
-  "available"
-]
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/pet/findByStatus?status=...");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`GET /pet/findByStatus`
-
-*Finds Pets by status*
-
-Multiple status values can be provided with comma separated strings
-
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-status|query|array[string]|true|Status values that need to be considered for filter
-
-
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-status|available|
-status|pending|
-status|sold|
-
-
-> Example responses
-
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<id>0</id>
-<category>
-  <id>0</id>
-  <name>string</name>
-</category>
-<name>doggie</name>
-<photoUrls>string</photoUrls>
-<tags>
-  <id>0</id>
-  <name>string</name>
-</tags>
-<status>available</status>
-```
-```json
-[
-  {
-    "id": 0,
-    "category": {
-      "id": 0,
-      "name": "string"
-    },
-    "name": "doggie",
-    "photoUrls": [
-      "string"
-    ],
-    "tags": [
-      {
-        "id": 0,
-        "name": "string"
-      }
-    ],
-    "status": "available"
-  }
-]
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid status value|None
-
-### Response Schema
-
-Status Code **200**
-
-Name|Type|Required|Description
----|---|---|---|---|
-anonymous|[[Pet](#schemapet)]|false|No description
-» id|integer(int64)|false|No description
-» category|[Category](#schemacategory)|false|No description
-»» id|integer(int64)|false|No description
-»» name|string|false|No description
-» name|string|true|No description
-» status|string|false|pet status in the store
-» photoUrls|[string]|false|No description
-» tags|[[Tag](#schematag)]|false|No description
-»» id|integer(int64)|false|No description
-»» name|string|false|No description
-
-
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: write:pets read:pets )
-</aside>
-
-
-## findPetsByTags
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://petstore.swagger.io/v2/pet/findByTags?tags=... \
-  -H 'Accept: application/xml'
-
-```
-
-```http
-GET http://petstore.swagger.io/v2/pet/findByTags?tags=... HTTP/1.1
-Host: petstore.swagger.io
-
-Accept: application/xml
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/findByTags',
-  method: 'get',
-  data: '?tags=...',
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-const headers = {
-  'Accept':'application/xml'
-
-};
-
-fetch('http://petstore.swagger.io/v2/pet/findByTags?tags=...',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/xml'
-}
-
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags',
-  params: {
-  'tags' => 'array[string]'
-}, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/xml'
-}
-
-r = requests.get('http://petstore.swagger.io/v2/pet/findByTags', params={
-  'tags': [
-  "string"
-]
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/pet/findByTags?tags=...");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`GET /pet/findByTags`
-
-*Finds Pets by tags*
-
-Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
-
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-tags|query|array[string]|true|Tags to filter by
-
-
-
-> Example responses
-
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<id>0</id>
-<category>
-  <id>0</id>
-  <name>string</name>
-</category>
-<name>doggie</name>
-<photoUrls>string</photoUrls>
-<tags>
-  <id>0</id>
-  <name>string</name>
-</tags>
-<status>available</status>
-```
-```json
-[
-  {
-    "id": 0,
-    "category": {
-      "id": 0,
-      "name": "string"
-    },
-    "name": "doggie",
-    "photoUrls": [
-      "string"
-    ],
-    "tags": [
-      {
-        "id": 0,
-        "name": "string"
-      }
-    ],
-    "status": "available"
-  }
-]
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid tag value|None
-
-### Response Schema
-
-Status Code **200**
-
-Name|Type|Required|Description
----|---|---|---|---|
-anonymous|[[Pet](#schemapet)]|false|No description
-» id|integer(int64)|false|No description
-» category|[Category](#schemacategory)|false|No description
-»» id|integer(int64)|false|No description
-»» name|string|false|No description
-» name|string|true|No description
-» status|string|false|pet status in the store
-» photoUrls|[string]|false|No description
-» tags|[[Tag](#schematag)]|false|No description
-»» id|integer(int64)|false|No description
-»» name|string|false|No description
-
-
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: write:pets read:pets )
-</aside>
-
-
-## getPetById
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://petstore.swagger.io/v2/pet/{petId} \
-  -H 'Accept: application/xml'
-
-```
-
-```http
-GET http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
-Host: petstore.swagger.io
-
-Accept: application/xml
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/{petId}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-const headers = {
-  'Accept':'application/xml'
-
-};
-
-fetch('http://petstore.swagger.io/v2/pet/{petId}',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/xml'
-}
-
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/xml'
-}
-
-r = requests.get('http://petstore.swagger.io/v2/pet/{petId}', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/pet/{petId}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`GET /pet/{petId}`
-
-*Find pet by ID*
-
-Returns a single pet
-
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-petId|path|integer(int64)|true|ID of pet to return
-
-
-
-> Example responses
-
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<Pet>
-  <id>0</id>
-  <category>
-    <id>0</id>
-    <name>string</name>
-  </category>
-  <name>doggie</name>
-  <photoUrls>string</photoUrls>
-  <tags>
-    <id>0</id>
-    <name>string</name>
-  </tags>
-  <status>available</status>
-</Pet>
-```
-```json
-{
-  "id": 0,
-  "category": {
-    "id": 0,
-    "name": "string"
-  },
-  "name": "doggie",
-  "photoUrls": [
-    "string"
-  ],
-  "tags": [
-    {
-      "id": 0,
-      "name": "string"
-    }
-  ],
-  "status": "available"
-}
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Pet](#schemapet)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found|None
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-apiKey
-</aside>
-
-
-## updatePetWithForm
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST http://petstore.swagger.io/v2/pet/{petId} \
-  -H 'Content-Type: application/x-www-form-urlencoded'
-
-```
-
-```http
-POST http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
-Host: petstore.swagger.io
-Content-Type: application/x-www-form-urlencoded
-
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/x-www-form-urlencoded'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/{petId}',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "name": "string",
-  "status": "string"
-}';
-const headers = {
-  'Content-Type':'application/x-www-form-urlencoded'
-
-};
-
-fetch('http://petstore.swagger.io/v2/pet/{petId}',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/x-www-form-urlencoded'
-}
-
-result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-}
-
-r = requests.post('http://petstore.swagger.io/v2/pet/{petId}', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/pet/{petId}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`POST /pet/{petId}`
-
-*Updates a pet in the store with form data*
-
-> Body parameter
-
-```yaml
-name: string
-status: string
-
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-petId|path|integer(int64)|true|ID of pet that needs to be updated
-body|body|object|false|No description
-» name|body|string|false|Updated name of the pet
-» status|body|string|false|Updated status of the pet
-
-
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Invalid input|None
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: write:pets read:pets )
-</aside>
-
-
-## deletePet
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X DELETE http://petstore.swagger.io/v2/pet/{petId} \
-  -H 'api_key: string'
-
-```
-
-```http
-DELETE http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
-Host: petstore.swagger.io
-
-
-api_key: string
-
-
-```
-
-```javascript
-var headers = {
-  'api_key':'string'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/{petId}',
-  method: 'delete',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-const headers = {
-  'api_key':'string'
-
-};
-
-fetch('http://petstore.swagger.io/v2/pet/{petId}',
-{
-  method: 'DELETE',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'api_key' => 'string'
-}
-
-result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'api_key': 'string'
-}
-
-r = requests.delete('http://petstore.swagger.io/v2/pet/{petId}', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/pet/{petId}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("DELETE");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`DELETE /pet/{petId}`
-
-*Deletes a pet*
-
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-api_key|header|string|false|No description
-petId|path|integer(int64)|true|Pet id to delete
-
-
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found|None
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: write:pets read:pets )
-</aside>
-
-
-## uploadFile
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
-  -H 'Content-Type: application/octet-stream' \
+curl -X GET https://nightly.softledger.com/api/bills \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage HTTP/1.1
-Host: petstore.swagger.io
-Content-Type: application/octet-stream
-Accept: application/json
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/octet-stream',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = ''string'';
-const headers = {
-  'Content-Type':'application/octet-stream',
-  'Accept':'application/json'
-
-};
-
-fetch('http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/octet-stream',
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/octet-stream',
-  'Accept': 'application/json'
-}
-
-r = requests.post('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/pet/{petId}/uploadImage");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`POST /pet/{petId}/uploadImage`
-
-*uploads an image*
-
-> Body parameter
-
-```yaml
-string
-
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-petId|path|integer(int64)|true|ID of pet to update
-body|body|string(binary)|false|No description
-
-
-
-> Example responses
-
-```json
-{
-  "code": 0,
-  "type": "string",
-  "message": "string"
-}
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[ApiResponse](#schemaapiresponse)
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: write:pets read:pets )
-</aside>
-
-
-# store
-
-Access to Petstore orders
-
-## getInventory
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://petstore.swagger.io/v2/store/inventory \
-  -H 'Accept: application/json'
-
-```
-
-```http
-GET http://petstore.swagger.io/v2/store/inventory HTTP/1.1
-Host: petstore.swagger.io
+GET https://nightly.softledger.com/api/bills HTTP/1.1
+Host: nightly.softledger.com
 
 Accept: application/json
 
@@ -1479,7 +69,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://petstore.swagger.io/v2/store/inventory',
+  url: 'https://nightly.softledger.com/api/bills',
   method: 'get',
 
   headers: headers,
@@ -1497,7 +87,7 @@ const headers = {
 
 };
 
-fetch('http://petstore.swagger.io/v2/store/inventory',
+fetch('https://nightly.softledger.com/api/bills',
 {
   method: 'GET',
 
@@ -1518,10 +108,9 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory',
+result = RestClient.get 'https://nightly.softledger.com/api/bills',
   params: {
   }, headers: headers
-
 
 p JSON.parse(result)
 ```
@@ -1532,7 +121,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://petstore.swagger.io/v2/store/inventory', params={
+r = requests.get('https://nightly.softledger.com/api/bills', params={
 
 }, headers = headers)
 
@@ -1540,7 +129,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("http://petstore.swagger.io/v2/store/inventory");
+URL obj = new URL("https://nightly.softledger.com/api/bills");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1555,25 +144,50 @@ in.close();
 System.out.println(response.toString());
 ```
 
-`GET /store/inventory`
+*Get All Bills*
 
-*Returns pet inventories by status*
+### Parameters
 
-Returns a map of status codes to quantities
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
 
 > Example responses
 
 ```json
 {
-  "property1": 0,
-  "property2": 0
+  "totalItems": 0,
+  "data": {
+    "_id": 0,
+    "invoiceNumber": "string",
+    "description": "string",
+    "dueDate": "2017-10-02",
+    "postingDate": "2017-10-02",
+    "invoiceDate": "2017-10-02",
+    "currency": "string",
+    "LocationId": 0,
+    "ICLocationId": 0,
+    "VendorId": 0,
+    "APAccountId": 0,
+    "Location": {},
+    "ICLocation": {},
+    "Vendor": {},
+    "APAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    }
+  }
 }
 ```
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A list of Bills|Inline
 
 ### Response Schema
 
@@ -1581,46 +195,73 @@ Status Code **200**
 
 Name|Type|Required|Description
 ---|---|---|---|---|
-additionalProperties|object|false|No description
-
+totalItems|integer|false|No description
+data|[Bill_](#schemabill_)|false|No description
+» _id|integer|false|No description
+» invoiceNumber|string|false|No description
+» description|string|false|No description
+» dueDate|string(date)|false|No description
+» postingDate|string(date)|false|No description
+» invoiceDate|string(date)|false|No description
+» currency|string|false|No description
+» LocationId|integer|false|No description
+» ICLocationId|integer|false|No description
+» VendorId|integer|false|No description
+» APAccountId|integer|false|No description
+» Location|[Location_](#schemalocation_)|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
+» ICLocation|[Location_](#schemalocation_)|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
+» Vendor|[Vendor_](#schemavendor_)|false|No description
+»» _id|integer|false|No description
+»» accNumber|string|false|No description
+»» name|string|false|No description
+»» email|string|false|No description
+» APAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
 
 
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-apiKey
+oauth2 ( Scopes: admin )
 </aside>
 
-
-## placeOrder
+## POST /bills
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST http://petstore.swagger.io/v2/store/order \
+curl -X POST https://nightly.softledger.com/api/bills \
   -H 'Content-Type: application/json' \
-  -H 'Accept: application/xml'
+  -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://petstore.swagger.io/v2/store/order HTTP/1.1
-Host: petstore.swagger.io
+POST https://nightly.softledger.com/api/bills HTTP/1.1
+Host: nightly.softledger.com
 Content-Type: application/json
-Accept: application/xml
+Accept: application/json
 
 ```
 
 ```javascript
 var headers = {
   'Content-Type':'application/json',
-  'Accept':'application/xml'
+  'Accept':'application/json'
 
 };
 
 $.ajax({
-  url: 'http://petstore.swagger.io/v2/store/order',
+  url: 'https://nightly.softledger.com/api/bills',
   method: 'post',
 
   headers: headers,
@@ -1633,20 +274,17 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 const inputBody = '{
-  "id": 0,
-  "petId": 0,
-  "quantity": 0,
-  "shipDate": "2017-10-01T05:36:35Z",
-  "status": "placed",
-  "complete": false
+  "billLineItems": [
+    {}
+  ]
 }';
 const headers = {
   'Content-Type':'application/json',
-  'Accept':'application/xml'
+  'Accept':'application/json'
 
 };
 
-fetch('http://petstore.swagger.io/v2/store/order',
+fetch('https://nightly.softledger.com/api/bills',
 {
   method: 'POST',
   body: inputBody,
@@ -1665,13 +303,12 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/json',
-  'Accept' => 'application/xml'
+  'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://petstore.swagger.io/v2/store/order',
+result = RestClient.post 'https://nightly.softledger.com/api/bills',
   params: {
   }, headers: headers
-
 
 p JSON.parse(result)
 ```
@@ -1680,10 +317,10 @@ p JSON.parse(result)
 import requests
 headers = {
   'Content-Type': 'application/json',
-  'Accept': 'application/xml'
+  'Accept': 'application/json'
 }
 
-r = requests.post('http://petstore.swagger.io/v2/store/order', params={
+r = requests.post('https://nightly.softledger.com/api/bills', params={
 
 }, headers = headers)
 
@@ -1691,7 +328,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("http://petstore.swagger.io/v2/store/order");
+URL obj = new URL("https://nightly.softledger.com/api/bills");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1706,106 +343,121 @@ in.close();
 System.out.println(response.toString());
 ```
 
-`POST /store/order`
-
-*Place an order for a pet*
+*Create A Bill*
 
 > Body parameter
 
 ```json
-{
-  "id": 0,
-  "petId": 0,
-  "quantity": 0,
-  "shipDate": "2017-10-01T05:36:35Z",
-  "status": "placed",
-  "complete": false
-}
+{}
 ```
 ### Parameters
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
-» id|body|integer(int64)|false|No description
-» petId|body|integer(int64)|false|No description
-» quantity|body|integer(int32)|false|No description
-» shipDate|body|string(date-time)|false|No description
-» status|body|string|false|Order Status
-» complete|body|boolean|false|No description
-
-
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-» status|placed|
-» status|approved|
-» status|delivered|
+body|body|[BillBody](#schema+billbody)|true|Bill details
 
 
 > Example responses
 
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<Order>
-  <id>0</id>
-  <petId>0</petId>
-  <quantity>0</quantity>
-  <shipDate>2017-10-01T05:36:35Z</shipDate>
-  <status>placed</status>
-  <complete>false</complete>
-</Order>
-```
 ```json
 {
-  "id": 0,
-  "petId": 0,
-  "quantity": 0,
-  "shipDate": "2017-10-01T05:36:35Z",
-  "status": "placed",
-  "complete": false
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Vendor": {},
+  "APAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "billLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "ItemId": 0,
+      "CostCenterId": 0,
+      "LedgerAccountId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      },
+      "LedgerAccount": {
+        "_id": 0,
+        "number": 0,
+        "name": "string"
+      },
+      "CostCenter": {}
+    }
+  ]
 }
 ```
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Order](#schemaorder)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid Order|None
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Bill|[Bill](#schemabill)
 
-<aside class="success">
-This operation does not require authentication
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
 </aside>
 
-## getOrderById
+## GET /bills/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET http://petstore.swagger.io/v2/store/order/{orderId} \
-  -H 'Accept: application/xml'
+curl -X GET https://nightly.softledger.com/api/bills/{id} \
+  -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://petstore.swagger.io/v2/store/order/{orderId} HTTP/1.1
-Host: petstore.swagger.io
+GET https://nightly.softledger.com/api/bills/{id} HTTP/1.1
+Host: nightly.softledger.com
 
-Accept: application/xml
+Accept: application/json
 
 ```
 
 ```javascript
 var headers = {
-  'Accept':'application/xml'
+  'Accept':'application/json'
 
 };
 
 $.ajax({
-  url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
+  url: 'https://nightly.softledger.com/api/bills/{id}',
   method: 'get',
 
   headers: headers,
@@ -1819,11 +471,11 @@ $.ajax({
 const request = require('node-fetch');
 
 const headers = {
-  'Accept':'application/xml'
+  'Accept':'application/json'
 
 };
 
-fetch('http://petstore.swagger.io/v2/store/order/{orderId}',
+fetch('https://nightly.softledger.com/api/bills/{id}',
 {
   method: 'GET',
 
@@ -1841,13 +493,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/xml'
+  'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/store/order/{orderId}',
+result = RestClient.get 'https://nightly.softledger.com/api/bills/{id}',
   params: {
   }, headers: headers
-
 
 p JSON.parse(result)
 ```
@@ -1855,10 +506,10 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/xml'
+  'Accept': 'application/json'
 }
 
-r = requests.get('http://petstore.swagger.io/v2/store/order/{orderId}', params={
+r = requests.get('https://nightly.softledger.com/api/bills/{id}', params={
 
 }, headers = headers)
 
@@ -1866,7 +517,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("http://petstore.swagger.io/v2/store/order/{orderId}");
+URL obj = new URL("https://nightly.softledger.com/api/bills/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1881,1043 +532,118 @@ in.close();
 System.out.println(response.toString());
 ```
 
-`GET /store/order/{orderId}`
-
-*Find purchase order by ID*
-
-For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions
+*Get One Bill*
 
 ### Parameters
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-orderId|path|integer(int64)|true|ID of pet that needs to be fetched
-
-
-
-> Example responses
-
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<Order>
-  <id>0</id>
-  <petId>0</petId>
-  <quantity>0</quantity>
-  <shipDate>2017-10-01T05:36:35Z</shipDate>
-  <status>placed</status>
-  <complete>false</complete>
-</Order>
-```
-```json
-{
-  "id": 0,
-  "petId": 0,
-  "quantity": 0,
-  "shipDate": "2017-10-01T05:36:35Z",
-  "status": "placed",
-  "complete": false
-}
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Order](#schemaorder)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found|None
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## deleteOrder
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X DELETE http://petstore.swagger.io/v2/store/order/{orderId}
-
-```
-
-```http
-DELETE http://petstore.swagger.io/v2/store/order/{orderId} HTTP/1.1
-Host: petstore.swagger.io
-
-
-
-```
-
-```javascript
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
-  method: 'delete',
-
-
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-
-fetch('http://petstore.swagger.io/v2/store/order/{orderId}',
-{
-  method: 'DELETE'
-
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-
-
-result = RestClient.delete 'http://petstore.swagger.io/v2/store/order/{orderId}',
-  params: {
-  }
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-
-r = requests.delete('http://petstore.swagger.io/v2/store/order/{orderId}', params={
-
-)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/store/order/{orderId}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("DELETE");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`DELETE /store/order/{orderId}`
-
-*Delete purchase order by ID*
-
-For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors
-
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-orderId|path|integer(int64)|true|ID of the order that needs to be deleted
-
-
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found|None
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-# user
-
-Operations about user
-
-<a href="http://swagger.io">Find out more about our store</a>
-## createUser
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST http://petstore.swagger.io/v2/user \
-  -H 'Content-Type: application/json'
-
-```
-
-```http
-POST http://petstore.swagger.io/v2/user HTTP/1.1
-Host: petstore.swagger.io
-Content-Type: application/json
-
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
-}';
-const headers = {
-  'Content-Type':'application/json'
-
-};
-
-fetch('http://petstore.swagger.io/v2/user',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json'
-}
-
-result = RestClient.post 'http://petstore.swagger.io/v2/user',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json'
-}
-
-r = requests.post('http://petstore.swagger.io/v2/user', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`POST /user`
-
-*Create user*
-
-This can only be done by the logged in user.
-
-> Body parameter
-
-```json
-{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
-}
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-body|body|[User](#schemauser)|true|Created user object
-» id|body|integer(int64)|false|No description
-» username|body|string|false|No description
-» firstName|body|string|false|No description
-» lastName|body|string|false|No description
-» email|body|string|false|No description
-» password|body|string|false|No description
-» phone|body|string|false|No description
-» userStatus|body|integer(int32)|false|User Status
-
-
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-default|Default|successful operation|None
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## createUsersWithArrayInput
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST http://petstore.swagger.io/v2/user/createWithArray \
-  -H 'Content-Type: application/json'
-
-```
-
-```http
-POST http://petstore.swagger.io/v2/user/createWithArray HTTP/1.1
-Host: petstore.swagger.io
-Content-Type: application/json
-
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/createWithArray',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '[
-  {}
-]';
-const headers = {
-  'Content-Type':'application/json'
-
-};
-
-fetch('http://petstore.swagger.io/v2/user/createWithArray',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json'
-}
-
-result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithArray',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json'
-}
-
-r = requests.post('http://petstore.swagger.io/v2/user/createWithArray', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/user/createWithArray");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`POST /user/createWithArray`
-
-*Creates list of users with given input array*
-
-> Body parameter
-
-```json
-[
-  {
-    "id": 0,
-    "username": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "email": "string",
-    "password": "string",
-    "phone": "string",
-    "userStatus": 0
-  }
-]
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-body|body|[UserArray](#schema+userarray)|true|List of user object
-
-
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-default|Default|successful operation|None
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## createUsersWithListInput
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST http://petstore.swagger.io/v2/user/createWithList \
-  -H 'Content-Type: application/json'
-
-```
-
-```http
-POST http://petstore.swagger.io/v2/user/createWithList HTTP/1.1
-Host: petstore.swagger.io
-Content-Type: application/json
-
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/createWithList',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '[
-  {
-    "id": 0,
-    "username": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "email": "string",
-    "password": "string",
-    "phone": "string",
-    "userStatus": 0
-  }
-]';
-const headers = {
-  'Content-Type':'application/json'
-
-};
-
-fetch('http://petstore.swagger.io/v2/user/createWithList',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json'
-}
-
-result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithList',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json'
-}
-
-r = requests.post('http://petstore.swagger.io/v2/user/createWithList', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/user/createWithList");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`POST /user/createWithList`
-
-*Creates list of users with given input array*
-
-> Body parameter
-
-```json
-[
-  {
-    "id": 0,
-    "username": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "email": "string",
-    "password": "string",
-    "phone": "string",
-    "userStatus": 0
-  }
-]
-```
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-body|body|[UserArray](#schema+userarray)|true|List of user object
-
-
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-default|Default|successful operation|None
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## loginUser
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word \
-  -H 'Accept: application/xml'
-
-```
-
-```http
-GET http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word HTTP/1.1
-Host: petstore.swagger.io
-
-Accept: application/xml
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/login',
-  method: 'get',
-  data: '?username=string&password=pa%24%24word',
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-const headers = {
-  'Accept':'application/xml'
-
-};
-
-fetch('http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/xml'
-}
-
-result = RestClient.get 'http://petstore.swagger.io/v2/user/login',
-  params: {
-  'username' => 'string',
-'password' => 'string(password)'
-}, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/xml'
-}
-
-r = requests.get('http://petstore.swagger.io/v2/user/login', params={
-  'username': 'string',  'password': 'pa$$word'
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`GET /user/login`
-
-*Logs user into the system*
-
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-username|query|string|true|The user name for login
-password|query|string(password)|true|The password for login in clear text
-
+id|path|integer|true|_id value
 
 
 > Example responses
 
 ```json
-"string"
-```
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|string
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username/password supplied|None
-
-### Response Headers
-
-Status|Header|Type|Format|Description
----|---|---|---|---|
-200|X-Rate-Limit|integer|int32|calls per hour allowed by the user
-200|X-Expires-After|string|date-time|date in UTC when token expires
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## logoutUser
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://petstore.swagger.io/v2/user/logout
-
-```
-
-```http
-GET http://petstore.swagger.io/v2/user/logout HTTP/1.1
-Host: petstore.swagger.io
-
-
-
-```
-
-```javascript
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/logout',
-  method: 'get',
-
-
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-
-fetch('http://petstore.swagger.io/v2/user/logout',
 {
-  method: 'GET'
-
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-
-
-result = RestClient.get 'http://petstore.swagger.io/v2/user/logout',
-  params: {
-  }
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-
-r = requests.get('http://petstore.swagger.io/v2/user/logout', params={
-
-)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/user/logout");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`GET /user/logout`
-
-*Logs out current logged in user session*
-
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-default|Default|successful operation|None
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## getUserByName
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://petstore.swagger.io/v2/user/{username} \
-  -H 'Accept: application/xml'
-
-```
-
-```http
-GET http://petstore.swagger.io/v2/user/{username} HTTP/1.1
-Host: petstore.swagger.io
-
-Accept: application/xml
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/{username}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-const headers = {
-  'Accept':'application/xml'
-
-};
-
-fetch('http://petstore.swagger.io/v2/user/{username}',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/xml'
-}
-
-result = RestClient.get 'http://petstore.swagger.io/v2/user/{username}',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/xml'
-}
-
-r = requests.get('http://petstore.swagger.io/v2/user/{username}', params={
-
-}, headers = headers)
-
-print r.json()
-```
-
-```java
-URL obj = new URL("http://petstore.swagger.io/v2/user/{username}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-```
-
-`GET /user/{username}`
-
-*Get user by user name*
-
-### Parameters
-
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-username|path|string|true|The name that needs to be fetched. Use user1 for testing. 
-
-
-
-> Example responses
-
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<User>
-  <id>0</id>
-  <username>string</username>
-  <firstName>string</firstName>
-  <lastName>string</lastName>
-  <email>string</email>
-  <password>string</password>
-  <phone>string</phone>
-  <userStatus>0</userStatus>
-</User>
-```
-```json
-{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Vendor": {},
+  "APAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "billLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "ItemId": 0,
+      "CostCenterId": 0,
+      "LedgerAccountId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      },
+      "LedgerAccount": {
+        "_id": 0,
+        "number": 0,
+        "name": "string"
+      },
+      "CostCenter": {}
+    }
+  ]
 }
 ```
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[User](#schemauser)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found|None
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Bill|[Bill](#schemabill)
 
-<aside class="success">
-This operation does not require authentication
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
 </aside>
 
-## updateUser
+## PUT /bills/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X PUT http://petstore.swagger.io/v2/user/{username} \
-  -H 'Content-Type: application/json'
+curl -X PUT https://nightly.softledger.com/api/bills/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
 
 ```
 
 ```http
-PUT http://petstore.swagger.io/v2/user/{username} HTTP/1.1
-Host: petstore.swagger.io
+PUT https://nightly.softledger.com/api/bills/{id} HTTP/1.1
+Host: nightly.softledger.com
 Content-Type: application/json
-
+Accept: application/json
 
 ```
 
 ```javascript
 var headers = {
-  'Content-Type':'application/json'
+  'Content-Type':'application/json',
+  'Accept':'application/json'
 
 };
 
 $.ajax({
-  url: 'http://petstore.swagger.io/v2/user/{username}',
+  url: 'https://nightly.softledger.com/api/bills/{id}',
   method: 'put',
 
   headers: headers,
@@ -2929,22 +655,14 @@ $.ajax({
 
 ```javascript--nodejs
 const request = require('node-fetch');
-const inputBody = '{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
-}';
+const inputBody = '{}';
 const headers = {
-  'Content-Type':'application/json'
+  'Content-Type':'application/json',
+  'Accept':'application/json'
 
 };
 
-fetch('http://petstore.swagger.io/v2/user/{username}',
+fetch('https://nightly.softledger.com/api/bills/{id}',
 {
   method: 'PUT',
   body: inputBody,
@@ -2962,13 +680,13 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Content-Type' => 'application/json'
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
 }
 
-result = RestClient.put 'http://petstore.swagger.io/v2/user/{username}',
+result = RestClient.put 'https://nightly.softledger.com/api/bills/{id}',
   params: {
   }, headers: headers
-
 
 p JSON.parse(result)
 ```
@@ -2976,10 +694,11 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
 }
 
-r = requests.put('http://petstore.swagger.io/v2/user/{username}', params={
+r = requests.put('https://nightly.softledger.com/api/bills/{id}', params={
 
 }, headers = headers)
 
@@ -2987,7 +706,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("http://petstore.swagger.io/v2/user/{username}");
+URL obj = new URL("https://nightly.softledger.com/api/bills/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -3002,68 +721,108 @@ in.close();
 System.out.println(response.toString());
 ```
 
-`PUT /user/{username}`
-
-*Updated user*
-
-This can only be done by the logged in user.
+*Update Bill*
 
 > Body parameter
 
 ```json
-{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
-}
+{}
 ```
 ### Parameters
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-username|path|string|true|name that need to be updated
-body|body|[User](#schemauser)|true|Updated user object
-» id|body|integer(int64)|false|No description
-» username|body|string|false|No description
-» firstName|body|string|false|No description
-» lastName|body|string|false|No description
-» email|body|string|false|No description
-» password|body|string|false|No description
-» phone|body|string|false|No description
-» userStatus|body|integer(int32)|false|User Status
+id|path|integer|true|_id value
+body|body|[Bill_](#schemabill_)|true|Bill details
 
 
+> Example responses
 
+```json
+{
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Vendor": {},
+  "APAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "billLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "ItemId": 0,
+      "CostCenterId": 0,
+      "LedgerAccountId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      },
+      "LedgerAccount": {
+        "_id": 0,
+        "number": 0,
+        "name": "string"
+      },
+      "CostCenter": {}
+    }
+  ]
+}
+```
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid user supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found|None
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Bill Updated|[Bill](#schemabill)
 
-<aside class="success">
-This operation does not require authentication
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
 </aside>
 
-## deleteUser
+## DELETE /bills/{id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X DELETE http://petstore.swagger.io/v2/user/{username}
+curl -X DELETE https://nightly.softledger.com/api/bills/{id}
 
 ```
 
 ```http
-DELETE http://petstore.swagger.io/v2/user/{username} HTTP/1.1
-Host: petstore.swagger.io
-
+DELETE https://nightly.softledger.com/api/bills/{id} HTTP/1.1
+Host: nightly.softledger.com
 
 
 ```
@@ -3071,9 +830,8 @@ Host: petstore.swagger.io
 ```javascript
 
 $.ajax({
-  url: 'http://petstore.swagger.io/v2/user/{username}',
+  url: 'https://nightly.softledger.com/api/bills/{id}',
   method: 'delete',
-
 
   success: function(data) {
     console.log(JSON.stringify(data));
@@ -3084,11 +842,9 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-
-fetch('http://petstore.swagger.io/v2/user/{username}',
+fetch('https://nightly.softledger.com/api/bills/{id}',
 {
   method: 'DELETE'
-
 
 })
 .then(function(res) {
@@ -3103,8 +859,7 @@ require 'rest-client'
 require 'json'
 
 
-
-result = RestClient.delete 'http://petstore.swagger.io/v2/user/{username}',
+result = RestClient.delete 'https://nightly.softledger.com/api/bills/{id}',
   params: {
   }
 
@@ -3114,7 +869,7 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('http://petstore.swagger.io/v2/user/{username}', params={
+r = requests.delete('https://nightly.softledger.com/api/bills/{id}', params={
 
 )
 
@@ -3122,7 +877,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("http://petstore.swagger.io/v2/user/{username}");
+URL obj = new URL("https://nightly.softledger.com/api/bills/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -3137,226 +892,10303 @@ in.close();
 System.out.println(response.toString());
 ```
 
-`DELETE /user/{username}`
-
-*Delete user*
-
-This can only be done by the logged in user.
+*Delete Bill*
 
 ### Parameters
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-username|path|string|true|The name that needs to be deleted
-
+id|path|integer|true|_id value
 
 
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found|None
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Bill Deleted|None
 
-<aside class="success">
-This operation does not require authentication
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /bills/nextNumber
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/bills/nextNumber \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/bills/nextNumber HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/bills/nextNumber',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/bills/nextNumber',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/bills/nextNumber',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/bills/nextNumber', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/bills/nextNumber");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get Next Auto Generated Bill Number*
+
+> Example responses
+
+```json
+{
+  "number": 0
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Next Bill Number|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+number|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /bills/pay
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/bills/pay \
+  -H 'Content-Type: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/bills/pay HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/bills/pay',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "method": 0,
+  "bills": [
+    {
+      "paymentAmount": 0.01,
+      "billLineItems": [
+        {}
+      ]
+    }
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/bills/pay',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/bills/pay',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/bills/pay', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/bills/pay");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Pay Bills*
+
+> Body parameter
+
+```json
+{
+  "method": 0,
+  "bills": [
+    {}
+  ]
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|object|true|Payment Method, and Bills to pay
+» method|body|integer|false|No description
+» bills|body|[Unknown]|false|No description
+»» paymentAmount|body|number(float)|false|No description
+»» billLineItems|body|[[billLineItem_](#schemabilllineitem_)]|false|No description
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Bills Paid|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Cost Center
+
+## GET /cost_centers
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/cost_centers \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/cost_centers HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/cost_centers',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/cost_centers',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/cost_centers',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/cost_centers', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/cost_centers");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Cost Centers*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+[
+  {}
+]
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of Cost Centers|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+anonymous|[[CostCenter_](#schemacostcenter_)]|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» id|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /cost_centers
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/cost_centers \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/cost_centers HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/cost_centers',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "name": "string",
+  "id": "string",
+  "description": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/cost_centers',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/cost_centers',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/cost_centers', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/cost_centers");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create A Coast Center*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "id": "string",
+  "description": "string"
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[CostCenter](#schemacostcenter)|true|Cost Center details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "id": "string",
+  "description": "string"
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Cost Center|[CostCenter](#schemacostcenter)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /cost_centers/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/cost_centers/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/cost_centers/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/cost_centers/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/cost_centers/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/cost_centers/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/cost_centers/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/cost_centers/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One Cost Center*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "id": "string",
+  "description": "string"
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Cost Center|[CostCenter](#schemacostcenter)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /cost_centers/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/cost_centers/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/cost_centers/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/cost_centers/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "name": "string",
+  "id": "string",
+  "description": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/cost_centers/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/cost_centers/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/cost_centers/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/cost_centers/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update Cost Center*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "id": "string",
+  "description": "string"
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[CostCenter](#schemacostcenter)|true|Cost Center details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "id": "string",
+  "description": "string"
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Cost Center Updated|[CostCenter](#schemacostcenter)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /cost_centers/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/cost_centers/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/cost_centers/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/cost_centers/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/cost_centers/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/cost_centers/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/cost_centers/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/cost_centers/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete Cost Center*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Cost Center Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Customer
+
+## GET /customers
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/customers \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/customers HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/customers',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/customers',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/customers',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/customers', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/customers");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Customers*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "data": [
+    {
+      "_id": 0,
+      "name": "string",
+      "email": "string",
+      "website": "string",
+      "Addresses": [
+        {}
+      ],
+      "Contacts": [
+        {}
+      ]
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of Customers|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+data|[[Customer](#schemacustomer)]|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» email|string|false|No description
+» website|string|false|No description
+» Addresses|[[Address](#schemaaddress)]|false|No description
+»» _id|integer|false|No description
+»» label|string|false|No description
+»» line1|string|false|No description
+»» line2|string|false|No description
+»» city|string|false|No description
+»» state|string|false|No description
+»» country|string|false|No description
+»» isDefault|boolean|false|No description
+» Contacts|[[Contact](#schemacontact)]|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» email|string|false|No description
+»» phone|string|false|No description
+»» isPrimary|boolean|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /customers/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/customers/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/customers/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/customers/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/customers/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/customers/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/customers/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/customers/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One Customer*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Customer|[Customer](#schemacustomer)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /customers/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/customers/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/customers/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/customers/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/customers/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/customers/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/customers/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/customers/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update Customer*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[Customer](#schemacustomer)|true|Customer details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Customer Updated|[Customer](#schemacustomer)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /customers/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/customers/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/customers/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/customers/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/customers/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/customers/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/customers/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/customers/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete Customer*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Customer Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Default
+
+## POST /customers
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/customers \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/customers HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/customers',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/customers',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/customers',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/customers', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/customers");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create A Customer*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[Customer](#schemacustomer)|true|Customer details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Customer|[Customer](#schemacustomer)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /vendors
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/vendors \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/vendors HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/vendors',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/vendors',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/vendors',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/vendors', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/vendors");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create A Vendor*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[Vendor](#schemavendor)|true|Vendor
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Vendor|[Vendor](#schemavendor)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /warehouses
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/warehouses \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/warehouses HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/warehouses',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/warehouses',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/warehouses',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/warehouses', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/warehouses");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create A Warehouse*
+
+> Body parameter
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[Warehouse](#schemawarehouse)|true|Warehouse
+
+
+> Example responses
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Warehouse|[Warehouse](#schemawarehouse)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Invoice
+
+## GET /invoices
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/invoices \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/invoices HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/invoices',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/invoices', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Invoices*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "data": [
+    {
+      "_id": 0,
+      "invoiceNumber": "string",
+      "description": "string",
+      "dueDate": "2017-10-02",
+      "postingDate": "2017-10-02",
+      "invoiceDate": "2017-10-02",
+      "currency": "string",
+      "LocationId": 0,
+      "ICLocationId": 0,
+      "VendorId": 0,
+      "APAccountId": 0,
+      "Location": {},
+      "ICLocation": {},
+      "Agent": {},
+      "ARAccount": {
+        "_id": 0,
+        "number": 0,
+        "name": "string"
+      },
+      "InvoiceLineItems": [
+        {
+          "_id": 0,
+          "description": "string",
+          "unitAmount": 0,
+          "quantity": 0,
+          "ItemId": 0,
+          "Item": {
+            "_id": 0,
+            "name": "string",
+            "description": "string",
+            "InvoiceAccountId": 0,
+            "BillAccountId": 0,
+            "InventoryAccountId": 0,
+            "InvoiceAccount": {
+              "_id": 0,
+              "number": 0,
+              "name": "string"
+            },
+            "BillAccount": {
+              "_id": 0,
+              "number": 0,
+              "name": "string"
+            },
+            "InventoryAccount": {
+              "_id": 0,
+              "number": 0,
+              "name": "string"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of Invoices|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+data|[[Invoice](#schemainvoice)]|false|No description
+» _id|integer|false|No description
+» invoiceNumber|string|false|No description
+» description|string|false|No description
+» dueDate|string(date)|false|No description
+» postingDate|string(date)|false|No description
+» invoiceDate|string(date)|false|No description
+» currency|string|false|No description
+» LocationId|integer|false|No description
+» ICLocationId|integer|false|No description
+» VendorId|integer|false|No description
+» APAccountId|integer|false|No description
+» Location|[Location_](#schemalocation_)|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
+» ICLocation|[Location_](#schemalocation_)|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
+» Agent|[Customer_](#schemacustomer_)|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» email|string|false|No description
+»» website|string|false|No description
+» ARAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» InvoiceLineItems|[[InvoiceLineItem](#schemainvoicelineitem)]|false|No description
+»» _id|integer|false|No description
+»» description|string|false|No description
+»» unitAmount|number|false|No description
+»» quantity|number|false|No description
+»» ItemId|integer|false|No description
+»» Item|[Item](#schemaitem)|false|No description
+»»» _id|integer|false|No description
+»»» name|string|false|No description
+»»» description|string|false|No description
+»»» InvoiceAccountId|integer|false|No description
+»»» BillAccountId|integer|false|No description
+»»» InventoryAccountId|integer|false|No description
+»»» InvoiceAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»»» _id|integer|false|No description
+»»»» number|integer|false|No description
+»»»» name|string|false|No description
+»»» BillAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»»» _id|integer|false|No description
+»»»» number|integer|false|No description
+»»»» name|string|false|No description
+»»» InventoryAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»»» _id|integer|false|No description
+»»»» number|integer|false|No description
+»»»» name|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /invoices
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/invoices \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/invoices HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "InvoiceLineItems": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/invoices',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/invoices', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create an Invoice*
+
+> Body parameter
+
+```json
+{}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[InvoiceBody](#schema+invoicebody)|true|Invoice details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Agent": {},
+  "ARAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InvoiceLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "unitAmount": 0,
+      "quantity": 0,
+      "ItemId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      }
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Invoice|[Invoice](#schemainvoice)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /invoices/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/invoices/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/invoices/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/invoices/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/invoices/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One Invoice*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Agent": {},
+  "ARAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InvoiceLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "unitAmount": 0,
+      "quantity": 0,
+      "ItemId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      }
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Invoice|[Invoice](#schemainvoice)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /invoices/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/invoices/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/invoices/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/invoices/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/invoices/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update Invoice*
+
+> Body parameter
+
+```json
+{}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[Invoice_](#schemainvoice_)|true|Invoice details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Agent": {},
+  "ARAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InvoiceLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "unitAmount": 0,
+      "quantity": 0,
+      "ItemId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      }
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Invoice Updated|[Invoice](#schemainvoice)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /invoices/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/invoices/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/invoices/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/invoices/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/invoices/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/invoices/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete Invoice*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Invoice Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /invoices/nextNumber
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/invoices/nextNumber \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/invoices/nextNumber HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices/nextNumber',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices/nextNumber',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/invoices/nextNumber',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/invoices/nextNumber', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices/nextNumber");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get Next Auto Generated Invoice Number*
+
+> Example responses
+
+```json
+{
+  "number": 0
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Next Invoice Number|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+number|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /invoices/{id}/pdf
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/invoices/{id}/pdf \
+  -H 'Accept: application/pdf'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/invoices/{id}/pdf HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/pdf
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/pdf'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices/{id}/pdf',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/pdf'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices/{id}/pdf',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/pdf'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/invoices/{id}/pdf',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/pdf'
+}
+
+r = requests.get('https://nightly.softledger.com/api/invoices/{id}/pdf', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}/pdf");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get Next Auto Generated Bill Number*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Next Bill Number|string(binary)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /invoices/{id}/issue
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/invoices/{id}/issue \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/invoices/{id}/issue HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices/{id}/issue',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices/{id}/issue',
+{
+  method: 'PUT',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/invoices/{id}/issue',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/invoices/{id}/issue', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}/issue");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Issue invoice to customer*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Agent": {},
+  "ARAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InvoiceLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "unitAmount": 0,
+      "quantity": 0,
+      "ItemId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      }
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated invoice (status = 'issued')|[Invoice](#schemainvoice)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /invoices/{id}/void
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/invoices/{id}/void \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/invoices/{id}/void HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices/{id}/void',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices/{id}/void',
+{
+  method: 'PUT',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/invoices/{id}/void',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/invoices/{id}/void', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices/{id}/void");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Void invoice*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Agent": {},
+  "ARAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InvoiceLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "unitAmount": 0,
+      "quantity": 0,
+      "ItemId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      }
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated invoice (status = 'voided')|[Invoice](#schemainvoice)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /invoices/apply
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/invoices/apply \
+  -H 'Content-Type: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/invoices/apply HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/invoices/apply',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "cashReceipt": {},
+  "invoices": [
+    {
+      "paymentAmount": 0.01
+    }
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/invoices/apply',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/invoices/apply',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/invoices/apply', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/invoices/apply");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Apply Cash Receipt to Invoices*
+
+> Body parameter
+
+```json
+{
+  "cashReceipt": {
+    "_id": 0,
+    "number": "string",
+    "amount": 0,
+    "unused": 0,
+    "description": "string",
+    "AgentId": 0,
+    "LedgerAccountId": 0,
+    "LocationId": 0,
+    "Agent": {},
+    "LedgerAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "Location": {}
+  },
+  "invoices": [
+    {
+      "_id": 0,
+      "invoiceNumber": "string",
+      "description": "string",
+      "dueDate": "2017-10-02",
+      "postingDate": "2017-10-02",
+      "invoiceDate": "2017-10-02",
+      "currency": "string",
+      "LocationId": 0,
+      "ICLocationId": 0,
+      "VendorId": 0,
+      "APAccountId": 0,
+      "Location": {},
+      "ICLocation": {},
+      "Agent": {},
+      "ARAccount": {
+        "_id": 0,
+        "number": 0,
+        "name": "string"
+      },
+      "InvoiceLineItems": [
+        {
+          "_id": 0,
+          "description": "string",
+          "unitAmount": 0,
+          "quantity": 0,
+          "ItemId": 0,
+          "Item": {
+            "_id": 0,
+            "name": "string",
+            "description": "string",
+            "InvoiceAccountId": 0,
+            "BillAccountId": 0,
+            "InventoryAccountId": 0,
+            "InvoiceAccount": {
+              "_id": 0,
+              "number": 0,
+              "name": "string"
+            },
+            "BillAccount": {
+              "_id": 0,
+              "number": 0,
+              "name": "string"
+            },
+            "InventoryAccount": {
+              "_id": 0,
+              "number": 0,
+              "name": "string"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|object|true|Cash Receipt, and Invoices to apply receipt to
+» cashReceipt|body|[CashReceipt](#schemacashreceipt)|false|No description
+» invoices|body|[Unknown]|false|No description
+»» paymentAmount|body|number(float)|false|No description
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Payments Applied|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Item
+
+## GET /items
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/items \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/items HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/items',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/items',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/items',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/items', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/items");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Items*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+[
+  {}
+]
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of Items|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+anonymous|[[Item_](#schemaitem_)]|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» description|string|false|No description
+» InvoiceAccountId|integer|false|No description
+» BillAccountId|integer|false|No description
+» InventoryAccountId|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /items
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/items \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/items HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/items',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/items',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/items',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/items', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/items");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create An Item*
+
+> Body parameter
+
+```json
+{}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[Item_](#schemaitem_)|true|Item details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "description": "string",
+  "InvoiceAccountId": 0,
+  "BillAccountId": 0,
+  "InventoryAccountId": 0,
+  "InvoiceAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "BillAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InventoryAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  }
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Item|[Item](#schemaitem)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /items/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/items/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/items/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/items/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/items/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/items/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/items/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/items/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One Item*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "description": "string",
+  "InvoiceAccountId": 0,
+  "BillAccountId": 0,
+  "InventoryAccountId": 0,
+  "InvoiceAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "BillAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InventoryAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  }
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Item|[Item](#schemaitem)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /items/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/items/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/items/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/items/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/items/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/items/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/items/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/items/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update Item*
+
+> Body parameter
+
+```json
+{}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[Item_](#schemaitem_)|true|Item details
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "description": "string",
+  "InvoiceAccountId": 0,
+  "BillAccountId": 0,
+  "InventoryAccountId": 0,
+  "InvoiceAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "BillAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InventoryAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  }
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Item Updated|[Item](#schemaitem)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /items/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/items/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/items/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/items/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/items/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/items/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/items/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/items/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete Item*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Item Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Journal
+
+## GET /journals/nextId
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/journals/nextId \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/journals/nextId HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/journals/nextId',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/journals/nextId',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/journals/nextId',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/journals/nextId', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/journals/nextId");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get Next Auto Generated Journal Number*
+
+> Example responses
+
+```json
+{
+  "number": 0
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Next Journal Number|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+number|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /journals
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/journals \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/journals HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/journals',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "Transactions": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/journals',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/journals',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/journals', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/journals");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Post Journal Entry*
+
+> Body parameter
+
+```json
+{}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[JournalBody](#schema+journalbody)|true|Journal with Transactions
+
+
+> Example responses
+
+```json
+{}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Posted Journal|[Journal](#schemajournal)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Ledger Account
+
+## GET /ledger_accounts
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/ledger_accounts \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/ledger_accounts HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/ledger_accounts',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/ledger_accounts',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/ledger_accounts',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/ledger_accounts', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Ledger Accounts*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+[
+  {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  }
+]
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of Ledger Accounts|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+anonymous|[[LedgerAccount_](#schemaledgeraccount_)]|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /ledger_accounts
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/ledger_accounts \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/ledger_accounts HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/ledger_accounts',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "number": 0,
+  "name": "string",
+  "naturalBalance": "string",
+  "type": "string",
+  "description": "string",
+  "includeLocationChildren": true,
+  "LocationId": 0,
+  "Location": {}
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/ledger_accounts',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/ledger_accounts',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/ledger_accounts', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create An Ledger Account*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "number": 0,
+  "name": "string",
+  "naturalBalance": "string",
+  "type": "string",
+  "description": "string",
+  "includeLocationChildren": true,
+  "LocationId": 0,
+  "Location": {}
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[LedgerAccount](#schemaledgeraccount)|true|Ledger Account
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "number": 0,
+  "name": "string",
+  "naturalBalance": "string",
+  "type": "string",
+  "description": "string",
+  "includeLocationChildren": true,
+  "LocationId": 0,
+  "Location": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Ledger Account|[LedgerAccount](#schemaledgeraccount)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /ledger_accounts/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/ledger_accounts/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/ledger_accounts/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/ledger_accounts/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/ledger_accounts/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One Ledger Account*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "number": 0,
+  "name": "string",
+  "naturalBalance": "string",
+  "type": "string",
+  "description": "string",
+  "includeLocationChildren": true,
+  "LocationId": 0,
+  "Location": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Ledger Account|[LedgerAccount](#schemaledgeraccount)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /ledger_accounts/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/ledger_accounts/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/ledger_accounts/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "number": 0,
+  "name": "string",
+  "naturalBalance": "string",
+  "type": "string",
+  "description": "string",
+  "includeLocationChildren": true,
+  "LocationId": 0,
+  "Location": {}
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/ledger_accounts/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/ledger_accounts/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update Ledger Account*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "number": 0,
+  "name": "string",
+  "naturalBalance": "string",
+  "type": "string",
+  "description": "string",
+  "includeLocationChildren": true,
+  "LocationId": 0,
+  "Location": {}
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[LedgerAccount](#schemaledgeraccount)|true|Ledger Account
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "number": 0,
+  "name": "string",
+  "naturalBalance": "string",
+  "type": "string",
+  "description": "string",
+  "includeLocationChildren": true,
+  "LocationId": 0,
+  "Location": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Ledger Account Updated|[LedgerAccount](#schemaledgeraccount)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /ledger_accounts/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/ledger_accounts/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/ledger_accounts/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/ledger_accounts/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/ledger_accounts/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/ledger_accounts/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/ledger_accounts/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete Ledger Account*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Ledger Account Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Location
+
+## GET /location
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/location \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/location HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/location',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/location',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/location',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/location', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/location");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Locations user has access to*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+[
+  {
+    "_id": 0,
+    "id": "string",
+    "name": "string",
+    "currency": "string",
+    "description": "string",
+    "parent_id": 0
+  }
+]
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of Locations|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+anonymous|[[Location](#schemalocation)]|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+» currency|string|false|No description
+» description|string|false|No description
+» parent_id|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /location
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/location \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/location HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/location',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "id": "string",
+  "name": "string",
+  "currency": "string",
+  "description": "string",
+  "parent_id": 0
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/location',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/location',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/location', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/location");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create A Location*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "id": "string",
+  "name": "string",
+  "currency": "string",
+  "description": "string",
+  "parent_id": 0
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[Location](#schemalocation)|true|Location
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "id": "string",
+  "name": "string",
+  "currency": "string",
+  "description": "string",
+  "parent_id": 0
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Location|[Location](#schemalocation)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /location/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/location/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/location/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/location/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/location/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/location/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/location/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/location/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One Location*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "id": "string",
+  "name": "string",
+  "currency": "string",
+  "description": "string",
+  "parent_id": 0
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Location|[Location](#schemalocation)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /location/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/location/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/location/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/location/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "id": "string",
+  "name": "string",
+  "currency": "string",
+  "description": "string",
+  "parent_id": 0
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/location/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/location/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/location/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/location/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update Location*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "id": "string",
+  "name": "string",
+  "currency": "string",
+  "description": "string",
+  "parent_id": 0
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[Location](#schemalocation)|true|Location
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "id": "string",
+  "name": "string",
+  "currency": "string",
+  "description": "string",
+  "parent_id": 0
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Location Updated|[Location](#schemalocation)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /location/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/location/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/location/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/location/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/location/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/location/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/location/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/location/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete Location*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Location Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /locations/me
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/locations/me \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/locations/me HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/locations/me',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/locations/me',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/locations/me',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/locations/me', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/locations/me");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Returns users location and all its children*
+
+> Example responses
+
+```json
+{
+  "children": [
+    {
+      "_id": 0,
+      "id": "string",
+      "name": "string",
+      "currency": "string",
+      "description": "string",
+      "parent_id": 0
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Users location 'tree'|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+children|[[Location](#schemalocation)]|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+» currency|string|false|No description
+» description|string|false|No description
+» parent_id|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /locations/{id}/descendents
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/locations/{id}/descendents \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/locations/{id}/descendents HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/locations/{id}/descendents',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/locations/{id}/descendents',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/locations/{id}/descendents',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/locations/{id}/descendents', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/locations/{id}/descendents");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Returns a locations descendants(children)*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "children": [
+    {
+      "_id": 0,
+      "id": "string",
+      "name": "string",
+      "currency": "string",
+      "description": "string",
+      "parent_id": 0
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Location|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+children|[[Location](#schemalocation)]|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+» currency|string|false|No description
+» description|string|false|No description
+» parent_id|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Purchase Order
+
+## GET /purchaseOrders
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/purchaseOrders \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/purchaseOrders HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/purchaseOrders',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/purchaseOrders',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/purchaseOrders', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All POs*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "data": [
+    {
+      "number": "string",
+      "description": "string",
+      "issueDate": "2017-10-02",
+      "deliveryDate": "2017-10-02",
+      "status": "created",
+      "amount": 0,
+      "currency": "USD",
+      "notes": "string",
+      "VendorId": 0,
+      "WarehouseId": 0,
+      "ShippingAddressId": 0,
+      "LocationId": 0,
+      "ICLocationId": 0,
+      "InventoryReceivingAccountId": 0,
+      "Vendor": {},
+      "Warehouse": {},
+      "ShippingAddress": {},
+      "Location": {},
+      "ICLocation": {},
+      "InventoryReceivingAccount": {
+        "_id": 0,
+        "number": 0,
+        "name": "string"
+      }
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of POs|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+data|[[PurchaseOrder](#schemapurchaseorder)]|false|No description
+» number|string|false|No description
+» description|string|false|No description
+» issueDate|string(date)|false|No description
+» deliveryDate|string(date)|false|No description
+» status|string|false|No description
+» amount|number|false|No description
+» currency|string|false|No description
+» notes|string|false|No description
+» VendorId|integer|false|No description
+» WarehouseId|integer|false|No description
+» ShippingAddressId|integer|false|No description
+» LocationId|integer|false|No description
+» ICLocationId|integer|false|No description
+» InventoryReceivingAccountId|integer|false|No description
+» Vendor|[Vendor_](#schemavendor_)|false|No description
+»» _id|integer|false|No description
+»» accNumber|string|false|No description
+»» name|string|false|No description
+»» email|string|false|No description
+» Warehouse|[Warehouse_](#schemawarehouse_)|false|No description
+»» name|string|false|No description
+»» description|string|false|No description
+» ShippingAddress|[Address](#schemaaddress)|false|No description
+»» _id|integer|false|No description
+»» label|string|false|No description
+»» line1|string|false|No description
+»» line2|string|false|No description
+»» city|string|false|No description
+»» state|string|false|No description
+»» country|string|false|No description
+»» isDefault|boolean|false|No description
+» Location|[Location_](#schemalocation_)|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
+» ICLocation|[Location_](#schemalocation_)|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
+» InventoryReceivingAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /purchaseOrders
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://nightly.softledger.com/api/purchaseOrders \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://nightly.softledger.com/api/purchaseOrders HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/purchaseOrders',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "POLineItems": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/purchaseOrders',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://nightly.softledger.com/api/purchaseOrders',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://nightly.softledger.com/api/purchaseOrders', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Create an PO*
+
+> Body parameter
+
+```json
+{}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[PurchaseOrderBody](#schema+purchaseorderbody)|true|PO
+
+
+> Example responses
+
+```json
+{
+  "number": "string",
+  "description": "string",
+  "issueDate": "2017-10-02",
+  "deliveryDate": "2017-10-02",
+  "status": "created",
+  "amount": 0,
+  "currency": "USD",
+  "notes": "string",
+  "VendorId": 0,
+  "WarehouseId": 0,
+  "ShippingAddressId": 0,
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "InventoryReceivingAccountId": 0,
+  "POLineItems": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created PurchaseOrder|Inline
+
+### Response Schema
+
+Status Code **201**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+number|string|false|No description
+description|string|false|No description
+issueDate|string(date)|false|No description
+deliveryDate|string(date)|false|No description
+status|string|false|No description
+amount|number|false|No description
+currency|string|false|No description
+notes|string|false|No description
+VendorId|integer|false|No description
+WarehouseId|integer|false|No description
+ShippingAddressId|integer|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+InventoryReceivingAccountId|integer|false|No description
+POLineItems|[POLineItem_](#schemapolineitem_)|false|No description
+» description|string|false|No description
+» amount|number|false|No description
+» quantity|integer|false|No description
+» quantityReceived|integer|false|No description
+» ItemId|integer|false|No description
+» LedgerAccountId|integer|false|No description
+» CostCenterId|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /purchaseOrders/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/purchaseOrders/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/purchaseOrders/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/purchaseOrders/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/purchaseOrders/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One PO*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "POLineItems": {
+    "description": "string",
+    "amount": 0,
+    "quantity": 0,
+    "quantityReceived": 0,
+    "ItemId": 0,
+    "LedgerAccountId": 0,
+    "CostCenterId": 0,
+    "Item": {},
+    "LedgerAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "CostCenter": {}
+  }
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|PO|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+POLineItems|[POLineItem](#schemapolineitem)|false|No description
+» description|string|false|No description
+» amount|number|false|No description
+» quantity|integer|false|No description
+» quantityReceived|integer|false|No description
+» ItemId|integer|false|No description
+» LedgerAccountId|integer|false|No description
+» CostCenterId|integer|false|No description
+» Item|[Item_](#schemaitem_)|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» description|string|false|No description
+»» InvoiceAccountId|integer|false|No description
+»» BillAccountId|integer|false|No description
+»» InventoryAccountId|integer|false|No description
+» LedgerAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» CostCenter|[CostCenter_](#schemacostcenter_)|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» id|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /purchaseOrders/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/purchaseOrders/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/purchaseOrders/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/purchaseOrders/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/purchaseOrders/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update PO*
+
+> Body parameter
+
+```json
+{}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[PurchaseOrder_](#schemapurchaseorder_)|true|PO
+
+
+> Example responses
+
+```json
+{
+  "number": "string",
+  "description": "string",
+  "issueDate": "2017-10-02",
+  "deliveryDate": "2017-10-02",
+  "status": "created",
+  "amount": 0,
+  "currency": "USD",
+  "notes": "string",
+  "VendorId": 0,
+  "WarehouseId": 0,
+  "ShippingAddressId": 0,
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "InventoryReceivingAccountId": 0,
+  "POLineItems": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|PO Updated|Inline
+
+### Response Schema
+
+Status Code **201**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+number|string|false|No description
+description|string|false|No description
+issueDate|string(date)|false|No description
+deliveryDate|string(date)|false|No description
+status|string|false|No description
+amount|number|false|No description
+currency|string|false|No description
+notes|string|false|No description
+VendorId|integer|false|No description
+WarehouseId|integer|false|No description
+ShippingAddressId|integer|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+InventoryReceivingAccountId|integer|false|No description
+POLineItems|[POLineItem_](#schemapolineitem_)|false|No description
+» description|string|false|No description
+» amount|number|false|No description
+» quantity|integer|false|No description
+» quantityReceived|integer|false|No description
+» ItemId|integer|false|No description
+» LedgerAccountId|integer|false|No description
+» CostCenterId|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /purchaseOrders/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/purchaseOrders/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/purchaseOrders/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/purchaseOrders/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/purchaseOrders/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/purchaseOrders/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete PO*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|PO Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /purchaseOrders/nextNumber
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/purchaseOrders/nextNumber \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/purchaseOrders/nextNumber HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/purchaseOrders/nextNumber',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/purchaseOrders/nextNumber',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders/nextNumber',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/purchaseOrders/nextNumber', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/nextNumber");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get Next Auto Generated PO Number*
+
+> Example responses
+
+```json
+{
+  "number": 0
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Next PO Number|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+number|integer|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /purchaseOrders/{id}/pdf
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/purchaseOrders/{id}/pdf \
+  -H 'Accept: application/pdf'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/purchaseOrders/{id}/pdf HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/pdf
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/pdf'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}/pdf',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/pdf'
+
+};
+
+fetch('https://nightly.softledger.com/api/purchaseOrders/{id}/pdf',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/pdf'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders/{id}/pdf',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/pdf'
+}
+
+r = requests.get('https://nightly.softledger.com/api/purchaseOrders/{id}/pdf', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}/pdf");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get Purchase Order PDF*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|PO PDF|string(binary)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /purchaseOrders/{id}/lineItems
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/purchaseOrders/{id}/lineItems");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get all Line Items for a PO*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+[
+  {
+    "description": "string",
+    "amount": 0,
+    "quantity": 0,
+    "quantityReceived": 0,
+    "ItemId": 0,
+    "LedgerAccountId": 0,
+    "CostCenterId": 0,
+    "Item": {},
+    "LedgerAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "CostCenter": {}
+  }
+]
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|PO Line Items|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+anonymous|[[POLineItem](#schemapolineitem)]|false|No description
+» description|string|false|No description
+» amount|number|false|No description
+» quantity|integer|false|No description
+» quantityReceived|integer|false|No description
+» ItemId|integer|false|No description
+» LedgerAccountId|integer|false|No description
+» CostCenterId|integer|false|No description
+» Item|[Item_](#schemaitem_)|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» description|string|false|No description
+»» InvoiceAccountId|integer|false|No description
+»» BillAccountId|integer|false|No description
+»» InventoryAccountId|integer|false|No description
+» LedgerAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» CostCenter|[CostCenter_](#schemacostcenter_)|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» id|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Vendor
+
+## GET /vendors
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/vendors \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/vendors HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/vendors',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/vendors',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/vendors',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/vendors', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/vendors");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Vendors*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "data": [
+    {
+      "_id": 0,
+      "accNumber": "string",
+      "name": "string",
+      "email": "string",
+      "Addresses": [
+        {}
+      ],
+      "Contacts": [
+        {}
+      ]
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of Vendors|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+data|[[Vendor](#schemavendor)]|false|No description
+» _id|integer|false|No description
+» accNumber|string|false|No description
+» name|string|false|No description
+» email|string|false|No description
+» Addresses|[[Address](#schemaaddress)]|false|No description
+»» _id|integer|false|No description
+»» label|string|false|No description
+»» line1|string|false|No description
+»» line2|string|false|No description
+»» city|string|false|No description
+»» state|string|false|No description
+»» country|string|false|No description
+»» isDefault|boolean|false|No description
+» Contacts|[[Contact](#schemacontact)]|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» email|string|false|No description
+»» phone|string|false|No description
+»» isPrimary|boolean|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /vendors/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/vendors/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/vendors/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/vendors/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/vendors/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/vendors/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/vendors/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/vendors/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One Vendor*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Vendor|[Vendor](#schemavendor)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /vendors/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/vendors/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/vendors/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/vendors/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/vendors/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/vendors/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/vendors/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/vendors/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update Vendor*
+
+> Body parameter
+
+```json
+{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[Vendor](#schemavendor)|true|Vendor
+
+
+> Example responses
+
+```json
+{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Vendor Updated|[Vendor](#schemavendor)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /vendors/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/vendors/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/vendors/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/vendors/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/vendors/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/vendors/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/vendors/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/vendors/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete Vendor*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Vendor Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Warehouse
+
+## GET /warehouses
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/warehouses \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/warehouses HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/warehouses',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/warehouses',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/warehouses',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/warehouses', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/warehouses");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Warehouses*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "data": [
+    {
+      "name": "string",
+      "description": "string",
+      "Address": {}
+    }
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of Warehouses|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+data|[[Warehouse](#schemawarehouse)]|false|No description
+» name|string|false|No description
+» description|string|false|No description
+» Address|[Address](#schemaaddress)|false|No description
+»» _id|integer|false|No description
+»» label|string|false|No description
+»» line1|string|false|No description
+»» line2|string|false|No description
+»» city|string|false|No description
+»» state|string|false|No description
+»» country|string|false|No description
+»» isDefault|boolean|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /warehouses/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://nightly.softledger.com/api/warehouses/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://nightly.softledger.com/api/warehouses/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/warehouses/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/warehouses/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://nightly.softledger.com/api/warehouses/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://nightly.softledger.com/api/warehouses/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/warehouses/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get One Warehouse*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|One Warehouse|[Warehouse](#schemawarehouse)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## PUT /warehouses/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT https://nightly.softledger.com/api/warehouses/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PUT https://nightly.softledger.com/api/warehouses/{id} HTTP/1.1
+Host: nightly.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/warehouses/{id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://nightly.softledger.com/api/warehouses/{id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.put 'https://nightly.softledger.com/api/warehouses/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.put('https://nightly.softledger.com/api/warehouses/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/warehouses/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Update Warehouse*
+
+> Body parameter
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+body|body|[Warehouse](#schemawarehouse)|true|Warehouse
+
+
+> Example responses
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Warehouse Updated|[Warehouse](#schemawarehouse)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## DELETE /warehouses/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://nightly.softledger.com/api/warehouses/{id}
+
+```
+
+```http
+DELETE https://nightly.softledger.com/api/warehouses/{id} HTTP/1.1
+Host: nightly.softledger.com
+
+
+```
+
+```javascript
+
+$.ajax({
+  url: 'https://nightly.softledger.com/api/warehouses/{id}',
+  method: 'delete',
+
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+fetch('https://nightly.softledger.com/api/warehouses/{id}',
+{
+  method: 'DELETE'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+result = RestClient.delete 'https://nightly.softledger.com/api/warehouses/{id}',
+  params: {
+  }
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+
+r = requests.delete('https://nightly.softledger.com/api/warehouses/{id}', params={
+
+)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://nightly.softledger.com/api/warehouses/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Delete Warehouse*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Warehouse Deleted|None
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
 </aside>
 
 # Schemas
 
+## Bill_
 
-## Order
-
-<a name="schemaorder"></a>
+<a name="schemabill_"></a>
 
 ```json
-{
-  "id": 0,
-  "petId": 0,
-  "quantity": 0,
-  "shipDate": "2017-10-01T05:36:35Z",
-  "status": "placed",
-  "complete": false
-} 
+{} 
 ```
-
 
 ### Properties
 
 Name|Type|Required|Description
 ---|---|---|---|
-id|integer(int64)|false|No description
-petId|integer(int64)|false|No description
-quantity|integer(int32)|false|No description
-shipDate|string(date-time)|false|No description
-status|string|false|Order Status
-complete|boolean|false|No description
+_id|integer|false|No description
+invoiceNumber|string|false|No description
+description|string|false|No description
+dueDate|string(date)|false|No description
+postingDate|string(date)|false|No description
+invoiceDate|string(date)|false|No description
+currency|string|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+VendorId|integer|false|No description
+APAccountId|integer|false|No description
 
 
 
-#### Enumerated Values
+## Bill
 
-|Property|Value|
-|---|---|
-status|placed|
-status|approved|
-status|delivered|
-
-
-
-## Category
-
-<a name="schemacategory"></a>
+<a name="schemabill"></a>
 
 ```json
 {
-  "id": 0,
-  "name": "string"
-} 
-```
-
-
-### Properties
-
-Name|Type|Required|Description
----|---|---|---|
-id|integer(int64)|false|No description
-name|string|false|No description
-
-
-
-
-## User
-
-<a name="schemauser"></a>
-
-```json
-{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
-} 
-```
-
-
-### Properties
-
-Name|Type|Required|Description
----|---|---|---|
-id|integer(int64)|false|No description
-username|string|false|No description
-firstName|string|false|No description
-lastName|string|false|No description
-email|string|false|No description
-password|string|false|No description
-phone|string|false|No description
-userStatus|integer(int32)|false|User Status
-
-
-
-
-## Tag
-
-<a name="schematag"></a>
-
-```json
-{
-  "id": 0,
-  "name": "string"
-} 
-```
-
-
-### Properties
-
-Name|Type|Required|Description
----|---|---|---|
-id|integer(int64)|false|No description
-name|string|false|No description
-
-
-
-
-## Pet
-
-<a name="schemapet"></a>
-
-```json
-{
-  "id": 0,
-  "category": {
-    "id": 0,
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Vendor": {},
+  "APAccount": {
+    "_id": 0,
+    "number": 0,
     "name": "string"
   },
-  "name": "doggie",
-  "photoUrls": [
-    "string"
-  ],
-  "tags": [
+  "billLineItems": [
     {
-      "id": 0,
-      "name": "string"
+      "_id": 0,
+      "description": "string",
+      "ItemId": 0,
+      "CostCenterId": 0,
+      "LedgerAccountId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      },
+      "LedgerAccount": {
+        "_id": 0,
+        "number": 0,
+        "name": "string"
+      },
+      "CostCenter": {}
     }
-  ],
-  "status": "available"
+  ]
 } 
 ```
-
 
 ### Properties
 
 Name|Type|Required|Description
 ---|---|---|---|
-id|integer(int64)|false|No description
-category|[Category](#schemacategory)|false|No description
-» id|integer(int64)|false|No description
+_id|integer|false|No description
+invoiceNumber|string|false|No description
+description|string|false|No description
+dueDate|string(date)|false|No description
+postingDate|string(date)|false|No description
+invoiceDate|string(date)|false|No description
+currency|string|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+VendorId|integer|false|No description
+APAccountId|integer|false|No description
+Location|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
 » name|string|false|No description
-name|string|true|No description
-status|string|false|pet status in the store
-photoUrls|[string]|false|No description
-tags|[[Tag](#schematag)]|false|No description
-» id|integer(int64)|false|No description
+ICLocation|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+Vendor|[Vendor_](#schemavendor_)|false|No description
+» _id|integer|false|No description
+» accNumber|string|false|No description
+» name|string|false|No description
+» email|string|false|No description
+APAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+billLineItems|[[billLineItem](#schemabilllineitem)]|false|No description
+» _id|integer|false|No description
+» description|string|false|No description
+» ItemId|integer|false|No description
+» CostCenterId|integer|false|No description
+» LedgerAccountId|integer|false|No description
+» Item|[Item](#schemaitem)|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» description|string|false|No description
+»» InvoiceAccountId|integer|false|No description
+»» BillAccountId|integer|false|No description
+»» InventoryAccountId|integer|false|No description
+»» InvoiceAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»» _id|integer|false|No description
+»»» number|integer|false|No description
+»»» name|string|false|No description
+»» BillAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»» _id|integer|false|No description
+»»» number|integer|false|No description
+»»» name|string|false|No description
+»» InventoryAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»» _id|integer|false|No description
+»»» number|integer|false|No description
+»»» name|string|false|No description
+» LedgerAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» CostCenter|[CostCenter_](#schemacostcenter_)|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» id|string|false|No description
+
+
+
+## billLineItem_
+
+<a name="schemabilllineitem_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+description|string|false|No description
+ItemId|integer|false|No description
+CostCenterId|integer|false|No description
+LedgerAccountId|integer|false|No description
+
+
+
+## billLineItem
+
+<a name="schemabilllineitem"></a>
+
+```json
+{
+  "_id": 0,
+  "description": "string",
+  "ItemId": 0,
+  "CostCenterId": 0,
+  "LedgerAccountId": 0,
+  "Item": {
+    "_id": 0,
+    "name": "string",
+    "description": "string",
+    "InvoiceAccountId": 0,
+    "BillAccountId": 0,
+    "InventoryAccountId": 0,
+    "InvoiceAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "BillAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "InventoryAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    }
+  },
+  "LedgerAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "CostCenter": {}
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+description|string|false|No description
+ItemId|integer|false|No description
+CostCenterId|integer|false|No description
+LedgerAccountId|integer|false|No description
+Item|[Item](#schemaitem)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» description|string|false|No description
+» InvoiceAccountId|integer|false|No description
+» BillAccountId|integer|false|No description
+» InventoryAccountId|integer|false|No description
+» InvoiceAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» BillAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» InventoryAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+LedgerAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+CostCenter|[CostCenter_](#schemacostcenter_)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» id|string|false|No description
+
+
+
+## Invoice_
+
+<a name="schemainvoice_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+number|string|false|No description
+status|string|false|No description
+invoiceDate|string(date)|false|No description
+postedDate|string(date)|false|No description
+amount|number|false|No description
+amountPayable|number|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+AgentId|integer|false|No description
+ARAccountId|integer|false|No description
+
+
+
+## Invoice
+
+<a name="schemainvoice"></a>
+
+```json
+{
+  "_id": 0,
+  "invoiceNumber": "string",
+  "description": "string",
+  "dueDate": "2017-10-02",
+  "postingDate": "2017-10-02",
+  "invoiceDate": "2017-10-02",
+  "currency": "string",
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "VendorId": 0,
+  "APAccountId": 0,
+  "Location": {},
+  "ICLocation": {},
+  "Agent": {},
+  "ARAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InvoiceLineItems": [
+    {
+      "_id": 0,
+      "description": "string",
+      "unitAmount": 0,
+      "quantity": 0,
+      "ItemId": 0,
+      "Item": {
+        "_id": 0,
+        "name": "string",
+        "description": "string",
+        "InvoiceAccountId": 0,
+        "BillAccountId": 0,
+        "InventoryAccountId": 0,
+        "InvoiceAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "BillAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        },
+        "InventoryAccount": {
+          "_id": 0,
+          "number": 0,
+          "name": "string"
+        }
+      }
+    }
+  ]
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+invoiceNumber|string|false|No description
+description|string|false|No description
+dueDate|string(date)|false|No description
+postingDate|string(date)|false|No description
+invoiceDate|string(date)|false|No description
+currency|string|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+VendorId|integer|false|No description
+APAccountId|integer|false|No description
+Location|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+ICLocation|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+Agent|[Customer_](#schemacustomer_)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» email|string|false|No description
+» website|string|false|No description
+ARAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+InvoiceLineItems|[[InvoiceLineItem](#schemainvoicelineitem)]|false|No description
+» _id|integer|false|No description
+» description|string|false|No description
+» unitAmount|number|false|No description
+» quantity|number|false|No description
+» ItemId|integer|false|No description
+» Item|[Item](#schemaitem)|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» description|string|false|No description
+»» InvoiceAccountId|integer|false|No description
+»» BillAccountId|integer|false|No description
+»» InventoryAccountId|integer|false|No description
+»» InvoiceAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»» _id|integer|false|No description
+»»» number|integer|false|No description
+»»» name|string|false|No description
+»» BillAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»» _id|integer|false|No description
+»»» number|integer|false|No description
+»»» name|string|false|No description
+»» InventoryAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»»» _id|integer|false|No description
+»»» number|integer|false|No description
+»»» name|string|false|No description
+
+
+
+## InvoiceLineItem_
+
+<a name="schemainvoicelineitem_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+description|string|false|No description
+unitAmount|number|false|No description
+quantity|number|false|No description
+ItemId|integer|false|No description
+
+
+
+## InvoiceLineItem
+
+<a name="schemainvoicelineitem"></a>
+
+```json
+{
+  "_id": 0,
+  "description": "string",
+  "unitAmount": 0,
+  "quantity": 0,
+  "ItemId": 0,
+  "Item": {
+    "_id": 0,
+    "name": "string",
+    "description": "string",
+    "InvoiceAccountId": 0,
+    "BillAccountId": 0,
+    "InventoryAccountId": 0,
+    "InvoiceAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "BillAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    },
+    "InventoryAccount": {
+      "_id": 0,
+      "number": 0,
+      "name": "string"
+    }
+  }
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+description|string|false|No description
+unitAmount|number|false|No description
+quantity|number|false|No description
+ItemId|integer|false|No description
+Item|[Item](#schemaitem)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» description|string|false|No description
+» InvoiceAccountId|integer|false|No description
+» BillAccountId|integer|false|No description
+» InventoryAccountId|integer|false|No description
+» InvoiceAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» BillAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+» InventoryAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+»» _id|integer|false|No description
+»» number|integer|false|No description
+»» name|string|false|No description
+
+
+
+## CashReceipt_
+
+<a name="schemacashreceipt_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+number|string|false|No description
+amount|number|false|No description
+unused|number|false|No description
+description|string|false|No description
+AgentId|integer|false|No description
+LedgerAccountId|integer|false|No description
+LocationId|integer|false|No description
+
+
+
+## CashReceipt
+
+<a name="schemacashreceipt"></a>
+
+```json
+{
+  "_id": 0,
+  "number": "string",
+  "amount": 0,
+  "unused": 0,
+  "description": "string",
+  "AgentId": 0,
+  "LedgerAccountId": 0,
+  "LocationId": 0,
+  "Agent": {},
+  "LedgerAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "Location": {}
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+number|string|false|No description
+amount|number|false|No description
+unused|number|false|No description
+description|string|false|No description
+AgentId|integer|false|No description
+LedgerAccountId|integer|false|No description
+LocationId|integer|false|No description
+Agent|[Customer_](#schemacustomer_)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» email|string|false|No description
+» website|string|false|No description
+LedgerAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+Location|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
 » name|string|false|No description
 
+
+
+## Item_
+
+<a name="schemaitem_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+name|string|false|No description
+description|string|false|No description
+InvoiceAccountId|integer|false|No description
+BillAccountId|integer|false|No description
+InventoryAccountId|integer|false|No description
+
+
+
+## Item
+
+<a name="schemaitem"></a>
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "description": "string",
+  "InvoiceAccountId": 0,
+  "BillAccountId": 0,
+  "InventoryAccountId": 0,
+  "InvoiceAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "BillAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "InventoryAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  }
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+name|string|false|No description
+description|string|false|No description
+InvoiceAccountId|integer|false|No description
+BillAccountId|integer|false|No description
+InventoryAccountId|integer|false|No description
+InvoiceAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+BillAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+InventoryAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+
+
+
+## Journal
+
+<a name="schemajournal"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+entryType|string|false|No description
+sourceLedger|string|false|No description
+reference|string|false|No description
 
 
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
-status|available|
-status|pending|
-status|sold|
+entryType|standard|
+entryType|reversing|
+sourceLedger|Financial|
+sourceLedger|AP|
+sourceLedger|AR|
 
 
+## Transaction_
 
-## ApiResponse
-
-<a name="schemaapiresponse"></a>
+<a name="schematransaction_"></a>
 
 ```json
-{
-  "code": 0,
-  "type": "string",
-  "message": "string"
-} 
+{} 
 ```
-
 
 ### Properties
 
 Name|Type|Required|Description
 ---|---|---|---|
-code|integer(int32)|false|No description
+transactionDate|string(date)|false|No description
+postedDate|string(date)|false|No description
+debit|number|false|No description
+credit|number|false|No description
+CostCenterId|integer|false|No description
+LedgerAccountId|integer|false|No description
+ProductId|integer|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+InvoiceId|integer|false|No description
+BillId|integer|false|No description
+AgentId|integer|false|No description
+VendorId|integer|false|No description
+CashReceiptId|integer|false|No description
+
+
+
+## Transaction
+
+<a name="schematransaction"></a>
+
+```json
+{
+  "transactionDate": "2017-10-02",
+  "postedDate": "2017-10-02",
+  "debit": 0,
+  "credit": 0,
+  "CostCenterId": 0,
+  "LedgerAccountId": 0,
+  "ProductId": 0,
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "InvoiceId": 0,
+  "BillId": 0,
+  "AgentId": 0,
+  "VendorId": 0,
+  "CashReceiptId": 0,
+  "CostCenter": {},
+  "LedgerAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "Location": {},
+  "ICLocation": {},
+  "Invoice": {},
+  "Bill": {},
+  "Agent": {},
+  "Vendor": {},
+  "CashReceipt": {}
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+transactionDate|string(date)|false|No description
+postedDate|string(date)|false|No description
+debit|number|false|No description
+credit|number|false|No description
+CostCenterId|integer|false|No description
+LedgerAccountId|integer|false|No description
+ProductId|integer|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+InvoiceId|integer|false|No description
+BillId|integer|false|No description
+AgentId|integer|false|No description
+VendorId|integer|false|No description
+CashReceiptId|integer|false|No description
+CostCenter|[CostCenter_](#schemacostcenter_)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» id|string|false|No description
+LedgerAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+Location|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+ICLocation|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+Invoice|[Invoice_](#schemainvoice_)|false|No description
+» _id|integer|false|No description
+» number|string|false|No description
+» status|string|false|No description
+» invoiceDate|string(date)|false|No description
+» postedDate|string(date)|false|No description
+» amount|number|false|No description
+» amountPayable|number|false|No description
+» LocationId|integer|false|No description
+» ICLocationId|integer|false|No description
+» AgentId|integer|false|No description
+» ARAccountId|integer|false|No description
+Bill|[Bill_](#schemabill_)|false|No description
+» _id|integer|false|No description
+» invoiceNumber|string|false|No description
+» description|string|false|No description
+» dueDate|string(date)|false|No description
+» postingDate|string(date)|false|No description
+» invoiceDate|string(date)|false|No description
+» currency|string|false|No description
+» LocationId|integer|false|No description
+» ICLocationId|integer|false|No description
+» VendorId|integer|false|No description
+» APAccountId|integer|false|No description
+Agent|[Customer_](#schemacustomer_)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» email|string|false|No description
+» website|string|false|No description
+Vendor|[Vendor_](#schemavendor_)|false|No description
+» _id|integer|false|No description
+» accNumber|string|false|No description
+» name|string|false|No description
+» email|string|false|No description
+CashReceipt|[CashReceipt_](#schemacashreceipt_)|false|No description
+» _id|integer|false|No description
+» number|string|false|No description
+» amount|number|false|No description
+» unused|number|false|No description
+» description|string|false|No description
+» AgentId|integer|false|No description
+» LedgerAccountId|integer|false|No description
+» LocationId|integer|false|No description
+
+
+
+## LedgerAccount_
+
+<a name="schemaledgeraccount_"></a>
+
+```json
+{
+  "_id": 0,
+  "number": 0,
+  "name": "string"
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+number|integer|false|No description
+name|string|false|No description
+
+
+
+## LedgerAccount
+
+<a name="schemaledgeraccount"></a>
+
+```json
+{
+  "_id": 0,
+  "number": 0,
+  "name": "string",
+  "naturalBalance": "string",
+  "type": "string",
+  "description": "string",
+  "includeLocationChildren": true,
+  "LocationId": 0,
+  "Location": {}
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+number|integer|false|No description
+name|string|false|No description
+naturalBalance|string|false|No description
 type|string|false|No description
-message|string|false|No description
+description|string|false|No description
+includeLocationChildren|boolean|false|No description
+LocationId|integer|false|No description
+Location|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
 
 
+
+## Location_
+
+<a name="schemalocation_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+id|string|false|No description
+name|string|false|No description
+
+
+
+## Location
+
+<a name="schemalocation"></a>
+
+```json
+{
+  "_id": 0,
+  "id": "string",
+  "name": "string",
+  "currency": "string",
+  "description": "string",
+  "parent_id": 0
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+id|string|false|No description
+name|string|false|No description
+currency|string|false|No description
+description|string|false|No description
+parent_id|integer|false|No description
+
+
+
+## Vendor_
+
+<a name="schemavendor_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+accNumber|string|false|No description
+name|string|false|No description
+email|string|false|No description
+
+
+
+## Vendor
+
+<a name="schemavendor"></a>
+
+```json
+{
+  "_id": 0,
+  "accNumber": "string",
+  "name": "string",
+  "email": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+accNumber|string|false|No description
+name|string|false|No description
+email|string|false|No description
+Addresses|[[Address](#schemaaddress)]|false|No description
+» _id|integer|false|No description
+» label|string|false|No description
+» line1|string|false|No description
+» line2|string|false|No description
+» city|string|false|No description
+» state|string|false|No description
+» country|string|false|No description
+» isDefault|boolean|false|No description
+Contacts|[[Contact](#schemacontact)]|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» email|string|false|No description
+» phone|string|false|No description
+» isPrimary|boolean|false|No description
+
+
+
+## Customer_
+
+<a name="schemacustomer_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+name|string|false|No description
+email|string|false|No description
+website|string|false|No description
+
+
+
+## Customer
+
+<a name="schemacustomer"></a>
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "email": "string",
+  "website": "string",
+  "Addresses": [
+    {}
+  ],
+  "Contacts": [
+    {}
+  ]
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+name|string|false|No description
+email|string|false|No description
+website|string|false|No description
+Addresses|[[Address](#schemaaddress)]|false|No description
+» _id|integer|false|No description
+» label|string|false|No description
+» line1|string|false|No description
+» line2|string|false|No description
+» city|string|false|No description
+» state|string|false|No description
+» country|string|false|No description
+» isDefault|boolean|false|No description
+Contacts|[[Contact](#schemacontact)]|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» email|string|false|No description
+» phone|string|false|No description
+» isPrimary|boolean|false|No description
+
+
+
+## Address
+
+<a name="schemaaddress"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+label|string|false|No description
+line1|string|false|No description
+line2|string|false|No description
+city|string|false|No description
+state|string|false|No description
+country|string|false|No description
+isDefault|boolean|false|No description
+
+
+
+## Contact
+
+<a name="schemacontact"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+name|string|false|No description
+email|string|false|No description
+phone|string|false|No description
+isPrimary|boolean|false|No description
+
+
+
+## CostCenter_
+
+<a name="schemacostcenter_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+name|string|false|No description
+id|string|false|No description
+
+
+
+## CostCenter
+
+<a name="schemacostcenter"></a>
+
+```json
+{
+  "_id": 0,
+  "name": "string",
+  "id": "string",
+  "description": "string"
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+name|string|false|No description
+id|string|false|No description
+description|string|false|No description
+
+
+
+## PurchaseOrder_
+
+<a name="schemapurchaseorder_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+number|string|false|No description
+description|string|false|No description
+issueDate|string(date)|false|No description
+deliveryDate|string(date)|false|No description
+status|string|false|No description
+amount|number|false|No description
+currency|string|false|No description
+notes|string|false|No description
+VendorId|integer|false|No description
+WarehouseId|integer|false|No description
+ShippingAddressId|integer|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+InventoryReceivingAccountId|integer|false|No description
+
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+status|created|
+status|issued|
+status|partiallyfulfilled|
+status|fulfilled|
+
+
+## PurchaseOrder
+
+<a name="schemapurchaseorder"></a>
+
+```json
+{
+  "number": "string",
+  "description": "string",
+  "issueDate": "2017-10-02",
+  "deliveryDate": "2017-10-02",
+  "status": "created",
+  "amount": 0,
+  "currency": "USD",
+  "notes": "string",
+  "VendorId": 0,
+  "WarehouseId": 0,
+  "ShippingAddressId": 0,
+  "LocationId": 0,
+  "ICLocationId": 0,
+  "InventoryReceivingAccountId": 0,
+  "Vendor": {},
+  "Warehouse": {},
+  "ShippingAddress": {},
+  "Location": {},
+  "ICLocation": {},
+  "InventoryReceivingAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  }
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+number|string|false|No description
+description|string|false|No description
+issueDate|string(date)|false|No description
+deliveryDate|string(date)|false|No description
+status|string|false|No description
+amount|number|false|No description
+currency|string|false|No description
+notes|string|false|No description
+VendorId|integer|false|No description
+WarehouseId|integer|false|No description
+ShippingAddressId|integer|false|No description
+LocationId|integer|false|No description
+ICLocationId|integer|false|No description
+InventoryReceivingAccountId|integer|false|No description
+Vendor|[Vendor_](#schemavendor_)|false|No description
+» _id|integer|false|No description
+» accNumber|string|false|No description
+» name|string|false|No description
+» email|string|false|No description
+Warehouse|[Warehouse_](#schemawarehouse_)|false|No description
+» name|string|false|No description
+» description|string|false|No description
+ShippingAddress|[Address](#schemaaddress)|false|No description
+» _id|integer|false|No description
+» label|string|false|No description
+» line1|string|false|No description
+» line2|string|false|No description
+» city|string|false|No description
+» state|string|false|No description
+» country|string|false|No description
+» isDefault|boolean|false|No description
+Location|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+ICLocation|[Location_](#schemalocation_)|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+InventoryReceivingAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+status|created|
+status|issued|
+status|partiallyfulfilled|
+status|fulfilled|
+
+
+## POLineItem_
+
+<a name="schemapolineitem_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+description|string|false|No description
+amount|number|false|No description
+quantity|integer|false|No description
+quantityReceived|integer|false|No description
+ItemId|integer|false|No description
+LedgerAccountId|integer|false|No description
+CostCenterId|integer|false|No description
+
+
+
+## POLineItem
+
+<a name="schemapolineitem"></a>
+
+```json
+{
+  "description": "string",
+  "amount": 0,
+  "quantity": 0,
+  "quantityReceived": 0,
+  "ItemId": 0,
+  "LedgerAccountId": 0,
+  "CostCenterId": 0,
+  "Item": {},
+  "LedgerAccount": {
+    "_id": 0,
+    "number": 0,
+    "name": "string"
+  },
+  "CostCenter": {}
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+description|string|false|No description
+amount|number|false|No description
+quantity|integer|false|No description
+quantityReceived|integer|false|No description
+ItemId|integer|false|No description
+LedgerAccountId|integer|false|No description
+CostCenterId|integer|false|No description
+Item|[Item_](#schemaitem_)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» description|string|false|No description
+» InvoiceAccountId|integer|false|No description
+» BillAccountId|integer|false|No description
+» InventoryAccountId|integer|false|No description
+LedgerAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
+» _id|integer|false|No description
+» number|integer|false|No description
+» name|string|false|No description
+CostCenter|[CostCenter_](#schemacostcenter_)|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» id|string|false|No description
+
+
+
+## Warehouse_
+
+<a name="schemawarehouse_"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+name|string|false|No description
+description|string|false|No description
+
+
+
+## Warehouse
+
+<a name="schemawarehouse"></a>
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "Address": {}
+} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+name|string|false|No description
+description|string|false|No description
+Address|[Address](#schemaaddress)|false|No description
+» _id|integer|false|No description
+» label|string|false|No description
+» line1|string|false|No description
+» line2|string|false|No description
+» city|string|false|No description
+» state|string|false|No description
+» country|string|false|No description
+» isDefault|boolean|false|No description
 
 
 
