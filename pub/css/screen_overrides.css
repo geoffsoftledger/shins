@@ -6,3 +6,7 @@ div .highlight {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
+
+.toc-wrapper {
+	padding: 5px;
+}
