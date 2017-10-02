@@ -14,7 +14,28 @@
     <link rel="stylesheet" media="print" href="pub/css/print.css">
     <link rel="stylesheet" media="screen" href="pub/css/darkula.css">
     
-      <script src="pub/js/shins.js"></script>
+      <script src="source/javascripts/lib/_jquery.js"></script>
+<script src="source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="source/javascripts/lib/_lunr.js"></script>
+<script src="source/javascripts/lib/_imagesloaded.min.js"></script>
+<script src="source/javascripts/lib/_energize.js"></script>
+<script src="source/javascripts/app/_lang.js"></script>
+<script src="source/javascripts/app/_search.js"></script>
+<script src="source/javascripts/app/_toc.js"></script>
+<script type="text/javascript">
+$(function() {
+  loadToc($('#toc'), '.toc-link', '.toc-list-h2', 10);
+  setupLanguages($('body').data('languages'));
+  $('.content').imagesLoaded( function() {
+    recacheHeights();
+    refreshToc();
+  });
+});
+
+window.onpopstate = function() {
+  activateLanguage(getLanguageFromQueryString());
+};
+</script>
 
     
   </head>
@@ -684,7 +705,8 @@
 <p>This is the most cutting edge API, not all endpoints are fully functional/tested</p>
 <p>Base URLs:</p>
 <ul>
-<li><a href="https://nightly.softledger.com/api">https://nightly.softledger.com/api</a></li>
+<li><a href="https://app.softledger.com/api">https://app.softledger.com/api</a></li>
+<li><a href="https://trial.softledger.com/api">https://trial.softledger.com/api</a></li>
 </ul>
 <h1 id="authentication">Authentication</h1>
 <ul>
