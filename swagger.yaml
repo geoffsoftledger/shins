@@ -940,6 +940,32 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/POLineItem'
+  /transactions/transaction_sum:
+    get:
+      tags:
+        - Transactions
+      summary: Get All Transactions
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of transactions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  sum:
+                    type: number
+                    description: (Total debits) - (Total credits)
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Transaction'
   /vendors:
     get:
       tags:
@@ -1316,28 +1342,95 @@ components:
         CashReceiptId:
           type: integer
     Transaction:
-      allOf:
-        - $ref: '#/components/schemas/Transaction_'
-        - type: object
+      properties:
+        description:
+          type: string
+        transactionDate:
+          type: string
+          format: date
+        postedDate:
+          type: string
+          format: date
+        _id:
+          type: string
+        debit:
+          type: number
+        credit:
+          type: number
+        Journal:
+          type: object
           properties:
-            CostCenter:
-              $ref: '#/components/schemas/CostCenter_'
-            LedgerAccount:
-              $ref: '#/components/schemas/LedgerAccount_'
-            Location:
-              $ref: '#/components/schemas/Location_'
-            ICLocation:
-              $ref: '#/components/schemas/Location_'
-            Invoice:
-              $ref: '#/components/schemas/Invoice_'
-            Bill:
-              $ref: '#/components/schemas/Bill_'
-            Agent:
-              $ref: '#/components/schemas/Customer_'
-            Vendor:
-              $ref: '#/components/schemas/Vendor_'
-            CashReceipt:
-              $ref: '#/components/schemas/CashReceipt_'
+            entryType:
+              type: string
+              enum:
+                - standard
+                - reversing
+            sourceLedger:
+              type: string
+              enum:
+                - Financial
+                - AP
+                - AR
+            reference:
+              type: string
+            number:
+              type: integer
+        LedgerAccount:
+          type: object
+          properties:
+            name:
+              type: string
+            number:
+              type: integer
+        CostCenter:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: string
+        Agent:
+          type: object
+          properties:
+            name:
+              type: string
+        Vendor:
+          type: object
+          properties:
+            name:
+              type: string
+        Invoice:
+          type: object
+          properties:
+            number:
+              type: string
+        Bill:
+          type: object
+          properties:
+            invoiceNumber:
+              type: string
+        Product:
+          type: object
+          properties:
+            name:
+              type: string
+        Location:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: string
+        Proficiency:
+          type: object
+          properties:
+            name:
+              type: string
+        CashReceipt:
+          type: object
+          properties:
+            number:
+              type: string
     LedgerAccount_:
       properties:
         _id:

@@ -170,9 +170,9 @@ limit|query|integer|false|max records to return
     "_id": 0,
     "invoiceNumber": "string",
     "description": "string",
-    "dueDate": "2017-10-02",
-    "postingDate": "2017-10-02",
-    "invoiceDate": "2017-10-02",
+    "dueDate": "2017-10-03",
+    "postingDate": "2017-10-03",
+    "invoiceDate": "2017-10-03",
     "currency": "string",
     "LocationId": 0,
     "ICLocationId": 0,
@@ -370,9 +370,9 @@ body|body|[BillBody](#schema+billbody)|true|Bill details
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -554,9 +554,9 @@ id|path|integer|true|_id value
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -749,9 +749,9 @@ body|body|[Bill_](#schemabill_)|true|Bill details
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -3458,9 +3458,9 @@ limit|query|integer|false|max records to return
       "_id": 0,
       "invoiceNumber": "string",
       "description": "string",
-      "dueDate": "2017-10-02",
-      "postingDate": "2017-10-02",
-      "invoiceDate": "2017-10-02",
+      "dueDate": "2017-10-03",
+      "postingDate": "2017-10-03",
+      "invoiceDate": "2017-10-03",
       "currency": "string",
       "LocationId": 0,
       "ICLocationId": 0,
@@ -3716,9 +3716,9 @@ body|body|[InvoiceBody](#schema+invoicebody)|true|Invoice details
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -3894,9 +3894,9 @@ id|path|integer|true|_id value
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -4083,9 +4083,9 @@ body|body|[Invoice_](#schemainvoice_)|true|Invoice details
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -4617,9 +4617,9 @@ id|path|integer|true|_id value
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -4795,9 +4795,9 @@ id|path|integer|true|_id value
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -4991,9 +4991,9 @@ System.out.println(response.toString());
       "_id": 0,
       "invoiceNumber": "string",
       "description": "string",
-      "dueDate": "2017-10-02",
-      "postingDate": "2017-10-02",
-      "invoiceDate": "2017-10-02",
+      "dueDate": "2017-10-03",
+      "postingDate": "2017-10-03",
+      "invoiceDate": "2017-10-03",
       "currency": "string",
       "LocationId": 0,
       "ICLocationId": 0,
@@ -7931,8 +7931,8 @@ limit|query|integer|false|max records to return
     {
       "number": "string",
       "description": "string",
-      "issueDate": "2017-10-02",
-      "deliveryDate": "2017-10-02",
+      "issueDate": "2017-10-03",
+      "deliveryDate": "2017-10-03",
       "status": "created",
       "amount": 0,
       "currency": "USD",
@@ -8152,8 +8152,8 @@ body|body|[PurchaseOrderBody](#schema+purchaseorderbody)|true|PO
 {
   "number": "string",
   "description": "string",
-  "issueDate": "2017-10-02",
-  "deliveryDate": "2017-10-02",
+  "issueDate": "2017-10-03",
+  "deliveryDate": "2017-10-03",
   "status": "created",
   "amount": 0,
   "currency": "USD",
@@ -8511,8 +8511,8 @@ body|body|[PurchaseOrder_](#schemapurchaseorder_)|true|PO
 {
   "number": "string",
   "description": "string",
-  "issueDate": "2017-10-02",
-  "deliveryDate": "2017-10-02",
+  "issueDate": "2017-10-03",
+  "deliveryDate": "2017-10-03",
   "status": "created",
   "amount": 0,
   "currency": "USD",
@@ -9091,6 +9091,188 @@ anonymous|[[POLineItem](#schemapolineitem)]|false|No description
 »» _id|integer|false|No description
 »» name|string|false|No description
 »» id|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Transactions
+
+## GET /transactions/transaction_sum
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://app.softledger.com/api/transactions/transaction_sum \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://app.softledger.com/api/transactions/transaction_sum HTTP/1.1
+Host: app.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/transactions/transaction_sum',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/transactions/transaction_sum',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://app.softledger.com/api/transactions/transaction_sum',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://app.softledger.com/api/transactions/transaction_sum', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/transactions/transaction_sum");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get All Transactions*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "sum": 0,
+  "data": [
+    {}
+  ]
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|List of transactions|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+sum|number|false|(Total debits) - (Total credits)
+data|[[Transaction](#schematransaction)]|false|No description
+» description|string|false|No description
+» transactionDate|string(date)|false|No description
+» postedDate|string(date)|false|No description
+» _id|string|false|No description
+» debit|number|false|No description
+» credit|number|false|No description
+» Journal|object|false|No description
+»» entryType|string|false|No description
+»» sourceLedger|string|false|No description
+»» reference|string|false|No description
+»» number|integer|false|No description
+» LedgerAccount|object|false|No description
+»» name|string|false|No description
+»» number|integer|false|No description
+» CostCenter|object|false|No description
+»» name|string|false|No description
+»» id|string|false|No description
+» Agent|object|false|No description
+»» name|string|false|No description
+» Vendor|object|false|No description
+»» name|string|false|No description
+» Invoice|object|false|No description
+»» number|string|false|No description
+» Bill|object|false|No description
+»» invoiceNumber|string|false|No description
+» Product|object|false|No description
+»» name|string|false|No description
+» Location|object|false|No description
+»» name|string|false|No description
+»» id|string|false|No description
+» Proficiency|object|false|No description
+»» name|string|false|No description
+» CashReceipt|object|false|No description
+»» number|string|false|No description
 
 
 
@@ -10576,9 +10758,9 @@ APAccountId|integer|false|No description
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -10838,9 +11020,9 @@ ARAccountId|integer|false|No description
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-02",
-  "postingDate": "2017-10-02",
-  "invoiceDate": "2017-10-02",
+  "dueDate": "2017-10-03",
+  "postingDate": "2017-10-03",
+  "invoiceDate": "2017-10-03",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -11250,115 +11432,58 @@ CashReceiptId|integer|false|No description
 <a name="schematransaction"></a>
 
 ```json
-{
-  "transactionDate": "2017-10-02",
-  "postedDate": "2017-10-02",
-  "debit": 0,
-  "credit": 0,
-  "CostCenterId": 0,
-  "LedgerAccountId": 0,
-  "ProductId": 0,
-  "LocationId": 0,
-  "ICLocationId": 0,
-  "InvoiceId": 0,
-  "BillId": 0,
-  "AgentId": 0,
-  "VendorId": 0,
-  "CashReceiptId": 0,
-  "CostCenter": {},
-  "LedgerAccount": {
-    "_id": 0,
-    "number": 0,
-    "name": "string"
-  },
-  "Location": {},
-  "ICLocation": {},
-  "Invoice": {},
-  "Bill": {},
-  "Agent": {},
-  "Vendor": {},
-  "CashReceipt": {}
-} 
+{} 
 ```
 
 ### Properties
 
 Name|Type|Required|Description
 ---|---|---|---|
+description|string|false|No description
 transactionDate|string(date)|false|No description
 postedDate|string(date)|false|No description
+_id|string|false|No description
 debit|number|false|No description
 credit|number|false|No description
-CostCenterId|integer|false|No description
-LedgerAccountId|integer|false|No description
-ProductId|integer|false|No description
-LocationId|integer|false|No description
-ICLocationId|integer|false|No description
-InvoiceId|integer|false|No description
-BillId|integer|false|No description
-AgentId|integer|false|No description
-VendorId|integer|false|No description
-CashReceiptId|integer|false|No description
-CostCenter|[CostCenter_](#schemacostcenter_)|false|No description
-» _id|integer|false|No description
-» name|string|false|No description
-» id|string|false|No description
-LedgerAccount|[LedgerAccount_](#schemaledgeraccount_)|false|No description
-» _id|integer|false|No description
+Journal|object|false|No description
+» entryType|string|false|No description
+» sourceLedger|string|false|No description
+» reference|string|false|No description
 » number|integer|false|No description
+LedgerAccount|object|false|No description
 » name|string|false|No description
-Location|[Location_](#schemalocation_)|false|No description
-» _id|integer|false|No description
+» number|integer|false|No description
+CostCenter|object|false|No description
+» name|string|false|No description
 » id|string|false|No description
+Agent|object|false|No description
 » name|string|false|No description
-ICLocation|[Location_](#schemalocation_)|false|No description
-» _id|integer|false|No description
-» id|string|false|No description
+Vendor|object|false|No description
 » name|string|false|No description
-Invoice|[Invoice_](#schemainvoice_)|false|No description
-» _id|integer|false|No description
+Invoice|object|false|No description
 » number|string|false|No description
-» status|string|false|No description
-» invoiceDate|string(date)|false|No description
-» postedDate|string(date)|false|No description
-» amount|number|false|No description
-» amountPayable|number|false|No description
-» LocationId|integer|false|No description
-» ICLocationId|integer|false|No description
-» AgentId|integer|false|No description
-» ARAccountId|integer|false|No description
-Bill|[Bill_](#schemabill_)|false|No description
-» _id|integer|false|No description
+Bill|object|false|No description
 » invoiceNumber|string|false|No description
-» description|string|false|No description
-» dueDate|string(date)|false|No description
-» postingDate|string(date)|false|No description
-» invoiceDate|string(date)|false|No description
-» currency|string|false|No description
-» LocationId|integer|false|No description
-» ICLocationId|integer|false|No description
-» VendorId|integer|false|No description
-» APAccountId|integer|false|No description
-Agent|[Customer_](#schemacustomer_)|false|No description
-» _id|integer|false|No description
+Product|object|false|No description
 » name|string|false|No description
-» email|string|false|No description
-» website|string|false|No description
-Vendor|[Vendor_](#schemavendor_)|false|No description
-» _id|integer|false|No description
-» accNumber|string|false|No description
+Location|object|false|No description
 » name|string|false|No description
-» email|string|false|No description
-CashReceipt|[CashReceipt_](#schemacashreceipt_)|false|No description
-» _id|integer|false|No description
+» id|string|false|No description
+Proficiency|object|false|No description
+» name|string|false|No description
+CashReceipt|object|false|No description
 » number|string|false|No description
-» amount|number|false|No description
-» unused|number|false|No description
-» description|string|false|No description
-» AgentId|integer|false|No description
-» LedgerAccountId|integer|false|No description
-» LocationId|integer|false|No description
 
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+» entryType|standard|
+» entryType|reversing|
+» sourceLedger|Financial|
+» sourceLedger|AP|
+» sourceLedger|AR|
 
 
 ## LedgerAccount_
@@ -11720,8 +11845,8 @@ status|fulfilled|
 {
   "number": "string",
   "description": "string",
-  "issueDate": "2017-10-02",
-  "deliveryDate": "2017-10-02",
+  "issueDate": "2017-10-03",
+  "deliveryDate": "2017-10-03",
   "status": "created",
   "amount": 0,
   "currency": "USD",
