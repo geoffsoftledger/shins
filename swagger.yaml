@@ -3,7 +3,7 @@ servers:
   - url: 'https://app.softledger.com/api'
   - url: 'https://trial.softledger.com/api'
 info:
-  version: 1.0.0
+  version: "1.0.1"
   title: SoftLedger
   description: SoftLedger API
 security:
@@ -940,6 +940,27 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/POLineItem'
+  /purchaseOrders/lineItems:
+    get:
+      tags:
+        - Purchase Order
+      summary: Get all Line Items
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: PO Line Items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/POLineItemList'
   /transactions/transaction_sum:
     get:
       tags:
@@ -966,6 +987,76 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Transaction'
+  /stock:
+    get:
+      tags:
+        - Stock
+      summary: View all Stock Adjustments
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: Stock Adjustments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/Stock'
+    post:
+      tags: 
+        - Stock
+      summary: Add a stock adjustment
+      requestBody:
+        $ref: '#/components/requestBodies/StockBody'
+      responses:
+        '201':
+          description: Created Vendor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+  /stock/{id}:
+    get:
+      tags:
+        - Stock
+      summary: Get one Stock Adjustment
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '201':
+          description: StockAdjustment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+  /stock/summary:
+    get:
+      tags: 
+        - Stock
+        - Item
+      summary: Get Stock Summary details, useful to filter on item type or warehouse
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: Stock Summary
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/StockSummary'
   /vendors:
     get:
       tags:
@@ -1309,6 +1400,59 @@ components:
             - AR
         reference:
           type: string
+    Stock:
+      properties:
+        date:
+          type: string
+          format: date
+        quantity:
+          type: integer
+        price:
+          type: number
+        type: 
+          type: string
+          enum:
+            - purchase
+            - sale
+            - transfer
+        ItemId:
+          type: integer
+        WarehouseId:
+          type: integer
+        Item:
+          type: object
+          properties:
+            name:
+              type: string
+        Warehouse:
+          type: object
+          properties:
+            name:
+              type: string
+    StockSummary:
+      properties:
+        Item:
+          type: object
+          properties:
+            _id:
+              type: integer
+            name:
+              type: string
+        Warehouse:
+          type: object
+          properties:
+            _id:
+              type: integer
+            name:
+              type: string
+        avgPrice:
+          type: number
+        fifoPrice:
+          type: number
+        lifoPrice:
+          type: number
+        quantity:
+          type: integer
     Transaction_:
       properties:
         transactionDate:
@@ -1648,6 +1792,88 @@ components:
               $ref: '#/components/schemas/LedgerAccount_'
             CostCenter:
               $ref: '#/components/schemas/CostCenter_'
+    POLineItemList:
+      properties:
+        _id:
+          type: integer
+        description:
+          type: string
+        amount:
+          type: number
+        quantity:
+          type: integer
+        quantityReceived:
+          type: integer
+        PurchaseOrder:
+          type: object
+          properties:
+            _id:
+              type: integer
+            number:
+              type: string
+            issueDate:
+              type: string
+              format: date
+            deliveryDate:
+              type: string
+              format: date
+            status:
+              type: string
+              enum:
+                - created
+                - issued
+                - partiallyfulfilled
+                - fulfilled
+            Vendor:
+              type: object
+              properties:
+                _id:
+                  type: integer
+                name:
+                  type: string
+                email:
+                  type: string
+            Location:
+              type: object
+              properties:
+                _id:
+                  type: integer
+                id:
+                  type: string
+                name:
+                  type: string
+            Warehouse:
+              type: object
+              properties:
+                _id:
+                  type: integer
+                name:
+                  type: string
+        LedgerAccount:
+          type: object
+          properties:
+            _id:
+              type: integer
+            name:
+              type: string
+            number:
+              type: integer
+        Item:
+          type: object
+          properties:
+            _id: 
+              type: integer
+            name:
+              type: string
+        CostCenter:
+          type: object
+          properties:
+            _id:
+              type: integer
+            id:
+              type: string
+            name:
+              type: string
     Warehouse_:
       properties:
         name:
@@ -1753,6 +1979,31 @@ components:
                     type: array
                     items:
                       $ref: '#/components/schemas/POLineItem_'
+    StockBody:
+      description: Stock Adjustment
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date
+              quantity:
+                type: integer
+              price:
+                type: number
+              type: 
+                type: string
+                enum:
+                  - purchase
+                  - sale
+                  - transfer
+              ItemId:
+                type: integer
+              WarehouseId:
+                type: integer
     WarehouseBody:
       description: Warehouse
       required: true

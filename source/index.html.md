@@ -1,5 +1,5 @@
 ---
-title: SoftLedger v1.0.0
+title: SoftLedger v1.0.1
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -14,7 +14,7 @@ search: true
 highlight_theme: darkula
 ---
 
-# SoftLedger v1.0.0
+# SoftLedger v1.0.1
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -170,9 +170,9 @@ limit|query|integer|false|max records to return
     "_id": 0,
     "invoiceNumber": "string",
     "description": "string",
-    "dueDate": "2017-10-03",
-    "postingDate": "2017-10-03",
-    "invoiceDate": "2017-10-03",
+    "dueDate": "2017-10-11",
+    "postingDate": "2017-10-11",
+    "invoiceDate": "2017-10-11",
     "currency": "string",
     "LocationId": 0,
     "ICLocationId": 0,
@@ -370,9 +370,9 @@ body|body|[BillBody](#schema+billbody)|true|Bill details
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -554,9 +554,9 @@ id|path|integer|true|_id value
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -749,9 +749,9 @@ body|body|[Bill_](#schemabill_)|true|Bill details
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -3458,9 +3458,9 @@ limit|query|integer|false|max records to return
       "_id": 0,
       "invoiceNumber": "string",
       "description": "string",
-      "dueDate": "2017-10-03",
-      "postingDate": "2017-10-03",
-      "invoiceDate": "2017-10-03",
+      "dueDate": "2017-10-11",
+      "postingDate": "2017-10-11",
+      "invoiceDate": "2017-10-11",
       "currency": "string",
       "LocationId": 0,
       "ICLocationId": 0,
@@ -3716,9 +3716,9 @@ body|body|[InvoiceBody](#schema+invoicebody)|true|Invoice details
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -3894,9 +3894,9 @@ id|path|integer|true|_id value
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -4083,9 +4083,9 @@ body|body|[Invoice_](#schemainvoice_)|true|Invoice details
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -4617,9 +4617,9 @@ id|path|integer|true|_id value
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -4795,9 +4795,9 @@ id|path|integer|true|_id value
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -4991,9 +4991,9 @@ System.out.println(response.toString());
       "_id": 0,
       "invoiceNumber": "string",
       "description": "string",
-      "dueDate": "2017-10-03",
-      "postingDate": "2017-10-03",
-      "invoiceDate": "2017-10-03",
+      "dueDate": "2017-10-11",
+      "postingDate": "2017-10-11",
+      "invoiceDate": "2017-10-11",
       "currency": "string",
       "LocationId": 0,
       "ICLocationId": 0,
@@ -7931,8 +7931,8 @@ limit|query|integer|false|max records to return
     {
       "number": "string",
       "description": "string",
-      "issueDate": "2017-10-03",
-      "deliveryDate": "2017-10-03",
+      "issueDate": "2017-10-11",
+      "deliveryDate": "2017-10-11",
       "status": "created",
       "amount": 0,
       "currency": "USD",
@@ -8152,8 +8152,8 @@ body|body|[PurchaseOrderBody](#schema+purchaseorderbody)|true|PO
 {
   "number": "string",
   "description": "string",
-  "issueDate": "2017-10-03",
-  "deliveryDate": "2017-10-03",
+  "issueDate": "2017-10-11",
+  "deliveryDate": "2017-10-11",
   "status": "created",
   "amount": 0,
   "currency": "USD",
@@ -8511,8 +8511,8 @@ body|body|[PurchaseOrder_](#schemapurchaseorder_)|true|PO
 {
   "number": "string",
   "description": "string",
-  "issueDate": "2017-10-03",
-  "deliveryDate": "2017-10-03",
+  "issueDate": "2017-10-11",
+  "deliveryDate": "2017-10-11",
   "status": "created",
   "amount": 0,
   "currency": "USD",
@@ -9099,6 +9099,181 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: admin )
 </aside>
 
+## GET /purchaseOrders/lineItems
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://app.softledger.com/api/purchaseOrders/lineItems \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://app.softledger.com/api/purchaseOrders/lineItems HTTP/1.1
+Host: app.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/purchaseOrders/lineItems',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/purchaseOrders/lineItems',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://app.softledger.com/api/purchaseOrders/lineItems',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://app.softledger.com/api/purchaseOrders/lineItems', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/purchaseOrders/lineItems");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get all Line Items*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "data": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|PO Line Items|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+data|[POLineItemList](#schemapolineitemlist)|false|No description
+» _id|integer|false|No description
+» description|string|false|No description
+» amount|number|false|No description
+» quantity|integer|false|No description
+» quantityReceived|integer|false|No description
+» PurchaseOrder|object|false|No description
+»» _id|integer|false|No description
+»» number|string|false|No description
+»» issueDate|string(date)|false|No description
+»» deliveryDate|string(date)|false|No description
+»» status|string|false|No description
+»» Vendor|object|false|No description
+»»» _id|integer|false|No description
+»»» name|string|false|No description
+»»» email|string|false|No description
+»» Location|object|false|No description
+»»» _id|integer|false|No description
+»»» id|string|false|No description
+»»» name|string|false|No description
+»» Warehouse|object|false|No description
+»»» _id|integer|false|No description
+»»» name|string|false|No description
+» LedgerAccount|object|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» number|integer|false|No description
+» Item|object|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+» CostCenter|object|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
 # Transactions
 
 ## GET /transactions/transaction_sum
@@ -9273,6 +9448,602 @@ data|[[Transaction](#schematransaction)]|false|No description
 »» name|string|false|No description
 » CashReceipt|object|false|No description
 »» number|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+# Stock
+
+## GET /stock
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://app.softledger.com/api/stock \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://app.softledger.com/api/stock HTTP/1.1
+Host: app.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/stock',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/stock',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://app.softledger.com/api/stock',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://app.softledger.com/api/stock', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/stock");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*View all Stock Adjustments*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "data": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Stock Adjustments|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+data|[Stock](#schemastock)|false|No description
+» date|string(date)|false|No description
+» quantity|integer|false|No description
+» price|number|false|No description
+» type|string|false|No description
+» ItemId|integer|false|No description
+» WarehouseId|integer|false|No description
+» Item|object|false|No description
+»» name|string|false|No description
+» Warehouse|object|false|No description
+»» name|string|false|No description
+
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## POST /stock
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://app.softledger.com/api/stock \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://app.softledger.com/api/stock HTTP/1.1
+Host: app.softledger.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/stock',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "date": "2017-10-11",
+  "quantity": 0,
+  "price": 0,
+  "type": "purchase",
+  "ItemId": 0,
+  "WarehouseId": 0
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/stock',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://app.softledger.com/api/stock',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://app.softledger.com/api/stock', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/stock");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Add a stock adjustment*
+
+> Body parameter
+
+```json
+{
+  "date": "2017-10-11",
+  "quantity": 0,
+  "price": 0,
+  "type": "purchase",
+  "ItemId": 0,
+  "WarehouseId": 0
+}
+```
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+body|body|[StockBody](#schema+stockbody)|true|Stock Adjustment
+» date|body|string(date)|false|No description
+» quantity|body|integer|false|No description
+» price|body|number|false|No description
+» type|body|string|false|No description
+» ItemId|body|integer|false|No description
+» WarehouseId|body|integer|false|No description
+
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+» type|purchase|
+» type|sale|
+» type|transfer|
+
+> Example responses
+
+```json
+{}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created Vendor|[Stock](#schemastock)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /stock/{id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://app.softledger.com/api/stock/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://app.softledger.com/api/stock/{id} HTTP/1.1
+Host: app.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/stock/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/stock/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://app.softledger.com/api/stock/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://app.softledger.com/api/stock/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/stock/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get one Stock Adjustment*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+id|path|integer|true|_id value
+
+
+> Example responses
+
+```json
+{}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|StockAdjustment|[Stock](#schemastock)
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: admin )
+</aside>
+
+## GET /stock/summary
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://app.softledger.com/api/stock/summary \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://app.softledger.com/api/stock/summary HTTP/1.1
+Host: app.softledger.com
+
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'https://app.softledger.com/api/stock/summary',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json'
+
+};
+
+fetch('https://app.softledger.com/api/stock/summary',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://app.softledger.com/api/stock/summary',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://app.softledger.com/api/stock/summary', params={
+
+}, headers = headers)
+
+print r.json()
+```
+
+```java
+URL obj = new URL("https://app.softledger.com/api/stock/summary");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+```
+
+*Get Stock Summary details, useful to filter on item type or warehouse*
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+where|query|object|false|Key:Value object to filter results on
+offset|query|integer|false|number of pages to skip
+limit|query|integer|false|max records to return
+
+
+> Example responses
+
+```json
+{
+  "totalItems": 0,
+  "data": {}
+}
+```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Stock Summary|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+totalItems|integer|false|No description
+data|[StockSummary](#schemastocksummary)|false|No description
+» Item|object|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+» Warehouse|object|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+» avgPrice|number|false|No description
+» fifoPrice|number|false|No description
+» lifoPrice|number|false|No description
+» quantity|integer|false|No description
 
 
 
@@ -10758,9 +11529,9 @@ APAccountId|integer|false|No description
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -11020,9 +11791,9 @@ ARAccountId|integer|false|No description
   "_id": 0,
   "invoiceNumber": "string",
   "description": "string",
-  "dueDate": "2017-10-03",
-  "postingDate": "2017-10-03",
-  "invoiceDate": "2017-10-03",
+  "dueDate": "2017-10-11",
+  "postingDate": "2017-10-11",
+  "invoiceDate": "2017-10-11",
   "currency": "string",
   "LocationId": 0,
   "ICLocationId": 0,
@@ -11396,6 +12167,64 @@ entryType|reversing|
 sourceLedger|Financial|
 sourceLedger|AP|
 sourceLedger|AR|
+
+
+## Stock
+
+<a name="schemastock"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+date|string(date)|false|No description
+quantity|integer|false|No description
+price|number|false|No description
+type|string|false|No description
+ItemId|integer|false|No description
+WarehouseId|integer|false|No description
+Item|object|false|No description
+» name|string|false|No description
+Warehouse|object|false|No description
+» name|string|false|No description
+
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+type|purchase|
+type|sale|
+type|transfer|
+
+
+## StockSummary
+
+<a name="schemastocksummary"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+Item|object|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+Warehouse|object|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+avgPrice|number|false|No description
+fifoPrice|number|false|No description
+lifoPrice|number|false|No description
+quantity|integer|false|No description
+
 
 
 ## Transaction_
@@ -11845,8 +12674,8 @@ status|fulfilled|
 {
   "number": "string",
   "description": "string",
-  "issueDate": "2017-10-03",
-  "deliveryDate": "2017-10-03",
+  "issueDate": "2017-10-11",
+  "deliveryDate": "2017-10-11",
   "status": "created",
   "amount": 0,
   "currency": "USD",
@@ -12001,6 +12830,63 @@ CostCenter|[CostCenter_](#schemacostcenter_)|false|No description
 » name|string|false|No description
 » id|string|false|No description
 
+
+
+## POLineItemList
+
+<a name="schemapolineitemlist"></a>
+
+```json
+{} 
+```
+
+### Properties
+
+Name|Type|Required|Description
+---|---|---|---|
+_id|integer|false|No description
+description|string|false|No description
+amount|number|false|No description
+quantity|integer|false|No description
+quantityReceived|integer|false|No description
+PurchaseOrder|object|false|No description
+» _id|integer|false|No description
+» number|string|false|No description
+» issueDate|string(date)|false|No description
+» deliveryDate|string(date)|false|No description
+» status|string|false|No description
+» Vendor|object|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+»» email|string|false|No description
+» Location|object|false|No description
+»» _id|integer|false|No description
+»» id|string|false|No description
+»» name|string|false|No description
+» Warehouse|object|false|No description
+»» _id|integer|false|No description
+»» name|string|false|No description
+LedgerAccount|object|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+» number|integer|false|No description
+Item|object|false|No description
+» _id|integer|false|No description
+» name|string|false|No description
+CostCenter|object|false|No description
+» _id|integer|false|No description
+» id|string|false|No description
+» name|string|false|No description
+
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+» status|created|
+» status|issued|
+» status|partiallyfulfilled|
+» status|fulfilled|
 
 
 ## Warehouse_
