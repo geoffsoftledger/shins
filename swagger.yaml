@@ -961,6 +961,216 @@ paths:
                     type: integer
                   data:
                     $ref: '#/components/schemas/POLineItemList'
+  /salesOrders:
+    get:
+      tags:
+        - Sales Order
+      summary: Get All SOs
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: List of SOs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SalesOrder'
+    post:
+      tags:
+        - Sales Order
+      summary: Create an SO
+      requestBody:
+        $ref: '#/components/requestBodies/SalesOrderBody'
+      responses:
+        '201':
+          description: Created Sales Order
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SalesOrder_'
+                  - type: object
+                    properties:
+                      SOLineItems:
+                        $ref: '#/components/schemas/SOLineItem_'
+  /salesOrders/{id}:
+    get:
+      tags:
+        - Sales Order
+      summary: Get One SO
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: SO
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SalesOrder'
+                  - type: object
+                    properties:
+                      SOLineItems:
+                        $ref: '#/components/schemas/SOLineItem'
+    put:
+      tags:
+        - Sales Order
+      summary: Update SO
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/SalesOrderBody'
+      responses:
+        '201':
+          description: SO Updated
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SalesOrder_'
+                  - type: object
+                    properties:
+                      SOLineItems:
+                        $ref: '#/components/schemas/SOLineItem_'
+    delete:
+      tags:
+        - Sales Order
+      summary: Delete SO
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '204':
+          description: SO Deleted
+  /salesOrders/nextNumber:
+    get:
+      tags:
+        - Sales Order
+      summary: Get Next Auto Generated SO Number
+      responses:
+        '200':
+          description: Next SO Number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  number:
+                    type: integer
+  '/salesOrders/{id}/pdf':
+    get:
+      tags:
+        - Sales Order
+      summary: Get Sales Order PDF
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: SO PDF
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+  '/salesOrders/{id}/issueQuote':
+    put:
+      tags:
+        - Sales Order
+      summary: Issue Sales Quote to Customer
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: Sales Order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrder_'
+  '/salesOrders/{id}/acceptQuote':
+    put:
+      tags:
+        - Sales Order
+      summary: Mark Sales Quote as Accepted
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: Sales Order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrder_'
+  '/salesOrders/{id}/rejectQuote':
+    put:
+      tags:
+        - Sales Order
+      summary: Mark Sales Quote as Rejected
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: Sales Order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrder_'
+  '/salesOrders/{id}/lineItems':
+    get:
+      tags:
+        - Sales Order
+      summary: Get all Line Items for a SO
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      responses:
+        '200':
+          description: SO Line Items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SOLineItem'
+  /salesOrders/lineItems:
+    get:
+      tags:
+        - Sales Order
+      summary: Get all Line Items
+      parameters:
+        - $ref: '#/components/parameters/whereParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: SO Line Items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalItems:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/SOLineItemList'
+  /salesOrders/lineItems/{id}/fulfill:
+    post:
+      tags:
+        - Sales Order
+      summary: FulFill items from a sales order
+      parameters:
+        - $ref: '#/components/parameters/idParam'
+      requestBody:
+        $ref: '#/components/requestBodies/LineItemAdjustmentBody'
+      responses:
+        '201':
+          description: StockAdjustment created
   /transactions/transaction_sum:
     get:
       tags:
@@ -1887,6 +2097,166 @@ components:
           properties:
             Address:
               $ref: '#/components/schemas/Address'
+    SalesOrder_:
+      properties:
+        number:
+          type: string
+        quoteDate:
+          type: string
+          format: date
+        quoteExpiration:
+          type: string
+          format: date
+        orderDate:
+          type: string
+          format: date
+        deliveryDate:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+            - quote
+            - pending
+            - rejected
+            - accepted
+            - order
+            - partiallyFulfilled
+            - fulfilled
+          default: created
+        amount:
+          type: number
+        currency:
+          type: string
+          default: USD
+        notes:
+          type: string
+        AgentId:
+          type: integer
+        WarehouseId:
+          type: integer
+        ShippingAddressId:
+          type: integer
+        BillingAddressId:
+          type: integer
+        LocationId:
+          type: integer
+        ICLocationId:
+          type: integer
+    SalesOrder:
+      allOf:
+        - $ref: '#/components/schemas/SalesOrder_'
+        - type: object
+          properties:
+            Agent:
+              $ref: '#/components/schemas/Customer_'
+            Warehouse:
+              $ref: '#/components/schemas/Warehouse_'
+            ShippingAddress:
+              $ref: '#/components/schemas/Address'
+            BillingAddress:
+              $ref: '#/components/schemas/Address'
+            Location:
+              $ref: '#/components/schemas/Location_'
+            ICLocation:
+              $ref: '#/components/schemas/Location_'
+    SOLineItem_:
+      properties:
+        description:
+          type: string
+        amount:
+          type: number
+        quantity:
+          type: integer
+        quantityFulFilled:
+          type: integer
+        ItemId:
+          type: integer
+        CostCenterId:
+          type: integer
+    SOLineItem:
+      allOf:
+        - $ref: '#/components/schemas/SOLineItem_'
+        - type: object
+          properties:
+            Item:
+              $ref: '#/components/schemas/Item_'
+            CostCenter:
+              $ref: '#/components/schemas/CostCenter_'
+    SOLineItemList:
+      properties:
+        _id:
+          type: integer
+        description:
+          type: string
+        amount:
+          type: number
+        quantity:
+          type: integer
+        quantityFulFilled:
+          type: integer
+        SalesOrder:
+          type: object
+          properties:
+            _id:
+              type: integer
+            number:
+              type: string
+            issueDate:
+              type: string
+              format: date
+            deliveryDate:
+              type: string
+              format: date
+            status:
+              type: string
+              enum:
+                - quote
+                - pending
+                - rejected
+                - accepted
+                - order
+                - partiallyFulfilled
+                - fulfilled
+            Agent:
+              type: object
+              properties:
+                _id:
+                  type: integer
+                name:
+                  type: string
+            Location:
+              type: object
+              properties:
+                _id:
+                  type: integer
+                id:
+                  type: string
+                name:
+                  type: string
+            Warehouse:
+              type: object
+              properties:
+                _id:
+                  type: integer
+                name:
+                  type: string
+        Item:
+          type: object
+          properties:
+            _id: 
+              type: integer
+            name:
+              type: string
+        CostCenter:
+          type: object
+          properties:
+            _id:
+              type: integer
+            id:
+              type: string
+            name:
+              type: string
   requestBodies:
     BillBody:
       description: Bill details
@@ -1979,6 +2349,20 @@ components:
                     type: array
                     items:
                       $ref: '#/components/schemas/POLineItem_'
+    SalesOrderBody:
+      description: SO
+      required: true
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SalesOrder_'
+              - type: object
+                properties:
+                  SOLineItems:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SOLineItem_'
     StockBody:
       description: Stock Adjustment
       required: true
@@ -2025,6 +2409,19 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/CashReceipt_'
+    LineItemAdjustmentBody:
+      description: Item Fulfillment or Receipt body
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date
+              quantity:
+                type: integer
   parameters:
     idParam:
       name: id
