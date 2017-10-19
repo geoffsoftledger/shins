@@ -1,7 +1,8 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://app.softledger.com/api'
-  - url: 'https://trial.softledger.com/api'
+  - url: 'https://api.softledger.com/api'
+  - url: 'https://api-trial.softledger.com/api'
+  - url: 'https://api-test.softledger.com/api'
 info:
   version: "1.0.1"
   title: SoftLedger
